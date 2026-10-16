@@ -1,0 +1,8 @@
+# Operator configures HTTPS termination, issuer endpoints and local account bindings first.
+# Compose overlay: -f infra/docker-compose.yml -f infra/production-identity.example.yml
+services:
+  api:
+    secrets: [oidc_client_secret]
+secrets:
+  oidc_client_secret:
+    file: ../.secrets/oidc_client_secret

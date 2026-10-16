@@ -1,0 +1,40 @@
+groups:
+  - name: agent-delivery
+    interval: 15s
+    rules:
+      - alert: AgentAPIUnavailable
+        expr: sum(up{job="agent-api"}) == 0 or absent(up{job="agent-api"})
+        for: 1m
+        labels: {severity: critical}
+        annotations:
+          summary: "全部Agent API抓取不可用"
+          description: "检查API进程、Docker DNS及依赖就绪状态。"
+      - alert: AgentDurableMetricsUnavailable
+        expr: min(agent_db_metrics_available{job="agent-api"}) == 0
+        for: 1m
+        labels: {severity: critical}
+        annotations:
+          summary: "持久任务与业务指标读取失败"
+          description: "检查PostgreSQL；缺失状态指标不能按零任务处理。"
+      - alert: AgentExpiredLeaseBacklog
+        # These fleet gauges are identical on every API: use max, never sum replicas.
+        expr: max(agent_expired_leases{job="agent-api"}) > 0
+        for: 2m
+        labels: {severity: warning}
+        annotations:
+          summary: "过期执行租约未及时接管"
+          description: "检查Worker健康、队列和数据库，禁止人工重复业务写入。"
+      - alert: AgentOutboxBacklog
+        expr: max(agent_outbox_pending{job="agent-api"}) > 100
+        for: 5m
+        labels: {severity: warning}
+        annotations:
+          summary: "持久通知积压超过100条"
+          description: "检查Redis与Outbox relay；业务事件仍以PostgreSQL为准。"
+      - alert: AgentAPIErrorRate
+        expr: sum(rate(agent_http_requests_total{job="agent-api",status=~"5.."}[5m])) / clamp_min(sum(rate(agent_http_requests_total{job="agent-api"}[5m])), 0.01) > 0.01 and sum(rate(agent_http_requests_total{job="agent-api"}[5m])) >= 1
+        for: 5m
+        labels: {severity: warning}
+        annotations:
+          summary: "控制API持续5xx错误超过1%"
+          description: "窗口至少1RPS，结合Trace定位；该阈值是初始运维规则，不是已证明的月度SLO。"

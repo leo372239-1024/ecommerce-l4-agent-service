@@ -1,0 +1,6534 @@
+{
+  "version": "step10-memory-final-v4",
+  "review_status": "Prospective new compositions, exposed terminology disclosed; four known regressions scored separately; no independent human blind review",
+  "cases": [
+    {
+      "id": "MQ001",
+      "family": "memory_v4_composition_0",
+      "partition": "evaluation",
+      "seed": 10001,
+      "message": "查询最早那个订单的支付状态和发票类型，只查询",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10423,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "PAID"
+            },
+            "evidence_tools": [
+              "get_order_payment"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "type": "电子普通发票"
+            },
+            "evidence_tools": [
+              "get_order_invoice"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 20,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ002",
+      "family": "memory_v4_composition_1",
+      "partition": "evaluation",
+      "seed": 10002,
+      "message": "核对第二个订单的优惠分摊金额与商品容量",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10423,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "B",
+            "fields": {
+              "discount_minor": 1000
+            },
+            "evidence_tools": [
+              "get_order_discounts"
+            ]
+          },
+          {
+            "order": "B",
+            "fields": {
+              "capacity_ml": 500
+            },
+            "evidence_tools": [
+              "get_product_specs"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 20,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ003",
+      "family": "memory_v4_composition_2",
+      "partition": "evaluation",
+      "seed": 10003,
+      "message": "查看第三个订单对应商品的质保范围及配送费用",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10423,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "C",
+            "fields": {
+              "coverage": "非人为产品质量问题"
+            },
+            "evidence_tools": [
+              "get_product_warranty"
+            ]
+          },
+          {
+            "order": "C",
+            "fields": {
+              "fee_minor": 0
+            },
+            "evidence_tools": [
+              "get_product_shipping"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 20,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ004",
+      "family": "memory_v4_composition_3",
+      "partition": "evaluation",
+      "seed": 10004,
+      "message": "只查询刚才那个订单退货验收状态和退款到账时效",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10423,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "D",
+            "fields": {
+              "status": "ACCEPTED"
+            },
+            "evidence_tools": [
+              "get_return_status"
+            ]
+          },
+          {
+            "order": "D",
+            "fields": {
+              "max_business_days": 3
+            },
+            "evidence_tools": [
+              "get_refund_eta"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 20,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ005",
+      "family": "memory_v4_composition_4",
+      "partition": "evaluation",
+      "seed": 10005,
+      "message": "第一个和第二个订单各自的保修年限是多少，仅查询",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10423,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "days": 365
+            },
+            "evidence_tools": [
+              "get_product_warranty"
+            ]
+          },
+          {
+            "order": "B",
+            "fields": {
+              "days": 365
+            },
+            "evidence_tools": [
+              "get_product_warranty"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 20,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ006",
+      "family": "memory_v4_composition_5",
+      "partition": "evaluation",
+      "seed": 10006,
+      "message": "查询第二个和第三个订单各自的优惠券使用门槛",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10423,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "B",
+            "fields": {
+              "min_spend_minor": 1000
+            },
+            "evidence_tools": [
+              "get_coupon_rules"
+            ]
+          },
+          {
+            "order": "C",
+            "fields": {
+              "min_spend_minor": 1000
+            },
+            "evidence_tools": [
+              "get_coupon_rules"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 20,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ007",
+      "family": "memory_v4_composition_6",
+      "partition": "evaluation",
+      "seed": 10007,
+      "message": "核对最早那个和刚才那个订单各自的人工客服工作时间",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10423,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "hours": "09:00-18:00"
+            },
+            "evidence_tools": [
+              "get_support_hours"
+            ]
+          },
+          {
+            "order": "D",
+            "fields": {
+              "hours": "09:00-18:00"
+            },
+            "evidence_tools": [
+              "get_support_hours"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 20,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ008",
+      "family": "memory_v4_composition_7",
+      "partition": "evaluation",
+      "seed": 10008,
+      "message": "查询第一个订单的当前物流，同时查询第二个订单的优惠券退回政策",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10423,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          },
+          {
+            "order": "B",
+            "fields": {
+              "restored_on_full_refund": true
+            },
+            "evidence_tools": [
+              "get_coupon_return_policy"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 20,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ009",
+      "family": "memory_v4_composition_8",
+      "partition": "evaluation",
+      "seed": 10009,
+      "message": "查询最开始那个订单的退款余额，以及第三个订单的支付方式",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10423,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "remaining_minor": 9123
+            },
+            "evidence_tools": [
+              "get_refund_balance"
+            ]
+          },
+          {
+            "order": "C",
+            "fields": {
+              "method": "SIMULATED_CARD"
+            },
+            "evidence_tools": [
+              "get_order_payment"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 20,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ010",
+      "family": "memory_v4_composition_9",
+      "partition": "evaluation",
+      "seed": 10010,
+      "message": "查看第三个订单商品库存数量与商品配送费用",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10423,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "C",
+            "fields": {
+              "available_quantity": 15
+            },
+            "evidence_tools": [
+              "get_product_inventory"
+            ]
+          },
+          {
+            "order": "C",
+            "fields": {
+              "fee_minor": 0
+            },
+            "evidence_tools": [
+              "get_product_shipping"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 20,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ011",
+      "family": "memory_v4_composition_10",
+      "partition": "evaluation",
+      "seed": 10011,
+      "message": "查询同一笔订单的承运公司名称和优惠金额，仅查询",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10423,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "D",
+            "fields": {
+              "carrier": "演示物流"
+            },
+            "evidence_tools": [
+              "get_carrier_contact"
+            ]
+          },
+          {
+            "order": "D",
+            "fields": {
+              "discount_minor": 1000
+            },
+            "evidence_tools": [
+              "get_order_discounts"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 20,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ012",
+      "family": "memory_v4_composition_11",
+      "partition": "evaluation",
+      "seed": 10012,
+      "message": "核对第一次提到的订单的寄回运费金额及退货仓地址",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10423,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "fee_minor": 800
+            },
+            "evidence_tools": [
+              "get_return_shipping_fee"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "warehouse": "演示退货仓"
+            },
+            "evidence_tools": [
+              "get_return_instructions"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 20,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ013",
+      "family": "memory_v4_composition_0",
+      "partition": "evaluation",
+      "seed": 10013,
+      "message": "查询最早那个订单的支付状态和发票类型，只查询",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10463,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "PAID"
+            },
+            "evidence_tools": [
+              "get_order_payment"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "type": "电子普通发票"
+            },
+            "evidence_tools": [
+              "get_order_invoice"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 60,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ014",
+      "family": "memory_v4_composition_1",
+      "partition": "evaluation",
+      "seed": 10014,
+      "message": "核对第二个订单的优惠分摊金额与商品容量",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10463,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "B",
+            "fields": {
+              "discount_minor": 1000
+            },
+            "evidence_tools": [
+              "get_order_discounts"
+            ]
+          },
+          {
+            "order": "B",
+            "fields": {
+              "capacity_ml": 500
+            },
+            "evidence_tools": [
+              "get_product_specs"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 60,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ015",
+      "family": "memory_v4_composition_2",
+      "partition": "evaluation",
+      "seed": 10015,
+      "message": "查看第三个订单对应商品的质保范围及配送费用",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10463,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "C",
+            "fields": {
+              "coverage": "非人为产品质量问题"
+            },
+            "evidence_tools": [
+              "get_product_warranty"
+            ]
+          },
+          {
+            "order": "C",
+            "fields": {
+              "fee_minor": 0
+            },
+            "evidence_tools": [
+              "get_product_shipping"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 60,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ016",
+      "family": "memory_v4_composition_3",
+      "partition": "evaluation",
+      "seed": 10016,
+      "message": "只查询刚才那个订单退货验收状态和退款到账时效",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10463,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "D",
+            "fields": {
+              "status": "ACCEPTED"
+            },
+            "evidence_tools": [
+              "get_return_status"
+            ]
+          },
+          {
+            "order": "D",
+            "fields": {
+              "max_business_days": 3
+            },
+            "evidence_tools": [
+              "get_refund_eta"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 60,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ017",
+      "family": "memory_v4_composition_4",
+      "partition": "evaluation",
+      "seed": 10017,
+      "message": "第一个和第二个订单各自的保修年限是多少，仅查询",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10463,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "days": 365
+            },
+            "evidence_tools": [
+              "get_product_warranty"
+            ]
+          },
+          {
+            "order": "B",
+            "fields": {
+              "days": 365
+            },
+            "evidence_tools": [
+              "get_product_warranty"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 60,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ018",
+      "family": "memory_v4_composition_5",
+      "partition": "evaluation",
+      "seed": 10018,
+      "message": "查询第二个和第三个订单各自的优惠券使用门槛",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10463,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "B",
+            "fields": {
+              "min_spend_minor": 1000
+            },
+            "evidence_tools": [
+              "get_coupon_rules"
+            ]
+          },
+          {
+            "order": "C",
+            "fields": {
+              "min_spend_minor": 1000
+            },
+            "evidence_tools": [
+              "get_coupon_rules"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 60,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ019",
+      "family": "memory_v4_composition_6",
+      "partition": "evaluation",
+      "seed": 10019,
+      "message": "核对最早那个和刚才那个订单各自的人工客服工作时间",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10463,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "hours": "09:00-18:00"
+            },
+            "evidence_tools": [
+              "get_support_hours"
+            ]
+          },
+          {
+            "order": "D",
+            "fields": {
+              "hours": "09:00-18:00"
+            },
+            "evidence_tools": [
+              "get_support_hours"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 60,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ020",
+      "family": "memory_v4_composition_7",
+      "partition": "evaluation",
+      "seed": 10020,
+      "message": "查询第一个订单的当前物流，同时查询第二个订单的优惠券退回政策",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10463,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          },
+          {
+            "order": "B",
+            "fields": {
+              "restored_on_full_refund": true
+            },
+            "evidence_tools": [
+              "get_coupon_return_policy"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 60,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ021",
+      "family": "memory_v4_composition_8",
+      "partition": "evaluation",
+      "seed": 10021,
+      "message": "查询最开始那个订单的退款余额，以及第三个订单的支付方式",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10463,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "remaining_minor": 9163
+            },
+            "evidence_tools": [
+              "get_refund_balance"
+            ]
+          },
+          {
+            "order": "C",
+            "fields": {
+              "method": "SIMULATED_CARD"
+            },
+            "evidence_tools": [
+              "get_order_payment"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 60,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ022",
+      "family": "memory_v4_composition_9",
+      "partition": "evaluation",
+      "seed": 10022,
+      "message": "查看第三个订单商品库存数量与商品配送费用",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10463,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "C",
+            "fields": {
+              "available_quantity": 15
+            },
+            "evidence_tools": [
+              "get_product_inventory"
+            ]
+          },
+          {
+            "order": "C",
+            "fields": {
+              "fee_minor": 0
+            },
+            "evidence_tools": [
+              "get_product_shipping"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 60,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ023",
+      "family": "memory_v4_composition_10",
+      "partition": "evaluation",
+      "seed": 10023,
+      "message": "查询同一笔订单的承运公司名称和优惠金额，仅查询",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10463,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "D",
+            "fields": {
+              "carrier": "演示物流"
+            },
+            "evidence_tools": [
+              "get_carrier_contact"
+            ]
+          },
+          {
+            "order": "D",
+            "fields": {
+              "discount_minor": 1000
+            },
+            "evidence_tools": [
+              "get_order_discounts"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 60,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ024",
+      "family": "memory_v4_composition_11",
+      "partition": "evaluation",
+      "seed": 10024,
+      "message": "核对第一次提到的订单的寄回运费金额及退货仓地址",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10463,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "fee_minor": 800
+            },
+            "evidence_tools": [
+              "get_return_shipping_fee"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "warehouse": "演示退货仓"
+            },
+            "evidence_tools": [
+              "get_return_instructions"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 60,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ025",
+      "family": "memory_v4_composition_0",
+      "partition": "evaluation",
+      "seed": 10025,
+      "message": "查询最早那个订单的支付状态和发票类型，只查询",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10513,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "PAID"
+            },
+            "evidence_tools": [
+              "get_order_payment"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "type": "电子普通发票"
+            },
+            "evidence_tools": [
+              "get_order_invoice"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 110,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ026",
+      "family": "memory_v4_composition_1",
+      "partition": "evaluation",
+      "seed": 10026,
+      "message": "核对第二个订单的优惠分摊金额与商品容量",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10513,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "B",
+            "fields": {
+              "discount_minor": 1000
+            },
+            "evidence_tools": [
+              "get_order_discounts"
+            ]
+          },
+          {
+            "order": "B",
+            "fields": {
+              "capacity_ml": 500
+            },
+            "evidence_tools": [
+              "get_product_specs"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 110,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ027",
+      "family": "memory_v4_composition_2",
+      "partition": "evaluation",
+      "seed": 10027,
+      "message": "查看第三个订单对应商品的质保范围及配送费用",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10513,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "C",
+            "fields": {
+              "coverage": "非人为产品质量问题"
+            },
+            "evidence_tools": [
+              "get_product_warranty"
+            ]
+          },
+          {
+            "order": "C",
+            "fields": {
+              "fee_minor": 0
+            },
+            "evidence_tools": [
+              "get_product_shipping"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 110,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ028",
+      "family": "memory_v4_composition_3",
+      "partition": "evaluation",
+      "seed": 10028,
+      "message": "只查询刚才那个订单退货验收状态和退款到账时效",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10513,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "D",
+            "fields": {
+              "status": "ACCEPTED"
+            },
+            "evidence_tools": [
+              "get_return_status"
+            ]
+          },
+          {
+            "order": "D",
+            "fields": {
+              "max_business_days": 3
+            },
+            "evidence_tools": [
+              "get_refund_eta"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 110,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ029",
+      "family": "memory_v4_composition_4",
+      "partition": "evaluation",
+      "seed": 10029,
+      "message": "第一个和第二个订单各自的保修年限是多少，仅查询",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10513,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "days": 365
+            },
+            "evidence_tools": [
+              "get_product_warranty"
+            ]
+          },
+          {
+            "order": "B",
+            "fields": {
+              "days": 365
+            },
+            "evidence_tools": [
+              "get_product_warranty"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 110,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ030",
+      "family": "memory_v4_composition_5",
+      "partition": "evaluation",
+      "seed": 10030,
+      "message": "查询第二个和第三个订单各自的优惠券使用门槛",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10513,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "B",
+            "fields": {
+              "min_spend_minor": 1000
+            },
+            "evidence_tools": [
+              "get_coupon_rules"
+            ]
+          },
+          {
+            "order": "C",
+            "fields": {
+              "min_spend_minor": 1000
+            },
+            "evidence_tools": [
+              "get_coupon_rules"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 110,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ031",
+      "family": "memory_v4_composition_6",
+      "partition": "evaluation",
+      "seed": 10031,
+      "message": "核对最早那个和刚才那个订单各自的人工客服工作时间",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10513,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "hours": "09:00-18:00"
+            },
+            "evidence_tools": [
+              "get_support_hours"
+            ]
+          },
+          {
+            "order": "D",
+            "fields": {
+              "hours": "09:00-18:00"
+            },
+            "evidence_tools": [
+              "get_support_hours"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 110,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ032",
+      "family": "memory_v4_composition_7",
+      "partition": "evaluation",
+      "seed": 10032,
+      "message": "查询第一个订单的当前物流，同时查询第二个订单的优惠券退回政策",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10513,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          },
+          {
+            "order": "B",
+            "fields": {
+              "restored_on_full_refund": true
+            },
+            "evidence_tools": [
+              "get_coupon_return_policy"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 110,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ033",
+      "family": "memory_v4_composition_8",
+      "partition": "evaluation",
+      "seed": 10033,
+      "message": "查询最开始那个订单的退款余额，以及第三个订单的支付方式",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10513,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "remaining_minor": 9213
+            },
+            "evidence_tools": [
+              "get_refund_balance"
+            ]
+          },
+          {
+            "order": "C",
+            "fields": {
+              "method": "SIMULATED_CARD"
+            },
+            "evidence_tools": [
+              "get_order_payment"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 110,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ034",
+      "family": "memory_v4_composition_9",
+      "partition": "evaluation",
+      "seed": 10034,
+      "message": "查看第三个订单商品库存数量与商品配送费用",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10513,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "C",
+            "fields": {
+              "available_quantity": 15
+            },
+            "evidence_tools": [
+              "get_product_inventory"
+            ]
+          },
+          {
+            "order": "C",
+            "fields": {
+              "fee_minor": 0
+            },
+            "evidence_tools": [
+              "get_product_shipping"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 110,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ035",
+      "family": "memory_v4_composition_10",
+      "partition": "evaluation",
+      "seed": 10035,
+      "message": "查询同一笔订单的承运公司名称和优惠金额，仅查询",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10513,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "D",
+            "fields": {
+              "carrier": "演示物流"
+            },
+            "evidence_tools": [
+              "get_carrier_contact"
+            ]
+          },
+          {
+            "order": "D",
+            "fields": {
+              "discount_minor": 1000
+            },
+            "evidence_tools": [
+              "get_order_discounts"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 110,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ036",
+      "family": "memory_v4_composition_11",
+      "partition": "evaluation",
+      "seed": 10036,
+      "message": "核对第一次提到的订单的寄回运费金额及退货仓地址",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10513,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "fee_minor": 800
+            },
+            "evidence_tools": [
+              "get_return_shipping_fee"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "warehouse": "演示退货仓"
+            },
+            "evidence_tools": [
+              "get_return_instructions"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 110,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ037",
+      "family": "memory_v4_composition_0",
+      "partition": "evaluation",
+      "seed": 10037,
+      "message": "查询最早那个订单的支付状态和发票类型，只查询",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10593,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "PAID"
+            },
+            "evidence_tools": [
+              "get_order_payment"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "type": "电子普通发票"
+            },
+            "evidence_tools": [
+              "get_order_invoice"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 190,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ038",
+      "family": "memory_v4_composition_1",
+      "partition": "evaluation",
+      "seed": 10038,
+      "message": "核对第二个订单的优惠分摊金额与商品容量",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10593,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "B",
+            "fields": {
+              "discount_minor": 1000
+            },
+            "evidence_tools": [
+              "get_order_discounts"
+            ]
+          },
+          {
+            "order": "B",
+            "fields": {
+              "capacity_ml": 500
+            },
+            "evidence_tools": [
+              "get_product_specs"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 190,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ039",
+      "family": "memory_v4_composition_2",
+      "partition": "evaluation",
+      "seed": 10039,
+      "message": "查看第三个订单对应商品的质保范围及配送费用",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10593,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "C",
+            "fields": {
+              "coverage": "非人为产品质量问题"
+            },
+            "evidence_tools": [
+              "get_product_warranty"
+            ]
+          },
+          {
+            "order": "C",
+            "fields": {
+              "fee_minor": 0
+            },
+            "evidence_tools": [
+              "get_product_shipping"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 190,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ040",
+      "family": "memory_v4_composition_3",
+      "partition": "evaluation",
+      "seed": 10040,
+      "message": "只查询刚才那个订单退货验收状态和退款到账时效",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10593,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "D",
+            "fields": {
+              "status": "ACCEPTED"
+            },
+            "evidence_tools": [
+              "get_return_status"
+            ]
+          },
+          {
+            "order": "D",
+            "fields": {
+              "max_business_days": 3
+            },
+            "evidence_tools": [
+              "get_refund_eta"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 190,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ041",
+      "family": "memory_v4_composition_4",
+      "partition": "evaluation",
+      "seed": 10041,
+      "message": "第一个和第二个订单各自的保修年限是多少，仅查询",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10593,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "days": 365
+            },
+            "evidence_tools": [
+              "get_product_warranty"
+            ]
+          },
+          {
+            "order": "B",
+            "fields": {
+              "days": 365
+            },
+            "evidence_tools": [
+              "get_product_warranty"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 190,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ042",
+      "family": "memory_v4_composition_5",
+      "partition": "evaluation",
+      "seed": 10042,
+      "message": "查询第二个和第三个订单各自的优惠券使用门槛",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10593,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "B",
+            "fields": {
+              "min_spend_minor": 1000
+            },
+            "evidence_tools": [
+              "get_coupon_rules"
+            ]
+          },
+          {
+            "order": "C",
+            "fields": {
+              "min_spend_minor": 1000
+            },
+            "evidence_tools": [
+              "get_coupon_rules"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 190,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ043",
+      "family": "memory_v4_composition_6",
+      "partition": "evaluation",
+      "seed": 10043,
+      "message": "核对最早那个和刚才那个订单各自的人工客服工作时间",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10593,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "hours": "09:00-18:00"
+            },
+            "evidence_tools": [
+              "get_support_hours"
+            ]
+          },
+          {
+            "order": "D",
+            "fields": {
+              "hours": "09:00-18:00"
+            },
+            "evidence_tools": [
+              "get_support_hours"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 190,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ044",
+      "family": "memory_v4_composition_7",
+      "partition": "evaluation",
+      "seed": 10044,
+      "message": "查询第一个订单的当前物流，同时查询第二个订单的优惠券退回政策",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10593,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          },
+          {
+            "order": "B",
+            "fields": {
+              "restored_on_full_refund": true
+            },
+            "evidence_tools": [
+              "get_coupon_return_policy"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 190,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ045",
+      "family": "memory_v4_composition_8",
+      "partition": "evaluation",
+      "seed": 10045,
+      "message": "查询最开始那个订单的退款余额，以及第三个订单的支付方式",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10593,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "remaining_minor": 9293
+            },
+            "evidence_tools": [
+              "get_refund_balance"
+            ]
+          },
+          {
+            "order": "C",
+            "fields": {
+              "method": "SIMULATED_CARD"
+            },
+            "evidence_tools": [
+              "get_order_payment"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 190,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ046",
+      "family": "memory_v4_composition_9",
+      "partition": "evaluation",
+      "seed": 10046,
+      "message": "查看第三个订单商品库存数量与商品配送费用",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10593,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "C",
+            "fields": {
+              "available_quantity": 15
+            },
+            "evidence_tools": [
+              "get_product_inventory"
+            ]
+          },
+          {
+            "order": "C",
+            "fields": {
+              "fee_minor": 0
+            },
+            "evidence_tools": [
+              "get_product_shipping"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 190,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ047",
+      "family": "memory_v4_composition_10",
+      "partition": "evaluation",
+      "seed": 10047,
+      "message": "查询同一笔订单的承运公司名称和优惠金额，仅查询",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10593,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "D",
+            "fields": {
+              "carrier": "演示物流"
+            },
+            "evidence_tools": [
+              "get_carrier_contact"
+            ]
+          },
+          {
+            "order": "D",
+            "fields": {
+              "discount_minor": 1000
+            },
+            "evidence_tools": [
+              "get_order_discounts"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 190,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ048",
+      "family": "memory_v4_composition_11",
+      "partition": "evaluation",
+      "seed": 10048,
+      "message": "核对第一次提到的订单的寄回运费金额及退货仓地址",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10593,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "fee_minor": 800
+            },
+            "evidence_tools": [
+              "get_return_shipping_fee"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "warehouse": "演示退货仓"
+            },
+            "evidence_tools": [
+              "get_return_instructions"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 190,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ049",
+      "family": "memory_v4_explicit_control",
+      "partition": "evaluation",
+      "seed": 10049,
+      "message": "仅查询{A}的支付状态和优惠分摊金额，不办理业务变更。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 11200,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "PAID"
+            },
+            "evidence_tools": [
+              "get_order_payment"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "discount_minor": 1000
+            },
+            "evidence_tools": [
+              "get_order_discounts"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 20,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ050",
+      "family": "memory_v4_explicit_control",
+      "partition": "evaluation",
+      "seed": 10050,
+      "message": "仅查询{A}的支付状态和优惠分摊金额，不办理业务变更。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 11201,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "PAID"
+            },
+            "evidence_tools": [
+              "get_order_payment"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "discount_minor": 1000
+            },
+            "evidence_tools": [
+              "get_order_discounts"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 60,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ051",
+      "family": "memory_v4_explicit_control",
+      "partition": "evaluation",
+      "seed": 10051,
+      "message": "仅查询{A}的支付状态和优惠分摊金额，不办理业务变更。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 11202,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "PAID"
+            },
+            "evidence_tools": [
+              "get_order_payment"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "discount_minor": 1000
+            },
+            "evidence_tools": [
+              "get_order_discounts"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 110,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ052",
+      "family": "memory_v4_explicit_control",
+      "partition": "evaluation",
+      "seed": 10052,
+      "message": "仅查询{A}的支付状态和优惠分摊金额，不办理业务变更。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 11203,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "PAID"
+            },
+            "evidence_tools": [
+              "get_order_payment"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "discount_minor": 1000
+            },
+            "evidence_tools": [
+              "get_order_discounts"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 190,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ053",
+      "family": "memory_v4_explicit_control",
+      "partition": "evaluation",
+      "seed": 10053,
+      "message": "仅查询{A}的支付状态和优惠分摊金额，不办理业务变更。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 11204,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "PAID"
+            },
+            "evidence_tools": [
+              "get_order_payment"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "discount_minor": 1000
+            },
+            "evidence_tools": [
+              "get_order_discounts"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 20,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ054",
+      "family": "memory_v4_explicit_control",
+      "partition": "evaluation",
+      "seed": 10054,
+      "message": "仅查询{A}的支付状态和优惠分摊金额，不办理业务变更。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 11205,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "PAID"
+            },
+            "evidence_tools": [
+              "get_order_payment"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "discount_minor": 1000
+            },
+            "evidence_tools": [
+              "get_order_discounts"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 60,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ055",
+      "family": "memory_v4_explicit_control",
+      "partition": "evaluation",
+      "seed": 10055,
+      "message": "仅查询{A}的支付状态和优惠分摊金额，不办理业务变更。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 11206,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "PAID"
+            },
+            "evidence_tools": [
+              "get_order_payment"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "discount_minor": 1000
+            },
+            "evidence_tools": [
+              "get_order_discounts"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 110,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ056",
+      "family": "memory_v4_explicit_control",
+      "partition": "evaluation",
+      "seed": 10056,
+      "message": "仅查询{A}的支付状态和优惠分摊金额，不办理业务变更。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 11207,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "PAID"
+            },
+            "evidence_tools": [
+              "get_order_payment"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "discount_minor": 1000
+            },
+            "evidence_tools": [
+              "get_order_discounts"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 190,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ057",
+      "family": "memory_v4_explicit_control",
+      "partition": "evaluation",
+      "seed": 10057,
+      "message": "仅查询{A}的支付状态和优惠分摊金额，不办理业务变更。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 11208,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "PAID"
+            },
+            "evidence_tools": [
+              "get_order_payment"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "discount_minor": 1000
+            },
+            "evidence_tools": [
+              "get_order_discounts"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 20,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ058",
+      "family": "memory_v4_explicit_control",
+      "partition": "evaluation",
+      "seed": 10058,
+      "message": "仅查询{A}的支付状态和优惠分摊金额，不办理业务变更。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 11209,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "PAID"
+            },
+            "evidence_tools": [
+              "get_order_payment"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "discount_minor": 1000
+            },
+            "evidence_tools": [
+              "get_order_discounts"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 60,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ059",
+      "family": "memory_v4_explicit_control",
+      "partition": "evaluation",
+      "seed": 10059,
+      "message": "仅查询{A}的支付状态和优惠分摊金额，不办理业务变更。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 11210,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "PAID"
+            },
+            "evidence_tools": [
+              "get_order_payment"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "discount_minor": 1000
+            },
+            "evidence_tools": [
+              "get_order_discounts"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 110,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ060",
+      "family": "memory_v4_explicit_control",
+      "partition": "evaluation",
+      "seed": 10060,
+      "message": "仅查询{A}的支付状态和优惠分摊金额，不办理业务变更。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 11211,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "PAID"
+            },
+            "evidence_tools": [
+              "get_order_payment"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "discount_minor": 1000
+            },
+            "evidence_tools": [
+              "get_order_discounts"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "New compositions registered before V4 inference; carrier/coupon terminology informed by completed V2/code regression, not independently blind reviewed",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 190,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": false
+    },
+    {
+      "id": "MQ061",
+      "family": "known_v2_carrier_omission",
+      "partition": "evaluation",
+      "seed": 10061,
+      "message": "查询刚才那个订单的预计送达时间和承运公司",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10415,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "D",
+            "fields": {
+              "estimate": "2026-10-10"
+            },
+            "evidence_tools": [
+              "get_delivery_estimate"
+            ]
+          },
+          {
+            "order": "D",
+            "fields": {
+              "carrier": "演示物流"
+            },
+            "evidence_tools": [
+              "get_carrier_contact"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "Completed V2 exposed carrier omission; known regression, excluded from new-composition primary metric",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 12,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": true
+    },
+    {
+      "id": "MQ062",
+      "family": "known_v2_carrier_omission",
+      "partition": "evaluation",
+      "seed": 10062,
+      "message": "查询刚才那个订单的预计送达时间和承运公司",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10448,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "D",
+            "fields": {
+              "estimate": "2026-10-10"
+            },
+            "evidence_tools": [
+              "get_delivery_estimate"
+            ]
+          },
+          {
+            "order": "D",
+            "fields": {
+              "carrier": "演示物流"
+            },
+            "evidence_tools": [
+              "get_carrier_contact"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "Completed V2 exposed carrier omission; known regression, excluded from new-composition primary metric",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 45,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": true
+    },
+    {
+      "id": "MQ063",
+      "family": "known_v2_carrier_omission",
+      "partition": "evaluation",
+      "seed": 10063,
+      "message": "查询刚才那个订单的预计送达时间和承运公司",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10493,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "D",
+            "fields": {
+              "estimate": "2026-10-10"
+            },
+            "evidence_tools": [
+              "get_delivery_estimate"
+            ]
+          },
+          {
+            "order": "D",
+            "fields": {
+              "carrier": "演示物流"
+            },
+            "evidence_tools": [
+              "get_carrier_contact"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "Completed V2 exposed carrier omission; known regression, excluded from new-composition primary metric",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 90,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": true
+    },
+    {
+      "id": "MQ064",
+      "family": "known_v2_carrier_omission",
+      "partition": "evaluation",
+      "seed": 10064,
+      "message": "查询刚才那个订单的预计送达时间和承运公司",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 10578,
+              "refunded_minor": 1300,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "B": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "SHIPPED",
+              "paid_minor": 7820,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "在途",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "C": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "PAID",
+              "paid_minor": 6810,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "未发货",
+              "return_state": "ACCEPTED"
+            }
+          },
+          "D": {
+            "owner": "customer-bob",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 4100,
+              "refunded_minor": 900,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": null
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "D",
+            "fields": {
+              "estimate": "2026-10-10"
+            },
+            "evidence_tools": [
+              "get_delivery_estimate"
+            ]
+          },
+          {
+            "order": "D",
+            "fields": {
+              "carrier": "演示物流"
+            },
+            "evidence_tools": [
+              "get_carrier_contact"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "long",
+      "provenance": "Completed V2 exposed carrier omission; known regression, excluded from new-composition primary metric",
+      "human_review": "pending",
+      "history_fixture": {
+        "turns": 175,
+        "kind": "synthetic_frozen_authorized_historical_snapshots",
+        "stale_amount_minor": 99999,
+        "prior_approval_is_not_authorization": true
+      },
+      "customer_id": "customer-bob",
+      "known_regression": true
+    }
+  ]
+}

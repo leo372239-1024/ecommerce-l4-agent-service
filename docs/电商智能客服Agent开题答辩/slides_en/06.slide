@@ -1,0 +1,100 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', position: 'relative', fontFamily: 'Segoe UI', padding: '88px 40px 56px 40px' }}>
+    {/* A header */}
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 64, background: '#0E3F8C', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 0 0 40px' }}>
+        <Text style={{ fontSize: 16, color: '#FFFFFF', letterSpacing: 2 }}>Network Computing and Edge Intelligence · Proposal Defense</Text>
+        <Box style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={{ fontSize: 14, color: '#B9CDEA', marginRight: 22 }}>L4 Intelligent Customer Service Agent for E-Commerce</Text>
+            <Box style={{ width: 190, height: 64, background: '#FFFFFF', justifyContent: 'center', alignItems: 'center' }}>
+                <Image src="assets/bjtu_logo.png" style={{ width: 166, height: 48, objectFit: 'contain' }} />
+            </Box>
+        </Box>
+    </Box>
+
+    {/* B title block */}
+    <Box style={{ flexDirection: 'row', alignItems: 'center', height: 40 }}>
+        <Box style={{ width: 6, height: 34, background: '#1E4FA8', borderRadius: 3, marginRight: 12 }} />
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0E3F8C' }}>Research Goals and Content</Text>
+        <Text style={{ fontSize: 15, color: '#8B97A8', marginLeft: 'auto' }}>03 / 06</Text>
+    </Box>
+
+    {/* C content */}
+    <Box style={{ flexDirection: 'column', gap: 12, marginTop: 16, height: 520 }}>
+        {/* overall goal bar */}
+        <Box style={{ height: 104, background: '#0E3F8C', borderRadius: 10, padding: '12px 26px', flexDirection: 'column', gap: 6 }}>
+            <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+                <Box style={{ height: 26, padding: '0 12px', background: '#3D7BD9', borderRadius: 6, justifyContent: 'center', alignItems: 'center' }}>
+                    <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#FFFFFF', lineHeight: 1.2 }}>Overall Goal</Text>
+                </Box>
+                <Text style={{ fontSize: 15, color: '#B9CDEA', letterSpacing: 1 }}>A controlled, auditable after-sales agent loop</Text>
+            </Box>
+            <Text style={{ fontSize: 15, color: '#FFFFFF', lineHeight: 1.5 }}>Build a Chinese single-agent full-stack service system covering query → plan → fact verification → proposal → confirmation / approval → execution → receipt → human handover.</Text>
+        </Box>
+
+        {/* four key technologies 2x2 */}
+        <Box style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 12, height: 312 }}>
+            <Box style={{ width: 594, height: 150, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: '14px 22px', flexDirection: 'column' }}>
+                <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+                    <Box style={{ width: 30, height: 30, borderRadius: 8, background: '#1E4FA8', justifyContent: 'center', alignItems: 'center' }}>
+                        <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#FFFFFF', lineHeight: 1.2 }}>01</Text>
+                    </Box>
+                    <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#0E3F8C' }}>Verifiable Planning</Text>
+                    <Text style={{ fontSize: 14, color: '#8B97A8', marginLeft: 'auto' }}>Planning</Text>
+                </Box>
+                <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.55, marginTop: 8 }}>Constrain input with a Pydantic TaskSpec, compile a dependency-aware verifiable DAG, and check coverage of published business projections.</Text>
+                <Text style={{ fontSize: 14, color: '#D9534F', fontWeight: 'bold', marginTop: 'auto' }}>A missed goal is rejected as success and enters bounded repair</Text>
+            </Box>
+
+            <Box style={{ width: 594, height: 150, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: '14px 22px', flexDirection: 'column' }}>
+                <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+                    <Box style={{ width: 30, height: 30, borderRadius: 8, background: '#1E4FA8', justifyContent: 'center', alignItems: 'center' }}>
+                        <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#FFFFFF', lineHeight: 1.2 }}>02</Text>
+                    </Box>
+                    <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#0E3F8C' }}>Authorized Tool Routing</Text>
+                    <Text style={{ fontSize: 14, color: '#8B97A8', marginLeft: 'auto' }}>Routing</Text>
+                </Box>
+                <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.55, marginTop: 8 }}>Authorization scope filters before retrieval; 40 real MCP tools; parameters and versions re-validated.</Text>
+                <Text style={{ fontSize: 14, color: '#D9534F', fontWeight: 'bold', marginTop: 'auto' }}>The model cannot expand its own permissions</Text>
+            </Box>
+
+            <Box style={{ width: 594, height: 150, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: '14px 22px', flexDirection: 'column' }}>
+                <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+                    <Box style={{ width: 30, height: 30, borderRadius: 8, background: '#1E4FA8', justifyContent: 'center', alignItems: 'center' }}>
+                        <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#FFFFFF', lineHeight: 1.2 }}>03</Text>
+                    </Box>
+                    <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#0E3F8C' }}>Freshness-Aware Memory</Text>
+                    <Text style={{ fontSize: 14, color: '#8B97A8', marginLeft: 'auto' }}>Memory</Text>
+                </Box>
+                <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.55, marginTop: 8 }}>Owner-isolated entity ledger, a bounded recent window, reference offloading and a token budget; back-references only resolve mentions.</Text>
+                <Text style={{ fontSize: 14, color: '#D9534F', fontWeight: 'bold', marginTop: 'auto' }}>Stale amounts and approvals are never inherited</Text>
+            </Box>
+
+            <Box style={{ width: 594, height: 150, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: '14px 22px', flexDirection: 'column' }}>
+                <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+                    <Box style={{ width: 30, height: 30, borderRadius: 8, background: '#1E4FA8', justifyContent: 'center', alignItems: 'center' }}>
+                        <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#FFFFFF', lineHeight: 1.2 }}>04</Text>
+                    </Box>
+                    <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#0E3F8C' }}>Evidence Reflection &amp; Recovery</Text>
+                    <Text style={{ fontSize: 14, color: '#8B97A8', marginLeft: 'auto' }}>Recovery</Text>
+                </Box>
+                <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.55, marginTop: 8 }}>Observation packets bind source, entity, version and time; deterministic checks first; idempotency keys and receipt reconciliation.</Text>
+                <Text style={{ fontSize: 14, color: '#D9534F', fontWeight: 'bold', marginTop: 'auto' }}>Unbounded loops become safe stops / human handover</Text>
+            </Box>
+        </Box>
+
+        {/* deliverable bar */}
+        <Box style={{ height: 80, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 10, padding: '0 26px', flexDirection: 'row', alignItems: 'center', gap: 22 }}>
+            <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#0E3F8C', width: 108 }}>Deliverable</Text>
+            <Box style={{ flex: 1, flexDirection: 'row', gap: 20 }}>
+                <Text style={{ fontSize: 15, color: '#1A2230' }}>A locally deployable <span style={{ fontWeight: 'bold', color: '#1E4FA8' }}>full-stack MVP</span></Text>
+                <Text style={{ fontSize: 15, color: '#1A2230' }}>Single-host Docker Compose orchestration</Text>
+                <Text style={{ fontSize: 15, color: '#1A2230' }}>Real model APIs + an <span style={{ fontWeight: 'bold', color: '#1E4FA8' }}>auditable simulated ledger</span></Text>
+            </Box>
+        </Box>
+    </Box>
+
+    {/* D footer */}
+    <Box style={{ position: 'absolute', bottom: 0, left: 0, width: 1280, height: 56, padding: '0 40px', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid #E5E7EB' }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>Beijing Jiaotong University · Software Engineering (Professional Master)</Text>
+        <Text style={{ fontSize: 14, color: '#0E3F8C', fontWeight: 'bold' }}>06 / 18</Text>
+    </Box>
+</Slide>

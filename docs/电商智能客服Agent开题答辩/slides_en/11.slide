@@ -1,0 +1,99 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', position: 'relative', fontFamily: 'Segoe UI', padding: '88px 40px 56px 40px' }}>
+    {/* A header */}
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 64, background: '#0E3F8C', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 0 0 40px' }}>
+        <Text style={{ fontSize: 16, color: '#FFFFFF', letterSpacing: 2 }}>Network Computing and Edge Intelligence · Proposal Defense</Text>
+        <Box style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={{ fontSize: 14, color: '#B9CDEA', marginRight: 22 }}>L4 Intelligent Customer Service Agent for E-Commerce</Text>
+            <Box style={{ width: 190, height: 64, background: '#FFFFFF', justifyContent: 'center', alignItems: 'center' }}>
+                <Image src="assets/bjtu_logo.png" style={{ width: 166, height: 48, objectFit: 'contain' }} />
+            </Box>
+        </Box>
+    </Box>
+
+    {/* B title block */}
+    <Box style={{ flexDirection: 'row', alignItems: 'center', height: 40 }}>
+        <Box style={{ width: 6, height: 34, background: '#1E4FA8', borderRadius: 3, marginRight: 12 }} />
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0E3F8C' }}>Key Technology ② Authorized Tool Routing</Text>
+        <Box style={{ marginLeft: 'auto', padding: '4px 12px', background: '#E8EFF8', borderRadius: 12 }}><Text style={{ fontSize: 13, color: '#1E4FA8', fontWeight: 'bold' }}>Prior-pilot validation included</Text></Box><Text style={{ fontSize: 15, color: '#8B97A8', marginLeft: 14 }}>04 / 06</Text>
+    </Box>
+
+    {/* C content */}
+    <Box style={{ flexDirection: 'column', gap: 12, marginTop: 16, height: 520 }}>
+        {/* authorization-first flow bar */}
+        <Box style={{ height: 84, background: '#0E3F8C', borderRadius: 10, padding: '0 22px', flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+            <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#3D7BD9', width: 88 }}>Auth first</Text>
+            <Box style={{ padding: '7px 16px', background: '#FFFFFF', borderRadius: 16 }}>
+                <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#0E3F8C', lineHeight: 1.2 }}>Authenticate</Text>
+            </Box>
+            <Text style={{ fontSize: 18, color: '#7FA3D6' }}>→</Text>
+            <Box style={{ padding: '7px 16px', background: '#FFFFFF', borderRadius: 16 }}>
+                <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#0E3F8C', lineHeight: 1.2 }}>Scope filter</Text>
+            </Box>
+            <Text style={{ fontSize: 18, color: '#7FA3D6' }}>→</Text>
+            <Box style={{ padding: '7px 16px', background: '#FFFFFF', borderRadius: 16 }}>
+                <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#0E3F8C', lineHeight: 1.2 }}>Candidate retrieval</Text>
+            </Box>
+            <Text style={{ fontSize: 18, color: '#7FA3D6' }}>→</Text>
+            <Box style={{ padding: '7px 16px', background: '#FFFFFF', borderRadius: 16 }}>
+                <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#0E3F8C', lineHeight: 1.2 }}>Param / version re-check</Text>
+            </Box>
+            <Text style={{ fontSize: 18, color: '#7FA3D6' }}>→</Text>
+            <Box style={{ padding: '7px 16px', background: '#3D7BD9', borderRadius: 16 }}>
+                <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#FFFFFF', lineHeight: 1.2 }}>Controlled execution</Text>
+            </Box>
+        </Box>
+
+        {/* three columns */}
+        <Box style={{ flexDirection: 'row', gap: 15, height: 316 }}>
+            <Box style={{ flex: 1, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: '20px 22px', flexDirection: 'column' }}>
+                <Box style={{ width: 44, height: 44, borderRadius: 10, background: '#E8EFF8', justifyContent: 'center', alignItems: 'center' }}>
+                    <FAIcon name='filter' style={{ fill: '#1E4FA8', width: 22, height: 22 }} />
+                </Box>
+                <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#0E3F8C', marginTop: 12 }}>Filter Before Retrieval</Text>
+                <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.6, marginTop: 10 }}>Authentication and resource authorization complete before retrieval; unauthorized tools never enter the candidate set, structurally removing the “recall first, block later” window.</Text>
+                <Box style={{ marginTop: 'auto', paddingTop: 12, borderTop: '1px solid #E5E7EB' }}>
+                    <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#D9534F' }}>The model cannot widen permissions</Text>
+                </Box>
+            </Box>
+
+            <Box style={{ flex: 1, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: '20px 22px', flexDirection: 'column' }}>
+                <Box style={{ width: 44, height: 44, borderRadius: 10, background: '#E8EFF8', justifyContent: 'center', alignItems: 'center' }}>
+                    <FAIcon name='plug' style={{ fill: '#1E4FA8', width: 22, height: 22 }} />
+                </Box>
+                <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#0E3F8C', marginTop: 12 }}>40 Real MCP Tools</Text>
+                <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.6, marginTop: 10 }}>Tools determine business effects through the publisher's projection contract; explicit effects use controlled parameter binding, with schema, catalog version and parameters re-validated before the call.</Text>
+                <Box style={{ marginTop: 'auto', paddingTop: 12, borderTop: '1px solid #E5E7EB' }}>
+                    <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#1E4FA8' }}>Parameters bound, effects enumerable</Text>
+                </Box>
+            </Box>
+
+            <Box style={{ flex: 1, background: '#FFFFFF', border: '1px solid #D6DCE5', borderRadius: 10, padding: '20px 22px', flexDirection: 'column' }}>
+                <Box style={{ width: 44, height: 44, borderRadius: 10, background: '#E8EFF8', justifyContent: 'center', alignItems: 'center' }}>
+                    <FAIcon name='chart-bar' style={{ fill: '#1E4FA8', width: 22, height: 22 }} />
+                </Box>
+                <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#0E3F8C', marginTop: 12 }}>Pilot: 1,000-Item Catalog</Text>
+                <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.6, marginTop: 10 }}>40 real tools + 960 fixed public descriptions as distractors; 50 cases × 3 trials, both arms 150/150, difference 0pp.</Text>
+                <Box style={{ marginTop: 'auto', paddingTop: 12, borderTop: '1px solid #E5E7EB' }}>
+                    <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#D9534F' }}>Baseline at ceiling; +5pp not reached</Text>
+                </Box>
+            </Box>
+        </Box>
+
+        {/* conclusion bar */}
+        <Box style={{ height: 96, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 10, padding: '0 26px', flexDirection: 'row', alignItems: 'center', gap: 18 }}>
+            <Box style={{ width: 44, height: 44, borderRadius: 10, background: '#1E4FA8', justifyContent: 'center', alignItems: 'center' }}>
+                <FAIcon name='shield-alt' style={{ fill: '#FFFFFF', width: 22, height: 22 }} />
+            </Box>
+            <Box style={{ flex: 1 }}>
+                <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#0E3F8C' }}>Conclusion and Boundaries</Text>
+                <Text style={{ fontSize: 16, color: '#1A2230', lineHeight: 1.6, marginTop: 2 }}>Routing shows no quality regression at 1,000 items; however this does not support “routing accuracy beats hybrid retrieval”, nor does it mean the 960 public descriptions correspond to callable real APIs.</Text>
+            </Box>
+        </Box>
+    </Box>
+
+    {/* D footer */}
+    <Box style={{ position: 'absolute', bottom: 0, left: 0, width: 1280, height: 56, padding: '0 40px', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid #E5E7EB' }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>Beijing Jiaotong University · Software Engineering (Professional Master)</Text>
+        <Text style={{ fontSize: 14, color: '#0E3F8C', fontWeight: 'bold' }}>11 / 18</Text>
+    </Box>
+</Slide>

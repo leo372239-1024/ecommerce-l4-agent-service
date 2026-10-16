@@ -1,0 +1,16 @@
+{
+  "title": "Agent Infrastructure", "uid": "agent-infra", "schemaVersion": 41,
+  "version": 1, "refresh": "10s", "time": {"from": "now-15m", "to": "now"},
+  "links": [{"title": "API Traces (Jaeger)", "type": "link", "url": "http://localhost:16686", "targetBlank": true}],
+  "panels": [
+    {"id": 1, "title": "API request rate", "type": "timeseries", "datasource": {"uid": "prometheus"},
+     "gridPos": {"x": 0, "y": 0, "w": 12, "h": 8},
+     "targets": [{"refId": "A", "expr": "sum(rate(agent_http_requests_total[1m])) by (status)"}]},
+    {"id": 2, "title": "API latency P95 (seconds)", "type": "timeseries", "datasource": {"uid": "prometheus"},
+     "gridPos": {"x": 12, "y": 0, "w": 12, "h": 8},
+     "targets": [{"refId": "A", "expr": "histogram_quantile(0.95, sum(rate(agent_http_request_duration_seconds_bucket[1m])) by (le, route))"}]},
+    {"id": 3, "title": "API scrape availability", "type": "stat", "datasource": {"uid": "prometheus"},
+     "gridPos": {"x": 0, "y": 8, "w": 12, "h": 5},
+     "targets": [{"refId": "A", "expr": "up{job=\"agent-api\"}"}]}
+  ]
+}

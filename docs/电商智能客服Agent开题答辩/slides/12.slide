@@ -1,0 +1,87 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', position: 'relative', fontFamily: 'Microsoft YaHei', padding: '88px 40px 56px 40px' }}>
+    {/* A 页眉 */}
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 64, background: '#0E3F8C', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 0 0 40px' }}>
+        <Text style={{ fontSize: 16, color: '#FFFFFF', letterSpacing: 2 }}>网络计算与边缘智能 · 开题答辩</Text>
+        <Box style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={{ fontSize: 14, color: '#B9CDEA', marginRight: 22 }}>电商 L4 级智能客服 Agent 系统</Text>
+            <Box style={{ width: 190, height: 64, background: '#FFFFFF', justifyContent: 'center', alignItems: 'center' }}>
+                <Image src="assets/bjtu_logo.png" style={{ width: 166, height: 48, objectFit: 'contain' }} />
+            </Box>
+        </Box>
+    </Box>
+
+    {/* B 标题块 */}
+    <Box style={{ flexDirection: 'row', alignItems: 'center', height: 40 }}>
+        <Box style={{ width: 6, height: 34, background: '#1E4FA8', borderRadius: 3, marginRight: 12 }} />
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0E3F8C' }}>关键技术 ③ 时效记忆与上下文</Text>
+        <Box style={{ marginLeft: 'auto', padding: '4px 12px', background: '#E8EFF8', borderRadius: 12 }}><Text style={{ fontSize: 13, color: '#1E4FA8', fontWeight: 'bold' }}>含前期预研验证</Text></Box><Text style={{ fontSize: 15, color: '#8B97A8', marginLeft: 14 }}>04 / 06</Text>
+    </Box>
+
+    {/* C 内容区 */}
+    <Box style={{ flexDirection: 'column', gap: 12, marginTop: 16, height: 520 }}>
+        {/* 引导条 */}
+        <Box style={{ height: 60, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 8, padding: '0 22px', flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+            <FAIcon name='brain' style={{ fill: '#1E4FA8', width: 20, height: 20 }} />
+            <Text style={{ fontSize: 16, color: '#1A2230' }}>上下文 = <span style={{ fontWeight: 'bold', color: '#1E4FA8' }}>拥有者隔离的实体账本</span> + 最近有限片段 + 历史引用卸载 + Token 预算；记忆只服务指代解析，不服务事实与授权。</Text>
+        </Box>
+
+        {/* 三栏 */}
+        <Box style={{ flexDirection: 'row', gap: 15, height: 328 }}>
+            <Box style={{ flex: 1, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: '20px 22px', flexDirection: 'column' }}>
+                <Box style={{ width: 44, height: 44, borderRadius: 10, background: '#E8EFF8', justifyContent: 'center', alignItems: 'center' }}>
+                    <FAIcon name='book' style={{ fill: '#1E4FA8', width: 22, height: 22 }} />
+                </Box>
+                <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#0E3F8C', marginTop: 12 }}>拥有者隔离实体账本</Text>
+                <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.6, marginTop: 10 }}>会话实体账本按拥有者隔离，只用于解析「这件商品」「第一笔订单」这类回指；解析出的实体仍需经当前商家工具重新读取事实。</Text>
+                <Box style={{ marginTop: 'auto', paddingTop: 12, borderTop: '1px solid #E5E7EB' }}>
+                    <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#D9534F' }}>账本本身不授予任何权限</Text>
+                </Box>
+            </Box>
+
+            <Box style={{ flex: 1, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: '20px 22px', flexDirection: 'column' }}>
+                <Box style={{ width: 44, height: 44, borderRadius: 10, background: '#E8EFF8', justifyContent: 'center', alignItems: 'center' }}>
+                    <FAIcon name='compress-alt' style={{ fill: '#1E4FA8', width: 22, height: 22 }} />
+                </Box>
+                <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#0E3F8C', marginTop: 12 }}>引用卸载与预算</Text>
+                <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.6, marginTop: 10 }}>关键字段保留、历史引用卸载与保守 Token 上界共同约束上下文；多个实体共享同一原文片段，不通过补造实体句子来放宽来源校验。</Text>
+                <Box style={{ marginTop: 'auto', paddingTop: 12, borderTop: '1px solid #E5E7EB' }}>
+                    <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#1E4FA8' }}>共同属性复用同一原文片段</Text>
+                </Box>
+            </Box>
+
+            <Box style={{ flex: 1, background: '#FFFFFF', border: '1px solid #D6DCE5', borderRadius: 10, padding: '20px 22px', flexDirection: 'column' }}>
+                <Box style={{ width: 44, height: 44, borderRadius: 10, background: '#E8EFF8', justifyContent: 'center', alignItems: 'center' }}>
+                    <FAIcon name='sync-alt' style={{ fill: '#1E4FA8', width: 22, height: 22 }} />
+                </Box>
+                <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#0E3F8C', marginTop: 12 }}>不继承原则</Text>
+                <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.6, marginTop: 10 }}>旧金额、业务状态与历史审批不成为当前事实或授权；执行前重新读取商家系统，状态一旦变化，旧提案与旧审批立即失效。</Text>
+                <Box style={{ marginTop: 'auto', paddingTop: 12, borderTop: '1px solid #E5E7EB' }}>
+                    <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#D9534F' }}>旧金额与旧审批不继承</Text>
+                </Box>
+            </Box>
+        </Box>
+
+        {/* 数据条 */}
+        <Box style={{ height: 108, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 10, padding: '12px 26px', flexDirection: 'column', justifyContent: 'center', gap: 8 }}>
+            <Box style={{ flexDirection: 'row', alignItems: 'baseline', gap: 26 }}>
+                <Box style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8 }}>
+                    <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#1E4FA8', lineHeight: 1 }}>180/180</Text>
+                    <Text style={{ fontSize: 15, color: '#4A5568' }}>本方案 P（100%）</Text>
+                </Box>
+                <Box style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8 }}>
+                    <Text style={{ fontSize: 26, fontWeight: 'bold', color: '#8B97A8', lineHeight: 1 }}>62/180</Text>
+                    <Text style={{ fontSize: 15, color: '#4A5568' }}>基线 M-vector（任务级 34.44%，均衡率 24.36%）</Text>
+                </Box>
+                <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#D9534F' }}>+75.64pp</Text>
+                <Text style={{ fontSize: 15, color: '#4A5568' }}>95% CI [+55.13, +92.31]pp</Text>
+            </Box>
+            <Text style={{ fontSize: 15, color: '#4A5568' }}>条件口径 Prompt Token：<span style={{ fontWeight: 'bold', color: '#1E4FA8' }}>513,308 → 180,291（−64.88%）</span>，仅覆盖 62 对两组都正确的配对，不含离线 Embedding 成本。</Text>
+        </Box>
+    </Box>
+
+    {/* D 页脚 */}
+    <Box style={{ position: 'absolute', bottom: 0, left: 0, width: 1280, height: 56, padding: '0 40px', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid #E5E7EB' }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>北京交通大学 · 软件工程（专硕）</Text>
+        <Text style={{ fontSize: 14, color: '#0E3F8C', fontWeight: 'bold' }}>12 / 18</Text>
+    </Box>
+</Slide>

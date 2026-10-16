@@ -1,0 +1,99 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', position: 'relative', fontFamily: 'Segoe UI', padding: '88px 40px 56px 40px' }}>
+    {/* A header */}
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 64, background: '#0E3F8C', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 0 0 40px' }}>
+        <Text style={{ fontSize: 16, color: '#FFFFFF', letterSpacing: 2 }}>Network Computing and Edge Intelligence · Proposal Defense</Text>
+        <Box style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={{ fontSize: 14, color: '#B9CDEA', marginRight: 22 }}>L4 Intelligent Customer Service Agent for E-Commerce</Text>
+            <Box style={{ width: 190, height: 64, background: '#FFFFFF', justifyContent: 'center', alignItems: 'center' }}>
+                <Image src="assets/bjtu_logo.png" style={{ width: 166, height: 48, objectFit: 'contain' }} />
+            </Box>
+        </Box>
+    </Box>
+
+    {/* B title block */}
+    <Box style={{ flexDirection: 'row', alignItems: 'center', height: 40 }}>
+        <Box style={{ width: 6, height: 34, background: '#1E4FA8', borderRadius: 3, marginRight: 12 }} />
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0E3F8C' }}>Key Technology ① Verifiable Planning</Text>
+        <Box style={{ marginLeft: 'auto', padding: '4px 12px', background: '#E8EFF8', borderRadius: 12 }}><Text style={{ fontSize: 13, color: '#1E4FA8', fontWeight: 'bold' }}>Prior-pilot validation included</Text></Box><Text style={{ fontSize: 15, color: '#8B97A8', marginLeft: 14 }}>04 / 06</Text>
+    </Box>
+
+    {/* C content */}
+    <Box style={{ flexDirection: 'column', gap: 20, marginTop: 16, height: 520 }}>
+        <Box style={{ flexDirection: 'row', gap: 20, height: 400 }}>
+            {/* left: mechanism */}
+            <Box style={{ width: 720, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: '20px 24px', flexDirection: 'column' }}>
+                <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+                    <FAIcon name='sitemap' style={{ fill: '#3D7BD9', width: 20, height: 20 }} />
+                    <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#0E3F8C' }}>TaskSpec Constraints + Validated DAG Compilation</Text>
+                </Box>
+                <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.6, marginTop: 6 }}>Turn the user goal into a statically checkable structure instead of free-generated actions.</Text>
+
+                <Box style={{ flexDirection: 'column', gap: 6, marginTop: 12 }}>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#1E4FA8', width: 92 }}>Input<br />constraints</Text>
+                        <Text style={{ fontSize: 15, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>A Pydantic TaskSpec explicitly declares goals, entities, read/write types and budget ceilings.</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#1E4FA8', width: 92 }}>Dependency<br />compilation</Text>
+                        <Text style={{ fontSize: 15, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>Nodes, dependencies, read/write order and bound entities are statically checkable; read-before-write is verifiable.</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#1E4FA8', width: 92 }}>Coverage<br />check</Text>
+                        <Text style={{ fontSize: 15, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>If an attribute identified in the source text is missing from the parsed query, the plan is rejected, preventing partial completion of composite requests.</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#1E4FA8', width: 92 }}>Bounded<br />repair</Text>
+                        <Text style={{ fontSize: 15, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>Failed validation enters bounded replanning; attempts, tokens, tool calls and wall-clock time are all capped.</Text>
+                    </Box>
+                </Box>
+
+                <Box style={{ marginTop: 'auto', background: '#FFFFFF', border: '1px solid #E5E7EB', borderRadius: 8, padding: '10px 16px' }}>
+                    <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.5 }}>Negation keeps its semantic path; unknown attributes are not claimed as covered.</Text>
+                </Box>
+            </Box>
+
+            {/* right: measured comparison */}
+            <Box style={{ width: 460, background: '#FFFFFF', border: '1px solid #D6DCE5', borderRadius: 10, padding: '16px 22px', flexDirection: 'column' }}>
+                <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#0E3F8C' }}>Prior-Pilot Validation</Text>
+                <Text style={{ fontSize: 14, color: '#8B97A8', marginTop: 4 }}>36 scenarios × 5 trials = 180 units / 29 families</Text>
+
+                <Box style={{ marginTop: 12 }}>
+                    <Text style={{ fontSize: 48, fontWeight: 'bold', color: '#1E4FA8', lineHeight: 1 }}>88.33%</Text>
+                    <Text style={{ fontSize: 15, color: '#4A5568', marginTop: 4 }}>Our approach P: 159 / 180 strict success</Text>
+                </Box>
+
+                <Box style={{ marginTop: 10 }}>
+                    <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#8B97A8', lineHeight: 1 }}>65.00%</Text>
+                    <Text style={{ fontSize: 15, color: '#4A5568', marginTop: 4 }}>Baseline B2 (native ReAct + hybrid retrieval): 117 / 180</Text>
+                </Box>
+
+                <Box style={{ flexDirection: 'row', alignItems: 'baseline', gap: 10, marginTop: 12 }}>
+                    <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#D9534F', lineHeight: 1 }}>+9.14pp</Text>
+                    <Text style={{ fontSize: 15, color: '#4A5568' }}>family-balanced gap</Text>
+                </Box>
+                <Text style={{ fontSize: 15, color: '#4A5568', marginTop: 6 }}>95% clustered CI [−4.66, +23.45]pp</Text>
+
+                <Box style={{ marginTop: 'auto', background: '#FDF3F3', borderLeft: '4px solid #D9534F', borderRadius: 8, padding: '10px 14px' }}>
+                    <Text style={{ fontSize: 14, color: '#C0392B', lineHeight: 1.5 }}>The interval includes 0, so a positive effect is not statistically supported; P fell short of the pre-registered ≥90% threshold.</Text>
+                </Box>
+            </Box>
+        </Box>
+
+        {/* conclusion bar */}
+        <Box style={{ height: 100, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 10, padding: '0 26px', flexDirection: 'row', alignItems: 'center', gap: 18 }}>
+            <Box style={{ width: 44, height: 44, borderRadius: 10, background: '#1E4FA8', justifyContent: 'center', alignItems: 'center' }}>
+                <FAIcon name='clipboard-check' style={{ fill: '#FFFFFF', width: 22, height: 22 }} />
+            </Box>
+            <Box style={{ flex: 1 }}>
+                <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#0E3F8C' }}>Engineering Problem Addressed</Text>
+                <Text style={{ fontSize: 16, color: '#1A2230', lineHeight: 1.6, marginTop: 2 }}>Turn a missing product attribute or order entity from a hidden risk into an <span style={{ color: '#1E4FA8', fontWeight: 'bold' }}>explicit failure</span>, making composite after-sales requests auditable; the ceiling is still bounded by model and scenario distribution.</Text>
+            </Box>
+        </Box>
+    </Box>
+
+    {/* D footer */}
+    <Box style={{ position: 'absolute', bottom: 0, left: 0, width: 1280, height: 56, padding: '0 40px', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid #E5E7EB' }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>Beijing Jiaotong University · Software Engineering (Professional Master)</Text>
+        <Text style={{ fontSize: 14, color: '#0E3F8C', fontWeight: 'bold' }}>10 / 18</Text>
+    </Box>
+</Slide>

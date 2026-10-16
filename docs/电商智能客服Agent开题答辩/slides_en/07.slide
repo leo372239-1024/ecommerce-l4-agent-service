@@ -1,0 +1,150 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', position: 'relative', fontFamily: 'Segoe UI', padding: '88px 40px 56px 40px' }}>
+    {/* A header */}
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 64, background: '#0E3F8C', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 0 0 40px' }}>
+        <Text style={{ fontSize: 16, color: '#FFFFFF', letterSpacing: 2 }}>Network Computing and Edge Intelligence · Proposal Defense</Text>
+        <Box style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={{ fontSize: 14, color: '#B9CDEA', marginRight: 22 }}>L4 Intelligent Customer Service Agent for E-Commerce</Text>
+            <Box style={{ width: 190, height: 64, background: '#FFFFFF', justifyContent: 'center', alignItems: 'center' }}>
+                <Image src="assets/bjtu_logo.png" style={{ width: 166, height: 48, objectFit: 'contain' }} />
+            </Box>
+        </Box>
+    </Box>
+
+    {/* B title block */}
+    <Box style={{ flexDirection: 'row', alignItems: 'center', height: 40 }}>
+        <Box style={{ width: 6, height: 34, background: '#1E4FA8', borderRadius: 3, marginRight: 12 }} />
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0E3F8C' }}>Overall System Architecture</Text>
+        <Text style={{ fontSize: 15, color: '#8B97A8', marginLeft: 'auto' }}>03 / 06</Text>
+    </Box>
+
+    {/* C content: layered architecture + conclusion bar */}
+    <Box style={{ flexDirection: 'column', gap: 12, marginTop: 16, height: 520 }}>
+        <Box style={{ flexDirection: 'column', gap: 10, height: 434, marginTop: 12 }}>
+            {/* user layer */}
+            <Box style={{ flexDirection: 'row', alignItems: 'center', height: 64, gap: 12 }}>
+                <Box style={{ width: 140, height: 64, background: '#0E3F8C', borderRadius: 8, justifyContent: 'center', alignItems: 'center' }}>
+                    <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#FFFFFF' }}>User Layer</Text>
+                </Box>
+                <Box style={{ flex: 1, flexDirection: 'row', gap: 12 }}>
+                    <Box style={{ flex: 1, height: 46, background: '#FFFFFF', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1A2230' }}>Customer · Agent · Supervisor</Text>
+                    </Box>
+                    <Box style={{ flex: 1, height: 46, background: '#FFFFFF', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1A2230' }}>React + Ant Design console</Text>
+                    </Box>
+                    <Box style={{ flex: 1, height: 46, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1E4FA8' }}>REST submit · SSE (AG-UI) events</Text>
+                    </Box>
+                </Box>
+            </Box>
+
+            {/* access layer */}
+            <Box style={{ flexDirection: 'row', alignItems: 'center', height: 64, gap: 12 }}>
+                <Box style={{ width: 140, height: 64, background: '#0E3F8C', borderRadius: 8, justifyContent: 'center', alignItems: 'center' }}>
+                    <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#FFFFFF' }}>Access Layer</Text>
+                </Box>
+                <Box style={{ flex: 1, flexDirection: 'row', gap: 12 }}>
+                    <Box style={{ flex: 1, height: 46, background: '#FFFFFF', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1A2230' }}>Nginx entry (dynamic DNS)</Text>
+                    </Box>
+                    <Box style={{ flex: 1, height: 46, background: '#FFFFFF', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1A2230' }}>FastAPI API (async · OpenAPI)</Text>
+                    </Box>
+                    <Box style={{ flex: 1, height: 46, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1E4FA8' }}>Session auth · CSRF · RBAC + ABAC</Text>
+                    </Box>
+                </Box>
+            </Box>
+
+            {/* execution layer */}
+            <Box style={{ flexDirection: 'row', alignItems: 'center', height: 64, gap: 12 }}>
+                <Box style={{ width: 140, height: 64, background: '#0E3F8C', borderRadius: 8, justifyContent: 'center', alignItems: 'center' }}>
+                    <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#FFFFFF' }}>Execution Layer</Text>
+                </Box>
+                <Box style={{ flex: 1, flexDirection: 'row', gap: 12 }}>
+                    <Box style={{ flex: 1, height: 46, background: '#FFFFFF', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1A2230' }}>Redis Pub/Sub task wake-up</Text>
+                    </Box>
+                    <Box style={{ flex: 1, height: 46, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1E4FA8' }}>LangGraph worker (lease, checkpoint)</Text>
+                    </Box>
+                    <Box style={{ flex: 1, height: 46, background: '#FFFFFF', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1A2230' }}>TaskSpec · validated DAG · budgets</Text>
+                    </Box>
+                </Box>
+            </Box>
+
+            {/* capability layer */}
+            <Box style={{ flexDirection: 'row', alignItems: 'center', height: 64, gap: 12 }}>
+                <Box style={{ width: 140, height: 64, background: '#1E4FA8', borderRadius: 8, justifyContent: 'center', alignItems: 'center' }}>
+                    <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#FFFFFF' }}>Capability Layer</Text>
+                </Box>
+                <Box style={{ flex: 1, flexDirection: 'row', gap: 12 }}>
+                    <Box style={{ flex: 1, height: 46, background: '#FFFFFF', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1A2230' }}>Verifiable planning</Text>
+                    </Box>
+                    <Box style={{ flex: 1, height: 46, background: '#FFFFFF', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1A2230' }}>Authorized tool routing</Text>
+                    </Box>
+                    <Box style={{ flex: 1, height: 46, background: '#FFFFFF', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1A2230' }}>Context &amp; freshness memory</Text>
+                    </Box>
+                    <Box style={{ flex: 1, height: 46, background: '#FFFFFF', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1A2230' }}>Reflection &amp; recovery</Text>
+                    </Box>
+                </Box>
+            </Box>
+
+            {/* integration layer */}
+            <Box style={{ flexDirection: 'row', alignItems: 'center', height: 64, gap: 12 }}>
+                <Box style={{ width: 140, height: 64, background: '#0E3F8C', borderRadius: 8, justifyContent: 'center', alignItems: 'center' }}>
+                    <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#FFFFFF' }}>Integration Layer</Text>
+                </Box>
+                <Box style={{ flex: 1, flexDirection: 'row', gap: 12 }}>
+                    <Box style={{ flex: 1, height: 46, background: '#FFFFFF', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1A2230' }}>MCP merchant services · 40 tools</Text>
+                    </Box>
+                    <Box style={{ flex: 1, height: 46, background: '#FFFFFF', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1A2230' }}>Hybrid retrieval: BM25 + vector + RRF</Text>
+                    </Box>
+                    <Box style={{ flex: 1, height: 46, background: '#FFFFFF', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1A2230' }}>Sandbox (no network, read-only)</Text>
+                    </Box>
+                </Box>
+            </Box>
+
+            {/* storage and observability layer */}
+            <Box style={{ flexDirection: 'row', alignItems: 'center', height: 64, gap: 12 }}>
+                <Box style={{ width: 140, height: 64, background: '#0E3F8C', borderRadius: 8, justifyContent: 'center', alignItems: 'center' }}>
+                    <Text style={{ fontSize: 13, fontWeight: 'bold', color: '#FFFFFF' }}>Storage &amp; Observability</Text>
+                </Box>
+                <Box style={{ flex: 1, flexDirection: 'row', gap: 12 }}>
+                    <Box style={{ flex: 1, height: 46, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 14, color: '#1E4FA8', fontWeight: 'bold' }}>PostgreSQL source of truth</Text>
+                    </Box>
+                    <Box style={{ flex: 1, height: 46, background: '#FFFFFF', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 14, color: '#1A2230' }}>Redis notification / Outbox poll</Text>
+                    </Box>
+                    <Box style={{ flex: 1, height: 46, background: '#FFFFFF', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 14, color: '#1A2230' }}>Jaeger · Prometheus · Grafana</Text>
+                    </Box>
+                    <Box style={{ flex: 1, height: 46, background: '#FFFFFF', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 14, color: '#1A2230' }}>OpenRouter LLM</Text>
+                    </Box>
+                </Box>
+            </Box>
+        </Box>
+
+        {/* conclusion bar */}
+        <Box style={{ height: 56, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 10, padding: '0 24px', flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+            <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#0E3F8C' }}>Key constraints</Text>
+            <Text style={{ fontSize: 15, color: '#1A2230' }}>PostgreSQL is the single source of truth; Redis only speeds up wake-up and loss is covered by DB polling; Jaeger traces are in-memory and lost on restart, while business events persist.</Text>
+        </Box>
+    </Box>
+
+    {/* D footer */}
+    <Box style={{ position: 'absolute', bottom: 0, left: 0, width: 1280, height: 56, padding: '0 40px', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid #E5E7EB' }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>Beijing Jiaotong University · Software Engineering (Professional Master)</Text>
+        <Text style={{ fontSize: 14, color: '#0E3F8C', fontWeight: 'bold' }}>07 / 18</Text>
+    </Box>
+</Slide>

@@ -1,0 +1,100 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', position: 'relative', fontFamily: 'Microsoft YaHei', padding: '88px 40px 56px 40px' }}>
+    {/* A 页眉 */}
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 64, background: '#0E3F8C', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 0 0 40px' }}>
+        <Text style={{ fontSize: 16, color: '#FFFFFF', letterSpacing: 2 }}>网络计算与边缘智能 · 开题答辩</Text>
+        <Box style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={{ fontSize: 14, color: '#B9CDEA', marginRight: 22 }}>电商 L4 级智能客服 Agent 系统</Text>
+            <Box style={{ width: 190, height: 64, background: '#FFFFFF', justifyContent: 'center', alignItems: 'center' }}>
+                <Image src="assets/bjtu_logo.png" style={{ width: 166, height: 48, objectFit: 'contain' }} />
+            </Box>
+        </Box>
+    </Box>
+
+    {/* B 标题块 */}
+    <Box style={{ flexDirection: 'row', alignItems: 'center', height: 40 }}>
+        <Box style={{ width: 6, height: 34, background: '#1E4FA8', borderRadius: 3, marginRight: 12 }} />
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0E3F8C' }}>研究目标与研究内容</Text>
+        <Text style={{ fontSize: 15, color: '#8B97A8', marginLeft: 'auto' }}>03 / 06</Text>
+    </Box>
+
+    {/* C 内容区 */}
+    <Box style={{ flexDirection: 'column', gap: 12, marginTop: 16, height: 520 }}>
+        {/* 总目标条 */}
+        <Box style={{ height: 88, background: '#0E3F8C', borderRadius: 10, padding: '13px 26px', flexDirection: 'column', gap: 8 }}>
+            <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+                <Box style={{ height: 30, padding: '0 12px', background: '#3D7BD9', borderRadius: 6, justifyContent: 'center', alignItems: 'center' }}>
+                    <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#FFFFFF', lineHeight: 1.2 }}>总目标</Text>
+                </Box>
+                <Text style={{ fontSize: 16, color: '#B9CDEA', letterSpacing: 1 }}>A controlled, auditable after-sales agent loop</Text>
+            </Box>
+            <Text style={{ fontSize: 17, color: '#FFFFFF', lineHeight: 1.45 }}>构建中文单 Agent 全栈客服系统，打通「查询 → 计划 → 事实核验 → 提案 → 确认 / 审批 → 执行 → 回执 → 人工接管」闭环。</Text>
+        </Box>
+
+        {/* 四项深化技术 2×2 */}
+        <Box style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 12, height: 328 }}>
+            <Box style={{ width: 594, height: 158, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: '16px 22px', flexDirection: 'column' }}>
+                <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+                    <Box style={{ width: 30, height: 30, borderRadius: 8, background: '#1E4FA8', justifyContent: 'center', alignItems: 'center' }}>
+                        <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#FFFFFF', lineHeight: 1.2 }}>01</Text>
+                    </Box>
+                    <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#0E3F8C' }}>可验证规划</Text>
+                    <Text style={{ fontSize: 14, color: '#8B97A8', marginLeft: 'auto' }}>Planning</Text>
+                </Box>
+                <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.55, marginTop: 10 }}>用 Pydantic TaskSpec 约束输入，编译带依赖关系的可验证 DAG，并检查已发布业务投影的覆盖情况。</Text>
+                <Text style={{ fontSize: 15, color: '#D9534F', fontWeight: 'bold', marginTop: 'auto' }}>遗漏目标即拒绝「成功」，进入有限修复</Text>
+            </Box>
+
+            <Box style={{ width: 594, height: 158, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: '16px 22px', flexDirection: 'column' }}>
+                <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+                    <Box style={{ width: 30, height: 30, borderRadius: 8, background: '#1E4FA8', justifyContent: 'center', alignItems: 'center' }}>
+                        <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#FFFFFF', lineHeight: 1.2 }}>02</Text>
+                    </Box>
+                    <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#0E3F8C' }}>受权工具路由</Text>
+                    <Text style={{ fontSize: 14, color: '#8B97A8', marginLeft: 'auto' }}>Routing</Text>
+                </Box>
+                <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.55, marginTop: 10 }}>认证范围过滤先于检索；40 个真实 MCP 工具按发布方投影契约确定业务效果，参数与版本二次校验。</Text>
+                <Text style={{ fontSize: 15, color: '#D9534F', fontWeight: 'bold', marginTop: 'auto' }}>模型无权扩张权限</Text>
+            </Box>
+
+            <Box style={{ width: 594, height: 158, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: '16px 22px', flexDirection: 'column' }}>
+                <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+                    <Box style={{ width: 30, height: 30, borderRadius: 8, background: '#1E4FA8', justifyContent: 'center', alignItems: 'center' }}>
+                        <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#FFFFFF', lineHeight: 1.2 }}>03</Text>
+                    </Box>
+                    <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#0E3F8C' }}>时效记忆与上下文</Text>
+                    <Text style={{ fontSize: 14, color: '#8B97A8', marginLeft: 'auto' }}>Memory</Text>
+                </Box>
+                <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.55, marginTop: 10 }}>拥有者隔离的实体账本、最近有限片段、历史引用卸载与 Token 预算；回指只用于指代解析。</Text>
+                <Text style={{ fontSize: 15, color: '#D9534F', fontWeight: 'bold', marginTop: 'auto' }}>旧金额与旧审批不继承</Text>
+            </Box>
+
+            <Box style={{ width: 594, height: 158, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: '16px 22px', flexDirection: 'column' }}>
+                <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+                    <Box style={{ width: 30, height: 30, borderRadius: 8, background: '#1E4FA8', justifyContent: 'center', alignItems: 'center' }}>
+                        <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#FFFFFF', lineHeight: 1.2 }}>04</Text>
+                    </Box>
+                    <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#0E3F8C' }}>证据反思与恢复</Text>
+                    <Text style={{ fontSize: 14, color: '#8B97A8', marginLeft: 'auto' }}>Recovery</Text>
+                </Box>
+                <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.55, marginTop: 10 }}>观察包绑定来源、实体、版本与时间；确定性检查优先，幂等键与回执对账保证写入恰好一次。</Text>
+                <Text style={{ fontSize: 15, color: '#D9534F', fontWeight: 'bold', marginTop: 'auto' }}>无界循环改为安全停止 / 转人工</Text>
+            </Box>
+        </Box>
+
+        {/* 交付形态条 */}
+        <Box style={{ height: 80, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 10, padding: '0 26px', flexDirection: 'row', alignItems: 'center', gap: 22 }}>
+            <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#0E3F8C', width: 84 }}>交付形态</Text>
+            <Box style={{ flex: 1, flexDirection: 'row', gap: 20 }}>
+                <Text style={{ fontSize: 16, color: '#1A2230' }}>本地可部署的<span style={{ fontWeight: 'bold', color: '#1E4FA8' }}>全栈 MVP</span></Text>
+                <Text style={{ fontSize: 16, color: '#1A2230' }}>Docker Compose 单宿主编排</Text>
+                <Text style={{ fontSize: 16, color: '#1A2230' }}>真实模型 API + <span style={{ fontWeight: 'bold', color: '#1E4FA8' }}>可审计模拟账本</span></Text>
+            </Box>
+        </Box>
+    </Box>
+
+    {/* D 页脚 */}
+    <Box style={{ position: 'absolute', bottom: 0, left: 0, width: 1280, height: 56, padding: '0 40px', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid #E5E7EB' }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>北京交通大学 · 软件工程（专硕）</Text>
+        <Text style={{ fontSize: 14, color: '#0E3F8C', fontWeight: 'bold' }}>06 / 18</Text>
+    </Box>
+</Slide>

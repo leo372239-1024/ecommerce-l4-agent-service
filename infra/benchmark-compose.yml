@@ -1,0 +1,60 @@
+# Extends docker-compose.yml; uses its network and dependencies, a separate database,
+# and its own Redis namespace. Never start/stop the normal worker to run a benchmark.
+x-benchmark: &benchmark
+  image: l4-agent-backend:stage10
+  init: true
+  read_only: true
+  tmpfs: ['/tmp:size=128m,mode=1777']
+  cap_drop: [ALL]
+  security_opt: [no-new-privileges:true]
+  environment: &benchmark-env
+    APP_SECRETS_DIR: /run/secrets
+    PYTHONPATH: /app
+    ZHIPU_API_BASE: ${ZHIPU_API_BASE:-https://openrouter.ai/api/v1}
+    ZHIPU_MODEL: ${ZHIPU_MODEL:-deepseek/deepseek-v4.1-flash}
+    LLM_TEMPERATURE: ${LLM_TEMPERATURE:-0.3}
+    POSTGRES_HOST: postgres
+    POSTGRES_PORT: 5432
+    POSTGRES_USER: agent
+    POSTGRES_DB: agent_benchmark_step9
+    REDIS_URL: redis://redis:6379/9
+    ELASTICSEARCH_ENABLED: 'true'
+    ELASTICSEARCH_URL: http://elasticsearch:9200
+    TOOL_ROUTING_ENABLED: 'true'
+    CONTEXT_ENGINEERING_ENABLED: 'true'
+    SANDBOX_ENABLED: 'false'
+    MCP_URL: http://benchmark-merchant:8010/mcp
+    OTEL_ENABLED: 'false'
+  volumes:
+    - ../backend/app:/app/app:ro
+    - ../scripts:/benchmark:ro
+    - ../docs/evaluation:/evaluation:ro
+    - ../artifacts:/artifacts
+  secrets: [postgres_password, zhipu_api_key, openrouter_api_key, dashscope_api_key, mcp_service_key, demo_alice_password, demo_bob_password, demo_support_password, demo_supervisor_password]
+  mem_limit: 768m
+
+services:
+  benchmark-init:
+    <<: *benchmark
+    command: [python, -m, app.init_schema]
+  benchmark-merchant:
+    <<: *benchmark
+    command: [uvicorn, app.business.mcp_server:app, --host, '0.0.0.0', --port, '8010', --no-access-log]
+    # The merchant receives no hidden dataset or oracle mount.
+    volumes: []
+    secrets: [postgres_password, mcp_service_key]
+    restart: unless-stopped
+  benchmark:
+    <<: *benchmark
+    command: [python, /benchmark/benchmark_container.py]
+  benchmark-api:
+    <<: *benchmark
+    command: [uvicorn, app.main:app, --host, '0.0.0.0', --port, '8000', --no-access-log]
+    volumes: []
+    ports: [127.0.0.1:8009:8000]
+    restart: unless-stopped
+  benchmark-worker:
+    <<: *benchmark
+    command: [python, -m, app.worker]
+    volumes: []
+    restart: unless-stopped

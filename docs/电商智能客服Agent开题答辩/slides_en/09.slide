@@ -1,0 +1,116 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', position: 'relative', fontFamily: 'Segoe UI', padding: '88px 40px 56px 40px' }}>
+    {/* A header */}
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 64, background: '#0E3F8C', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 0 0 40px' }}>
+        <Text style={{ fontSize: 16, color: '#FFFFFF', letterSpacing: 2 }}>Network Computing and Edge Intelligence · Proposal Defense</Text>
+        <Box style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={{ fontSize: 14, color: '#B9CDEA', marginRight: 22 }}>L4 Intelligent Customer Service Agent for E-Commerce</Text>
+            <Box style={{ width: 190, height: 64, background: '#FFFFFF', justifyContent: 'center', alignItems: 'center' }}>
+                <Image src="assets/bjtu_logo.png" style={{ width: 166, height: 48, objectFit: 'contain' }} />
+            </Box>
+        </Box>
+    </Box>
+
+    {/* B title block */}
+    <Box style={{ flexDirection: 'row', alignItems: 'center', height: 40 }}>
+        <Box style={{ width: 6, height: 34, background: '#1E4FA8', borderRadius: 3, marginRight: 12 }} />
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0E3F8C' }}>Technical Approach: Stack and Deployment</Text>
+        <Text style={{ fontSize: 15, color: '#8B97A8', marginLeft: 'auto' }}>03 / 06</Text>
+    </Box>
+
+    {/* C content */}
+    <Box style={{ flexDirection: 'column', gap: 12, marginTop: 16, height: 520 }}>
+        {/* stack bar */}
+        <Box style={{ height: 76, background: '#0E3F8C', borderRadius: 10, padding: '0 22px', flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+            <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#3D7BD9', width: 116 }}>Planned Stack</Text>
+            <Box style={{ padding: '6px 14px', background: '#FFFFFF', borderRadius: 14 }}>
+                <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#0E3F8C', lineHeight: 1.2 }}>React + Ant Design</Text>
+            </Box>
+            <Box style={{ padding: '6px 14px', background: '#FFFFFF', borderRadius: 14 }}>
+                <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#0E3F8C', lineHeight: 1.2 }}>FastAPI</Text>
+            </Box>
+            <Box style={{ padding: '6px 14px', background: '#FFFFFF', borderRadius: 14 }}>
+                <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#0E3F8C', lineHeight: 1.2 }}>LangGraph</Text>
+            </Box>
+            <Box style={{ padding: '6px 14px', background: '#FFFFFF', borderRadius: 14 }}>
+                <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#0E3F8C', lineHeight: 1.2 }}>MCP</Text>
+            </Box>
+            <Box style={{ padding: '6px 14px', background: '#FFFFFF', borderRadius: 14 }}>
+                <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#0E3F8C', lineHeight: 1.2 }}>PostgreSQL</Text>
+            </Box>
+            <Box style={{ padding: '6px 14px', background: '#FFFFFF', borderRadius: 14 }}>
+                <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#0E3F8C', lineHeight: 1.2 }}>Redis</Text>
+            </Box>
+            <Box style={{ padding: '6px 14px', background: '#FFFFFF', borderRadius: 14 }}>
+                <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#0E3F8C', lineHeight: 1.2 }}>Elasticsearch + pgvector</Text>
+            </Box>
+            <Box style={{ padding: '6px 14px', background: '#3D7BD9', borderRadius: 14 }}>
+                <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#FFFFFF', lineHeight: 1.2 }}>Docker Compose</Text>
+            </Box>
+        </Box>
+
+        <Box style={{ flexDirection: 'row', gap: 20, height: 320 }}>
+            {/* left: selection rationale */}
+            <Box style={{ width: 700, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: '20px 24px', flexDirection: 'column' }}>
+                <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#0E3F8C' }}>Key Selection Rationale</Text>
+                <Box style={{ flexDirection: 'column', gap: 6, marginTop: 12 }}>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#1E4FA8', width: 96 }}>Execution<br />orchestration</Text>
+                        <Text style={{ fontSize: 15, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>LangGraph provides durable state, pause and resume; Pydantic contracts make plans statically checkable.</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#1E4FA8', width: 96 }}>Data<br />consistency</Text>
+                        <Text style={{ fontSize: 15, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>PostgreSQL is the single source of truth for tasks, events, approvals, idempotency records and the business ledger.</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#1E4FA8', width: 96 }}>Retrieval<br />strategy</Text>
+                        <Text style={{ fontSize: 15, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>BM25 lexical recall + vector semantic recall + RRF fusion + reranking; the two recall paths are complementary.</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#1E4FA8', width: 96 }}>Model<br />access</Text>
+                        <Text style={{ fontSize: 15, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>Use a compatible API and record the real provider and usage, reducing coupling to a single vendor.</Text>
+                    </Box>
+                </Box>
+            </Box>
+
+            {/* right: deployment and observability */}
+            <Box style={{ width: 480, background: '#FFFFFF', border: '1px solid #D6DCE5', borderRadius: 10, padding: '20px 24px', flexDirection: 'column' }}>
+                <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#0E3F8C' }}>Deployment &amp; Observability</Text>
+                <Box style={{ flexDirection: 'column', gap: 6, marginTop: 10 }}>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#1E4FA8', width: 96 }}>Containers</Text>
+                        <Text style={{ fontSize: 15, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>API / worker / MCP / sandbox / database run as separate processes on one host.</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#1E4FA8', width: 96 }}>Pinned deps</Text>
+                        <Text style={{ fontSize: 15, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>Lock files and image digests are frozen so experiments are reproducible.</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#1E4FA8', width: 96 }}>Fallback</Text>
+                        <Text style={{ fontSize: 15, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>Outbox + Redis wake-up; if a notification is lost, DB polling finds the task.</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#1E4FA8', width: 96 }}>Tracing</Text>
+                        <Text style={{ fontSize: 15, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>OpenTelemetry → Jaeger; Prometheus → Grafana.</Text>
+                    </Box>
+                </Box>
+            </Box>
+        </Box>
+
+        {/* selection principle bar */}
+        <Box style={{ height: 100, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 10, padding: '0 26px', flexDirection: 'row', alignItems: 'center', gap: 18 }}>
+            <Box style={{ width: 44, height: 44, borderRadius: 10, background: '#1E4FA8', justifyContent: 'center', alignItems: 'center' }}>
+                <FAIcon name='cogs' style={{ fill: '#FFFFFF', width: 22, height: 22 }} />
+            </Box>
+            <Box style={{ flex: 1 }}>
+                <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#0E3F8C' }}>Selection Principles</Text>
+                <Text style={{ fontSize: 15, color: '#1A2230', lineHeight: 1.55, marginTop: 2 }}>Components are introduced by an explicit requirement, not by accumulation. This phase <b>does not introduce</b> Kafka / Kubernetes / Istio, and <b>does not connect</b> to real merchant systems or an organizational IdP.</Text>
+            </Box>
+        </Box>
+    </Box>
+
+    {/* D footer */}
+    <Box style={{ position: 'absolute', bottom: 0, left: 0, width: 1280, height: 56, padding: '0 40px', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid #E5E7EB' }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>Beijing Jiaotong University · Software Engineering (Professional Master)</Text>
+        <Text style={{ fontSize: 14, color: '#0E3F8C', fontWeight: 'bold' }}>09 / 18</Text>
+    </Box>
+</Slide>

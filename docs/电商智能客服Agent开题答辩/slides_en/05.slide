@@ -1,0 +1,83 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', position: 'relative', fontFamily: 'Segoe UI', padding: '88px 40px 56px 40px' }}>
+    {/* A header */}
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 64, background: '#0E3F8C', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 0 0 40px' }}>
+        <Text style={{ fontSize: 16, color: '#FFFFFF', letterSpacing: 2 }}>Network Computing and Edge Intelligence · Proposal Defense</Text>
+        <Box style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={{ fontSize: 14, color: '#B9CDEA', marginRight: 22 }}>L4 Intelligent Customer Service Agent for E-Commerce</Text>
+            <Box style={{ width: 190, height: 64, background: '#FFFFFF', justifyContent: 'center', alignItems: 'center' }}>
+                <Image src="assets/bjtu_logo.png" style={{ width: 166, height: 48, objectFit: 'contain' }} />
+            </Box>
+        </Box>
+    </Box>
+
+    {/* B title block */}
+    <Box style={{ flexDirection: 'row', alignItems: 'center', height: 40 }}>
+        <Box style={{ width: 6, height: 34, background: '#1E4FA8', borderRadius: 3, marginRight: 12 }} />
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0E3F8C' }}>Theme and Core Ideas</Text>
+        <Text style={{ fontSize: 15, color: '#8B97A8', marginLeft: 'auto' }}>02 / 06</Text>
+    </Box>
+
+    {/* C content */}
+    <Box style={{ flexDirection: 'column', gap: 12, marginTop: 16, height: 520 }}>
+        {/* theme bar */}
+        <Box style={{ height: 80, background: '#0E3F8C', borderRadius: 10, padding: '0 26px', flexDirection: 'row', alignItems: 'center', gap: 20 }}>
+            <Box style={{ height: 30, padding: '0 12px', background: '#3D7BD9', borderRadius: 6, justifyContent: 'center', alignItems: 'center' }}>
+                <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#FFFFFF', lineHeight: 1.2 }}>Theme</Text>
+            </Box>
+            <Text style={{ fontSize: 20, color: '#FFFFFF', lineHeight: 1.5 }}>A <span style={{ color: '#FFC107', fontWeight: 'bold' }}>verifiable execution loop</span> for high-risk e-commerce after-sales tasks — a Chinese single-agent customer service system</Text>
+        </Box>
+
+        {/* three core ideas */}
+        <Box style={{ flexDirection: 'row', gap: 15, height: 320 }}>
+            <Box style={{ flex: 1, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: '20px 22px', flexDirection: 'column' }}>
+                <Box style={{ width: 44, height: 44, borderRadius: 10, background: '#E8EFF8', justifyContent: 'center', alignItems: 'center' }}>
+                    <FAIcon name='clipboard-check' style={{ fill: '#1E4FA8', width: 22, height: 22 }} />
+                </Box>
+                <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#0E3F8C', marginTop: 12 }}>From “Answering”<br />to “Completing”</Text>
+                <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.6, marginTop: 10 }}>Treat the task, not the conversation turn, as the unit of work: parse goal and entities, compile a dependency-aware plan, then close on the business outcome.</Text>
+                <Box style={{ marginTop: 'auto', paddingTop: 12, borderTop: '1px solid #E5E7EB' }}>
+                    <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#1E4FA8' }}>Unit of work = task</Text>
+                </Box>
+            </Box>
+
+            <Box style={{ flex: 1, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: '20px 22px', flexDirection: 'column' }}>
+                <Box style={{ width: 44, height: 44, borderRadius: 10, background: '#E8EFF8', justifyContent: 'center', alignItems: 'center' }}>
+                    <FAIcon name='fingerprint' style={{ fill: '#1E4FA8', width: 22, height: 22 }} />
+                </Box>
+                <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#0E3F8C', marginTop: 12 }}>From “Trusting the Model”<br />to “Trusting the Evidence”</Text>
+                <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.6, marginTop: 10 }}>Memory only resolves references. Order, logistics, amount and eligibility are re-read from the merchant system before each execution, with source and version attached.</Text>
+                <Box style={{ marginTop: 'auto', paddingTop: 12, borderTop: '1px solid #E5E7EB' }}>
+                    <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#1E4FA8' }}>Memory grants no facts or authorization</Text>
+                </Box>
+            </Box>
+
+            <Box style={{ flex: 1, background: '#FFFFFF', border: '1px solid #D6DCE5', borderRadius: 10, padding: '20px 22px', flexDirection: 'column' }}>
+                <Box style={{ width: 44, height: 44, borderRadius: 10, background: '#E8EFF8', justifyContent: 'center', alignItems: 'center' }}>
+                    <FAIcon name='file-signature' style={{ fill: '#1E4FA8', width: 22, height: 22 }} />
+                </Box>
+                <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#0E3F8C', marginTop: 12 }}>From “Calling APIs”<br />to “Controlled Transactions”</Text>
+                <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.6, marginTop: 10 }}>Writes advance through five stages: proposal → customer confirmation → supervisor approval → idempotent execution → receipt reconciliation; missing any one means not done.</Text>
+                <Box style={{ marginTop: 'auto', paddingTop: 12, borderTop: '1px solid #E5E7EB' }}>
+                    <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#1E4FA8' }}>Five-stage controlled write</Text>
+                </Box>
+            </Box>
+        </Box>
+
+        {/* differentiation bar */}
+        <Box style={{ height: 96, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 10, padding: '0 26px', flexDirection: 'row', alignItems: 'center', gap: 18 }}>
+            <Box style={{ width: 44, height: 44, borderRadius: 10, background: '#1E4FA8', justifyContent: 'center', alignItems: 'center' }}>
+                <FAIcon name='bullseye' style={{ fill: '#FFFFFF', width: 22, height: 22 }} />
+            </Box>
+            <Box style={{ flex: 1 }}>
+                <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#0E3F8C' }}>Differentiation</Text>
+                <Text style={{ fontSize: 16, color: '#1A2230', lineHeight: 1.55, marginTop: 2 }}>We claim neither a domestic market void nor superiority over commercial products; the focus is the <span style={{ color: '#1E4FA8', fontWeight: 'bold' }}>verifiable execution loop</span> for high-risk after-sales tasks, quantified item by item with a frozen simulated evaluation.</Text>
+            </Box>
+        </Box>
+    </Box>
+
+    {/* D footer */}
+    <Box style={{ position: 'absolute', bottom: 0, left: 0, width: 1280, height: 56, padding: '0 40px', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid #E5E7EB' }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>Beijing Jiaotong University · Software Engineering (Professional Master)</Text>
+        <Text style={{ fontSize: 14, color: '#0E3F8C', fontWeight: 'bold' }}>05 / 18</Text>
+    </Box>
+</Slide>

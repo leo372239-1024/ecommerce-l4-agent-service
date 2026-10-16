@@ -1,0 +1,145 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', position: 'relative', fontFamily: 'Segoe UI', padding: '88px 40px 56px 40px' }}>
+    {/* A header */}
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 64, background: '#0E3F8C', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 0 0 40px' }}>
+        <Text style={{ fontSize: 16, color: '#FFFFFF', letterSpacing: 2 }}>Network Computing and Edge Intelligence · Proposal Defense</Text>
+        <Box style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={{ fontSize: 14, color: '#B9CDEA', marginRight: 22 }}>L4 Intelligent Customer Service Agent for E-Commerce</Text>
+            <Box style={{ width: 190, height: 64, background: '#FFFFFF', justifyContent: 'center', alignItems: 'center' }}>
+                <Image src="assets/bjtu_logo.png" style={{ width: 166, height: 48, objectFit: 'contain' }} />
+            </Box>
+        </Box>
+    </Box>
+
+    {/* B title block */}
+    <Box style={{ flexDirection: 'row', alignItems: 'center', height: 40 }}>
+        <Box style={{ width: 6, height: 34, background: '#1E4FA8', borderRadius: 3, marginRight: 12 }} />
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0E3F8C' }}>Implementation Plan and Team Roles</Text>
+        <Text style={{ fontSize: 15, color: '#8B97A8', marginLeft: 'auto' }}>06 / 06</Text>
+    </Box>
+
+    {/* C content */}
+    <Box style={{ flexDirection: 'column', gap: 12, marginTop: 16, height: 520 }}>
+        {/* six-stage plan */}
+        <Box style={{ flexDirection: 'column', gap: 12, height: 156 }}>
+            <Box style={{ flexDirection: 'row', gap: 12, height: 72 }}>
+                <Box style={{ flex: 1, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 8, padding: '10px 14px', flexDirection: 'column' }}>
+                    <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                        <Box style={{ width: 22, height: 22, borderRadius: 11, background: '#1E4FA8', justifyContent: 'center', alignItems: 'center' }}>
+                            <Text style={{ fontSize: 12, fontWeight: 'bold', color: '#FFFFFF', lineHeight: 1.2 }}>1</Text>
+                        </Box>
+                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#0E3F8C' }}>Requirements &amp; Design</Text>
+                    </Box>
+                    <Text style={{ fontSize: 13, color: '#4A5568', marginTop: 6 }}>Weeks 1–2 · scenarios, metrics, architecture</Text>
+                </Box>
+                <Box style={{ flex: 1, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 8, padding: '10px 14px', flexDirection: 'column' }}>
+                    <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                        <Box style={{ width: 22, height: 22, borderRadius: 11, background: '#1E4FA8', justifyContent: 'center', alignItems: 'center' }}>
+                            <Text style={{ fontSize: 12, fontWeight: 'bold', color: '#FFFFFF', lineHeight: 1.2 }}>2</Text>
+                        </Box>
+                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#0E3F8C' }}>Core Execution Chain</Text>
+                    </Box>
+                    <Text style={{ fontSize: 13, color: '#4A5568', marginTop: 6 }}>Weeks 3–5 · API / worker, contracts, DAG, tools</Text>
+                </Box>
+                <Box style={{ flex: 1, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 8, padding: '10px 14px', flexDirection: 'column' }}>
+                    <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                        <Box style={{ width: 22, height: 22, borderRadius: 11, background: '#1E4FA8', justifyContent: 'center', alignItems: 'center' }}>
+                            <Text style={{ fontSize: 12, fontWeight: 'bold', color: '#FFFFFF', lineHeight: 1.2 }}>3</Text>
+                        </Box>
+                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#0E3F8C' }}>Four Key Technologies</Text>
+                    </Box>
+                    <Text style={{ fontSize: 13, color: '#4A5568', marginTop: 6 }}>Weeks 6–8 · planning, routing, memory, recovery</Text>
+                </Box>
+            </Box>
+
+            <Box style={{ flexDirection: 'row', gap: 12, height: 72 }}>
+                <Box style={{ flex: 1, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 8, padding: '10px 14px', flexDirection: 'column' }}>
+                    <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                        <Box style={{ width: 22, height: 22, borderRadius: 11, background: '#1E4FA8', justifyContent: 'center', alignItems: 'center' }}>
+                            <Text style={{ fontSize: 12, fontWeight: 'bold', color: '#FFFFFF', lineHeight: 1.2 }}>4</Text>
+                        </Box>
+                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#0E3F8C' }}>Security &amp; Console</Text>
+                    </Box>
+                    <Text style={{ fontSize: 13, color: '#4A5568', marginTop: 6 }}>Weeks 9–10 · permissions, sandbox, console, SSE</Text>
+                </Box>
+                <Box style={{ flex: 1, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 8, padding: '10px 14px', flexDirection: 'column' }}>
+                    <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                        <Box style={{ width: 22, height: 22, borderRadius: 11, background: '#1E4FA8', justifyContent: 'center', alignItems: 'center' }}>
+                            <Text style={{ fontSize: 12, fontWeight: 'bold', color: '#FFFFFF', lineHeight: 1.2 }}>5</Text>
+                        </Box>
+                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#0E3F8C' }}>Evaluation Protocol</Text>
+                    </Box>
+                    <Text style={{ fontSize: 13, color: '#4A5568', marginTop: 6 }}>Weeks 11–12 · golden set, baselines, frozen replay</Text>
+                </Box>
+                <Box style={{ flex: 1, background: '#E8EFF8', border: '1px solid #1E4FA8', borderRadius: 8, padding: '10px 14px', flexDirection: 'column' }}>
+                    <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                        <Box style={{ width: 22, height: 22, borderRadius: 11, background: '#1E4FA8', justifyContent: 'center', alignItems: 'center' }}>
+                            <Text style={{ fontSize: 12, fontWeight: 'bold', color: '#FFFFFF', lineHeight: 1.2 }}>6</Text>
+                        </Box>
+                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#0E3F8C' }}>Acceptance &amp; Delivery</Text>
+                    </Box>
+                    <Text style={{ fontSize: 13, color: '#4A5568', marginTop: 6 }}>Weeks 13–14 · acceptance run, delivery, defense</Text>
+                </Box>
+            </Box>
+        </Box>
+
+        {/* milestones and roles */}
+        <Box style={{ flexDirection: 'row', gap: 20, height: 256 }}>
+            <Box style={{ width: 700, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: '20px 24px', flexDirection: 'column' }}>
+                <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#0E3F8C' }}>Milestones and Deliverables</Text>
+                <Box style={{ flexDirection: 'column', gap: 6, marginTop: 12 }}>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'center' }}>
+                        <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#FFFFFF', background: '#1E4FA8', padding: '2px 8px', borderRadius: 4 }}>M1</Text>
+                        <Text style={{ fontSize: 16, color: '#1A2230' }}>End of week 2 · requirements, architecture, pre-registered protocol</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'center' }}>
+                        <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#FFFFFF', background: '#1E4FA8', padding: '2px 8px', borderRadius: 4 }}>M2</Text>
+                        <Text style={{ fontSize: 16, color: '#1A2230' }}>End of week 5 · core chain runnable, business loop end-to-end</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'center' }}>
+                        <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#FFFFFF', background: '#1E4FA8', padding: '2px 8px', borderRadius: 4 }}>M3</Text>
+                        <Text style={{ fontSize: 16, color: '#1A2230' }}>End of week 8 · four key technologies in place and internally accepted</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'center' }}>
+                        <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#FFFFFF', background: '#1E4FA8', padding: '2px 8px', borderRadius: 4 }}>M4</Text>
+                        <Text style={{ fontSize: 16, color: '#1A2230' }}>End of week 14 · experiments, acceptance run, docs, defense</Text>
+                    </Box>
+                </Box>
+            </Box>
+
+            <Box style={{ width: 480, background: '#FFFFFF', border: '1px solid #D6DCE5', borderRadius: 10, padding: '16px 22px', flexDirection: 'column' }}>
+                <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#0E3F8C' }}>Team Roles</Text>
+                <Box style={{ flexDirection: 'column', gap: 4, marginTop: 8 }}>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#1E4FA8', width: 108 }}>Wang Fuxiang</Text>
+                        <Text style={{ fontSize: 14, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>Agent core and planning contracts (TaskSpec / validated DAG), evaluation protocol and experiments</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#1E4FA8', width: 108 }}>Cao Shutong</Text>
+                        <Text style={{ fontSize: 14, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>Merchant business and tool routing (MCP tool layer), retrieval and memory modules</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#1E4FA8', width: 108 }}>Zhang Fan</Text>
+                        <Text style={{ fontSize: 14, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>API and permission security, React console, deployment and observability (presenter)</Text>
+                    </Box>
+                </Box>
+            </Box>
+        </Box>
+
+        {/* plan notes bar */}
+        <Box style={{ height: 84, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 10, padding: '0 26px', flexDirection: 'row', alignItems: 'center', gap: 18 }}>
+            <Box style={{ width: 44, height: 44, borderRadius: 10, background: '#1E4FA8', justifyContent: 'center', alignItems: 'center' }}>
+                <FAIcon name='calendar-check' style={{ fill: '#FFFFFF', width: 22, height: 22 }} />
+            </Box>
+            <Box style={{ flex: 1 }}>
+                <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#0E3F8C' }}>Plan Notes</Text>
+                <Text style={{ fontSize: 15, color: '#1A2230', lineHeight: 1.55, marginTop: 2 }}>About one week of buffer is reserved between phases; controlled experiments depend on real model APIs, so quota must be requested early; if a target is missed, it is recorded honestly under pre-registered rules and later-phase scope is adjusted.</Text>
+            </Box>
+        </Box>
+    </Box>
+
+    {/* D footer */}
+    <Box style={{ position: 'absolute', bottom: 0, left: 0, width: 1280, height: 56, padding: '0 40px', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid #E5E7EB' }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>Beijing Jiaotong University · Software Engineering (Professional Master)</Text>
+        <Text style={{ fontSize: 14, color: '#0E3F8C', fontWeight: 'bold' }}>17 / 18</Text>
+    </Box>
+</Slide>

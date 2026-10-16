@@ -1,0 +1,116 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', position: 'relative', fontFamily: 'Microsoft YaHei', padding: '88px 40px 56px 40px' }}>
+    {/* A 页眉 */}
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 64, background: '#0E3F8C', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 0 0 40px' }}>
+        <Text style={{ fontSize: 16, color: '#FFFFFF', letterSpacing: 2 }}>网络计算与边缘智能 · 开题答辩</Text>
+        <Box style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={{ fontSize: 14, color: '#B9CDEA', marginRight: 22 }}>电商 L4 级智能客服 Agent 系统</Text>
+            <Box style={{ width: 190, height: 64, background: '#FFFFFF', justifyContent: 'center', alignItems: 'center' }}>
+                <Image src="assets/bjtu_logo.png" style={{ width: 166, height: 48, objectFit: 'contain' }} />
+            </Box>
+        </Box>
+    </Box>
+
+    {/* B 标题块 */}
+    <Box style={{ flexDirection: 'row', alignItems: 'center', height: 40 }}>
+        <Box style={{ width: 6, height: 34, background: '#1E4FA8', borderRadius: 3, marginRight: 12 }} />
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0E3F8C' }}>工程实现与部署</Text>
+        <Text style={{ fontSize: 15, color: '#8B97A8', marginLeft: 'auto' }}>04 / 06</Text>
+    </Box>
+
+    {/* C 内容区 */}
+    <Box style={{ flexDirection: 'column', gap: 12, marginTop: 16, height: 520 }}>
+        {/* 部署组件条 */}
+        <Box style={{ height: 76, background: '#0E3F8C', borderRadius: 10, padding: '0 22px', flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+            <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#3D7BD9', width: 96 }}>Docker Compose</Text>
+            <Box style={{ padding: '6px 14px', background: '#FFFFFF', borderRadius: 14 }}>
+                <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#0E3F8C', lineHeight: 1.2 }}>Nginx + 前端</Text>
+            </Box>
+            <Box style={{ padding: '6px 14px', background: '#FFFFFF', borderRadius: 14 }}>
+                <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#0E3F8C', lineHeight: 1.2 }}>FastAPI API</Text>
+            </Box>
+            <Box style={{ padding: '6px 14px', background: '#FFFFFF', borderRadius: 14 }}>
+                <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#0E3F8C', lineHeight: 1.2 }}>LangGraph Worker</Text>
+            </Box>
+            <Box style={{ padding: '6px 14px', background: '#FFFFFF', borderRadius: 14 }}>
+                <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#0E3F8C', lineHeight: 1.2 }}>MCP 商家服务</Text>
+            </Box>
+            <Box style={{ padding: '6px 14px', background: '#FFFFFF', borderRadius: 14 }}>
+                <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#0E3F8C', lineHeight: 1.2 }}>计算 Sandbox</Text>
+            </Box>
+            <Box style={{ padding: '6px 14px', background: '#FFFFFF', borderRadius: 14 }}>
+                <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#0E3F8C', lineHeight: 1.2 }}>PostgreSQL</Text>
+            </Box>
+            <Box style={{ padding: '6px 14px', background: '#FFFFFF', borderRadius: 14 }}>
+                <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#0E3F8C', lineHeight: 1.2 }}>Redis</Text>
+            </Box>
+            <Box style={{ padding: '6px 14px', background: '#3D7BD9', borderRadius: 14 }}>
+                <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#FFFFFF', lineHeight: 1.2 }}>ES / pgvector</Text>
+            </Box>
+        </Box>
+
+        <Box style={{ flexDirection: 'row', gap: 20, height: 320 }}>
+            {/* 左：验收数据 */}
+            <Box style={{ width: 700, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: '20px 24px', flexDirection: 'column' }}>
+                <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#0E3F8C' }}>工程验收实测</Text>
+                <Box style={{ flexDirection: 'row', gap: 16, marginTop: 16 }}>
+                    <Box style={{ flex: 1 }}>
+                        <Text style={{ fontSize: 40, fontWeight: 'bold', color: '#1E4FA8', lineHeight: 1 }}>293</Text>
+                        <Text style={{ fontSize: 15, color: '#4A5568', marginTop: 6, lineHeight: 1.5 }}>项后端测试<br />Windows 21.23s · Linux Docker 6.24s</Text>
+                    </Box>
+                    <Box style={{ flex: 1 }}>
+                        <Text style={{ fontSize: 40, fontWeight: 'bold', color: '#1E4FA8', lineHeight: 1 }}>7200s</Text>
+                        <Text style={{ fontSize: 15, color: '#4A5568', marginTop: 6, lineHeight: 1.5 }}>连续运行<br />120/120 只读任务通过 · 0 失败</Text>
+                    </Box>
+                    <Box style={{ flex: 1 }}>
+                        <Text style={{ fontSize: 40, fontWeight: 'bold', color: '#1E4FA8', lineHeight: 1 }}>30.19s</Text>
+                        <Text style={{ fontSize: 15, color: '#4A5568', marginTop: 6, lineHeight: 1.5 }}>Worker 故障接管<br />fencing 1 → 2 · 28 条事件连续</Text>
+                    </Box>
+                </Box>
+
+                <Box style={{ marginTop: 'auto', background: '#FFFFFF', border: '1px solid #E5E7EB', borderRadius: 8, padding: '12px 16px' }}>
+                    <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.55 }}>控制 API 压力（不触发 LLM）：10 并发 <span style={{ fontWeight: 'bold', color: '#1E4FA8' }}>174.37 RPS / P95≈79ms</span>；50 并发 <span style={{ fontWeight: 'bold', color: '#1E4FA8' }}>158.75 RPS / P95≈563ms</span>，全部 HTTP 200。</Text>
+                </Box>
+            </Box>
+
+            {/* 右：可靠性机制 */}
+            <Box style={{ width: 480, background: '#FFFFFF', border: '1px solid #D6DCE5', borderRadius: 10, padding: '20px 24px', flexDirection: 'column' }}>
+                <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#0E3F8C' }}>部署与数据可靠性</Text>
+                <Box style={{ flexDirection: 'column', gap: 6, marginTop: 10 }}>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#1E4FA8', width: 72 }}>分容器</Text>
+                        <Text style={{ fontSize: 15, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>API / Worker / MCP / Sandbox / 数据库独立进程，uv 锁文件与镜像 digest 冻结。</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#1E4FA8', width: 72 }}>权威存储</Text>
+                        <Text style={{ fontSize: 15, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>PostgreSQL 保存任务、事件、审批、幂等记录、业务账本与 Outbox。</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#1E4FA8', width: 72 }}>通知兜底</Text>
+                        <Text style={{ fontSize: 15, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>Redis Pub/Sub 仅加速唤醒，通知丢失由 PostgreSQL 轮询发现任务。</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#1E4FA8', width: 72 }}>可观测</Text>
+                        <Text style={{ fontSize: 15, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>OTel → Jaeger、Prometheus → Grafana，持久事件按 workflow_id 关联。</Text>
+                    </Box>
+                </Box>
+            </Box>
+        </Box>
+
+        {/* 结论条 */}
+        <Box style={{ height: 100, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 10, padding: '0 26px', flexDirection: 'row', alignItems: 'center', gap: 18 }}>
+            <Box style={{ width: 44, height: 44, borderRadius: 10, background: '#1E4FA8', justifyContent: 'center', alignItems: 'center' }}>
+                <FAIcon name='server' style={{ fill: '#FFFFFF', width: 22, height: 22 }} />
+            </Box>
+            <Box style={{ flex: 1 }}>
+                <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#0E3F8C' }}>验收范围与边界</Text>
+                <Text style={{ fontSize: 16, color: '#1A2230', lineHeight: 1.55, marginTop: 2 }}>上述为本机工程验收结果，不等于生产 SLA；Docker Compose 是本地 / 单宿主交付，PostgreSQL、Redis、MCP 仍为单宿主单实例，同宿主进程接管不等于数据库 HA。</Text>
+            </Box>
+        </Box>
+    </Box>
+
+    {/* D 页脚 */}
+    <Box style={{ position: 'absolute', bottom: 0, left: 0, width: 1280, height: 56, padding: '0 40px', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid #E5E7EB' }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>北京交通大学 · 软件工程（专硕）</Text>
+        <Text style={{ fontSize: 14, color: '#0E3F8C', fontWeight: 'bold' }}>13 / 18</Text>
+    </Box>
+</Slide>

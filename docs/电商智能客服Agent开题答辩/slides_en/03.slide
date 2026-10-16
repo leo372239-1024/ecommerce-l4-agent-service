@@ -1,0 +1,83 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', position: 'relative', fontFamily: 'Segoe UI', padding: '88px 40px 56px 40px' }}>
+    {/* A header */}
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 64, background: '#0E3F8C', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 0 0 40px' }}>
+        <Text style={{ fontSize: 16, color: '#FFFFFF', letterSpacing: 2 }}>Network Computing and Edge Intelligence · Proposal Defense</Text>
+        <Box style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={{ fontSize: 14, color: '#B9CDEA', marginRight: 22 }}>L4 Intelligent Customer Service Agent for E-Commerce</Text>
+            <Box style={{ width: 190, height: 64, background: '#FFFFFF', justifyContent: 'center', alignItems: 'center' }}>
+                <Image src="assets/bjtu_logo.png" style={{ width: 166, height: 48, objectFit: 'contain' }} />
+            </Box>
+        </Box>
+    </Box>
+
+    {/* B title block */}
+    <Box style={{ flexDirection: 'row', alignItems: 'center', height: 40 }}>
+        <Box style={{ width: 6, height: 34, background: '#1E4FA8', borderRadius: 3, marginRight: 12 }} />
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0E3F8C' }}>Project Rationale: Market Demand and Capability Gaps</Text>
+        <Text style={{ fontSize: 15, color: '#8B97A8', marginLeft: 'auto' }}>01 / 06</Text>
+    </Box>
+
+    {/* C content */}
+    <Box style={{ flexDirection: 'column', gap: 20, marginTop: 16, height: 520 }}>
+        <Box style={{ flexDirection: 'row', gap: 20, height: 400 }}>
+            {/* left: market background */}
+            <Box style={{ width: 480, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: '22px 26px', flexDirection: 'column' }}>
+                <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+                    <Box style={{ width: 4, height: 20, background: '#1E4FA8', borderRadius: 2 }} />
+                    <Text style={{ fontSize: 25, fontWeight: 'bold', color: '#0E3F8C' }}>Industry Background</Text>
+                    <Text style={{ fontSize: 14, color: '#8B97A8', marginLeft: 'auto' }}>Demand growth</Text>
+                </Box>
+                <Text style={{ fontSize: 17, color: '#4A5568', lineHeight: 1.7, marginTop: 10 }}>Enterprise-grade customer service is now procured at scale; market size and growth are both high.</Text>
+
+                <Box style={{ marginTop: 12 }}>
+                    <Text style={{ fontSize: 74, fontWeight: 'bold', color: '#1E4FA8', lineHeight: 1 }}>71.9</Text>
+                    <Text style={{ fontSize: 22, color: '#1A2230', fontWeight: 'bold', marginTop: 6 }}>× 100M RMB</Text>
+                    <Text style={{ fontSize: 15, color: '#8B97A8', marginTop: 4 }}>China enterprise customer service market, 2025</Text>
+                </Box>
+
+                <Box style={{ flexDirection: 'row', alignItems: 'baseline', gap: 12, marginTop: 12 }}>
+                    <Text style={{ fontSize: 44, fontWeight: 'bold', color: '#D9534F', lineHeight: 1 }}>+55.3%</Text>
+                    <Text style={{ fontSize: 17, color: '#4A5568' }}>year on year</Text>
+                </Box>
+                <Text style={{ fontSize: 14, color: '#8B97A8', marginTop: 'auto' }}>Source: IDC data (reported 2026)</Text>
+            </Box>
+
+            {/* right: problem redefinition */}
+            <Box style={{ width: 700, background: '#FFFFFF', border: '1px solid #D6DCE5', borderRadius: 10, padding: '22px 26px', flexDirection: 'column' }}>
+                <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+                    <Box style={{ width: 4, height: 20, background: '#1E4FA8', borderRadius: 2 }} />
+                    <Text style={{ fontSize: 25, fontWeight: 'bold', color: '#0E3F8C' }}>Problem Redefinition</Text>
+                    <Text style={{ fontSize: 14, color: '#8B97A8', marginLeft: 'auto' }}>Capability gap</Text>
+                </Box>
+                <Text style={{ fontSize: 17, color: '#4A5568', lineHeight: 1.7, marginTop: 12 }}>Mature vendors have solved “the agent can answer”; “the agent can complete the task” still shows an engineering gap.</Text>
+
+                <Box style={{ flexDirection: 'row', gap: 14, marginTop: 16 }}>
+                    <Box style={{ flex: 1, background: '#F0F5FC', borderRadius: 8, padding: '14px 16px', borderLeft: '4px solid #3D7BD9' }}>
+                        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#1E4FA8' }}>Largely solved</Text>
+                        <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.6, marginTop: 6 }}>FAQ answering, retrieval,<br />single-turn queries — can answer</Text>
+                    </Box>
+                    <Box style={{ flex: 1, background: '#FDF3F3', borderRadius: 8, padding: '14px 16px', borderLeft: '4px solid #D9534F' }}>
+                        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#D9534F' }}>Still a gap</Text>
+                        <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.6, marginTop: 6 }}>Refunds, cancellations, other<br />high-risk writes — cannot verify</Text>
+                    </Box>
+                </Box>
+
+                <Box style={{ background: '#F7F9FC', borderRadius: 8, padding: '12px 16px', marginTop: 16, border: '1px solid #E5E7EB' }}>
+                    <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.6 }}>CAICT's Agent Technology and Application Research Report (2025) lists cognitive planning, scenario innovation and security governance as open challenges.</Text>
+                </Box>
+            </Box>
+        </Box>
+
+        {/* bottom conclusion bar */}
+        <Box style={{ height: 100, background: '#0E3F8C', borderRadius: 10, padding: '0 28px', flexDirection: 'row', alignItems: 'center', gap: 20 }}>
+            <Text style={{ fontSize: 40, fontWeight: 'bold', color: '#3D7BD9', fontFamily: 'Times New Roman', lineHeight: 1 }}>Q</Text>
+            <Text style={{ fontSize: 17, color: '#FFFFFF', lineHeight: 1.65 }}>Research question: how to organize <b>identity permissions, current evidence, customer authorization, supervisor approval, transactional idempotency and receipt reconciliation</b> into a verifiable, auditable and recoverable execution loop for high-risk after-sales tasks.</Text>
+        </Box>
+    </Box>
+
+    {/* D footer */}
+    <Box style={{ position: 'absolute', bottom: 0, left: 0, width: 1280, height: 56, padding: '0 40px', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid #E5E7EB' }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>Beijing Jiaotong University · Software Engineering (Professional Master)</Text>
+        <Text style={{ fontSize: 14, color: '#0E3F8C', fontWeight: 'bold' }}>03 / 18</Text>
+    </Box>
+</Slide>

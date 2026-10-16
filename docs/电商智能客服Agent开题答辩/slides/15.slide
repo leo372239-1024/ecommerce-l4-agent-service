@@ -1,0 +1,103 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', position: 'relative', fontFamily: 'Microsoft YaHei', padding: '88px 40px 56px 40px' }}>
+    {/* A 页眉 */}
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 64, background: '#0E3F8C', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 0 0 40px' }}>
+        <Text style={{ fontSize: 16, color: '#FFFFFF', letterSpacing: 2 }}>网络计算与边缘智能 · 开题答辩</Text>
+        <Box style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={{ fontSize: 14, color: '#B9CDEA', marginRight: 22 }}>电商 L4 级智能客服 Agent 系统</Text>
+            <Box style={{ width: 190, height: 64, background: '#FFFFFF', justifyContent: 'center', alignItems: 'center' }}>
+                <Image src="assets/bjtu_logo.png" style={{ width: 166, height: 48, objectFit: 'contain' }} />
+            </Box>
+        </Box>
+    </Box>
+
+    {/* B 标题块 */}
+    <Box style={{ flexDirection: 'row', alignItems: 'center', height: 40 }}>
+        <Box style={{ width: 6, height: 34, background: '#1E4FA8', borderRadius: 3, marginRight: 12 }} />
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0E3F8C' }}>预期效果与验收指标</Text>
+        <Text style={{ fontSize: 15, color: '#8B97A8', marginLeft: 'auto' }}>05 / 06</Text>
+    </Box>
+
+    {/* C 内容区 */}
+    <Box style={{ flexDirection: 'column', gap: 12, marginTop: 16, height: 520 }}>
+        {/* 预期效果表 */}
+        <Box style={{ height: 312 }}>
+            <Table
+                style={{ width: '100%', height: '100%' }}
+                defaultTextStyle={{ fontSize: 15, textAlign: 'center', color: '#1A2230' }}
+                defaultCellStyle={{
+                    border: {
+                        left: { width: 1, color: '#E5E7EB' },
+                        right: { width: 1, color: '#E5E7EB' },
+                        top: { width: 1, color: '#E5E7EB' },
+                        bottom: { width: 1, color: '#E5E7EB' },
+                    },
+                }}
+                cells={[
+                    [
+                        { text: '技术方向', textStyle: { bold: true, color: '#FFFFFF', fontSize: 16 }, cellStyle: { background: { color: '#0E3F8C' } } },
+                        { text: '预期目标', textStyle: { bold: true, color: '#FFFFFF', fontSize: 16 }, cellStyle: { background: { color: '#0E3F8C' } } },
+                        { text: '对照基线', textStyle: { bold: true, color: '#FFFFFF', fontSize: 16 }, cellStyle: { background: { color: '#0E3F8C' } } },
+                        { text: '预期提升', textStyle: { bold: true, color: '#FFFFFF', fontSize: 16 }, cellStyle: { background: { color: '#0E3F8C' } } },
+                        { text: '验收方式', textStyle: { bold: true, color: '#FFFFFF', fontSize: 16 }, cellStyle: { background: { color: '#0E3F8C' } } },
+                    ],
+                    [
+                        '可验证规划',
+                        { text: '复杂任务严格成功率 ≥ 85%', textStyle: { bold: true, color: '#1E4FA8' } },
+                        '原生 ReAct + 混合检索',
+                        { text: '≥ +8pp', textStyle: { bold: true, color: '#1E4FA8' } },
+                        '36 场景 × 5 trial，family 均衡差',
+                    ],
+                    [
+                        { text: '受权工具路由', cellStyle: { background: { color: '#F7F9FC' } } },
+                        { text: '1000 项候选下质量不回退', textStyle: { bold: true, color: '#1E4FA8' }, cellStyle: { background: { color: '#F7F9FC' } } },
+                        { text: '混合检索路由', cellStyle: { background: { color: '#F7F9FC' } } },
+                        { text: '≥ 0pp（不劣化）', cellStyle: { background: { color: '#F7F9FC' } } },
+                        { text: '50 例 × 3 trial，权限与参数校验', cellStyle: { background: { color: '#F7F9FC' } } },
+                    ],
+                    [
+                        '时效记忆与上下文',
+                        { text: '严格成功率 ≥ 90%', textStyle: { bold: true, color: '#1E4FA8' } },
+                        '最近对话 + 向量历史',
+                        { text: '≥ +50pp；Token 降 ≥ 50%', textStyle: { bold: true, color: '#1E4FA8' } },
+                        '长会话专项，配对 Token 口径',
+                    ],
+                    [
+                        { text: '证据反思与故障恢复', cellStyle: { background: { color: '#F7F9FC' } } },
+                        { text: '可恢复故障成功率 ≥ 90%', textStyle: { bold: true, color: '#1E4FA8' }, cellStyle: { background: { color: '#F7F9FC' } } },
+                        { text: '关闭反思基线', cellStyle: { background: { color: '#F7F9FC' } } },
+                        { text: '≥ +15pp', textStyle: { bold: true, color: '#1E4FA8' }, cellStyle: { background: { color: '#F7F9FC' } } },
+                        { text: '故障族对照；永久故障安全停止单列', cellStyle: { background: { color: '#F7F9FC' } } },
+                    ],
+                ]}
+            />
+        </Box>
+
+        {/* 规模与工程验收预期 */}
+        <Box style={{ height: 84, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 10, padding: '0 26px', flexDirection: 'row', alignItems: 'center', gap: 28 }}>
+            <Box style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8 }}>
+                <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#1E4FA8', lineHeight: 1 }}>≥ 3000</Text>
+                <Text style={{ fontSize: 15, color: '#4A5568' }}>个冻结评测单元</Text>
+            </Box>
+            <Box style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8 }}>
+                <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#1E4FA8', lineHeight: 1 }}>4 项</Text>
+                <Text style={{ fontSize: 15, color: '#4A5568' }}>主指标 + 4 类对照基线</Text>
+            </Box>
+            <Text style={{ fontSize: 15, color: '#4A5568', flex: 1 }}>工程验收预期：后端测试全通过 · 2 小时连续运行 0 失败 · 控制 API 50 并发 P95 &lt; 1s</Text>
+        </Box>
+
+        {/* 验收原则条 */}
+        <Box style={{ height: 100, background: '#0E3F8C', borderRadius: 10, padding: '0 26px', flexDirection: 'row', alignItems: 'center', gap: 18 }}>
+            <FAIcon name='balance-scale' style={{ fill: '#3D7BD9', width: 26, height: 26 }} />
+            <Box style={{ flex: 1 }}>
+                <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#FFFFFF' }}>验收原则</Text>
+                <Text style={{ fontSize: 16, color: '#B9CDEA', lineHeight: 1.55, marginTop: 2 }}>终态 SUCCEEDED 不等于成功：需联合检查订单作用域、当前证据与写入回执；未达标项按预登记规则如实记录，不更换分母。</Text>
+            </Box>
+        </Box>
+    </Box>
+
+    {/* D 页脚 */}
+    <Box style={{ position: 'absolute', bottom: 0, left: 0, width: 1280, height: 56, padding: '0 40px', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid #E5E7EB' }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>北京交通大学 · 软件工程（专硕）</Text>
+        <Text style={{ fontSize: 14, color: '#0E3F8C', fontWeight: 'bold' }}>15 / 18</Text>
+    </Box>
+</Slide>

@@ -1,0 +1,85 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', position: 'relative', fontFamily: 'Microsoft YaHei', padding: '88px 40px 56px 40px' }}>
+    {/* A 页眉（A3 深蓝顶条） */}
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 64, background: '#0E3F8C', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 0 0 40px' }}>
+        <Text style={{ fontSize: 16, color: '#FFFFFF', letterSpacing: 2 }}>网络计算与边缘智能 · 开题答辩</Text>
+        <Box style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={{ fontSize: 14, color: '#B9CDEA', marginRight: 22 }}>电商 L4 级智能客服 Agent 系统</Text>
+            <Box style={{ width: 190, height: 64, background: '#FFFFFF', justifyContent: 'center', alignItems: 'center' }}>
+                <Image src="assets/bjtu_logo.png" style={{ width: 166, height: 48, objectFit: 'contain' }} />
+            </Box>
+        </Box>
+    </Box>
+
+    {/* B 标题块 */}
+    <Box style={{ flexDirection: 'row', alignItems: 'center', height: 40 }}>
+        <Box style={{ width: 6, height: 34, background: '#1E4FA8', borderRadius: 3, marginRight: 12 }} />
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0E3F8C' }}>研究背景与问题定义</Text>
+        <Text style={{ fontSize: 15, color: '#8B97A8', marginLeft: 'auto' }}>01 / 06</Text>
+    </Box>
+
+    {/* C 内容区 */}
+    <Box style={{ flexDirection: 'column', gap: 20, marginTop: 16, height: 520 }}>
+        <Box style={{ flexDirection: 'row', gap: 20, height: 400 }}>
+            {/* 左：行业背景与数据锚点 */}
+            <Box style={{ width: 480, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: '22px 26px', flexDirection: 'column' }}>
+                <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+                    <Box style={{ width: 4, height: 20, background: '#1E4FA8', borderRadius: 2 }} />
+                    <Text style={{ fontSize: 25, fontWeight: 'bold', color: '#0E3F8C' }}>行业背景</Text>
+                    <Text style={{ fontSize: 14, color: '#8B97A8', marginLeft: 'auto' }}>需求侧增长</Text>
+                </Box>
+                <Text style={{ fontSize: 17, color: '#4A5568', lineHeight: 1.7, marginTop: 12 }}>企业级智能客服已进入规模化采购阶段，市场规模与增速均处于高位。</Text>
+
+                <Box style={{ marginTop: 20 }}>
+                    <Text style={{ fontSize: 74, fontWeight: 'bold', color: '#1E4FA8', lineHeight: 1 }}>71.9</Text>
+                    <Box style={{ flexDirection: 'row', alignItems: 'baseline', gap: 10, marginTop: 6 }}>
+                        <Text style={{ fontSize: 22, color: '#1A2230', fontWeight: 'bold' }}>亿元</Text>
+                        <Text style={{ fontSize: 16, color: '#8B97A8' }}>2025 年中国企业级智能客服市场规模</Text>
+                    </Box>
+                </Box>
+
+                <Box style={{ flexDirection: 'row', alignItems: 'baseline', gap: 12, marginTop: 18 }}>
+                    <Text style={{ fontSize: 44, fontWeight: 'bold', color: '#D9534F', lineHeight: 1 }}>+55.3%</Text>
+                    <Text style={{ fontSize: 17, color: '#4A5568' }}>同比增长</Text>
+                </Box>
+                <Text style={{ fontSize: 14, color: '#8B97A8', marginTop: 'auto' }}>数据来源：IDC 数据（2026 年报道）</Text>
+            </Box>
+
+            {/* 右：问题重定义 */}
+            <Box style={{ width: 700, background: '#FFFFFF', border: '1px solid #D6DCE5', borderRadius: 10, padding: '22px 26px', flexDirection: 'column' }}>
+                <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+                    <Box style={{ width: 4, height: 20, background: '#1E4FA8', borderRadius: 2 }} />
+                    <Text style={{ fontSize: 25, fontWeight: 'bold', color: '#0E3F8C' }}>问题重定义</Text>
+                    <Text style={{ fontSize: 14, color: '#8B97A8', marginLeft: 'auto' }}>能力侧缺口</Text>
+                </Box>
+                <Text style={{ fontSize: 17, color: '#4A5568', lineHeight: 1.7, marginTop: 12 }}>成熟厂商已解决「客服能回答」，但「客服能办完」仍存在工程能力断层。</Text>
+
+                <Box style={{ flexDirection: 'row', gap: 14, marginTop: 16 }}>
+                    <Box style={{ flex: 1, background: '#F0F5FC', borderRadius: 8, padding: '14px 16px', borderLeft: '4px solid #3D7BD9' }}>
+                        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#1E4FA8' }}>已基本解决</Text>
+                        <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.6, marginTop: 6 }}>FAQ 问答、知识检索、单轮查询——<br />客服「能回答」</Text>
+                    </Box>
+                    <Box style={{ flex: 1, background: '#FDF3F3', borderRadius: 8, padding: '14px 16px', borderLeft: '4px solid #D9534F' }}>
+                        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#D9534F' }}>仍是缺口</Text>
+                        <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.6, marginTop: 6 }}>退款、取消等高风险写操作——<br />缺「能办完且可验证」</Text>
+                    </Box>
+                </Box>
+
+                <Box style={{ background: '#F7F9FC', borderRadius: 8, padding: '12px 16px', marginTop: 16, border: '1px solid #E5E7EB' }}>
+                    <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.6 }}>中国信通院《智能体技术和应用研究报告（2025 年）》将认知规划能力、场景创新与安全治理列为仍需解决的挑战。</Text>
+                </Box>
+            </Box>
+        </Box>
+
+        {/* 底部结论条 */}
+        <Box style={{ height: 100, background: '#0E3F8C', borderRadius: 10, padding: '0 28px', flexDirection: 'row', alignItems: 'center', gap: 20 }}>
+            <Text style={{ fontSize: 40, fontWeight: 'bold', color: '#3D7BD9', fontFamily: 'Times New Roman', lineHeight: 1 }}>Q</Text>
+            <Text style={{ fontSize: 20, color: '#FFFFFF', lineHeight: 1.65 }}>研究问题：如何把<b>身份权限、当前证据、客户授权、主管审批、事务幂等与回执对账</b>，组织成一条对高风险售后事务可验证、可审计、可恢复的执行闭环。</Text>
+        </Box>
+    </Box>
+
+    {/* D 页脚 */}
+    <Box style={{ position: 'absolute', bottom: 0, left: 0, width: 1280, height: 56, padding: '0 40px', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid #E5E7EB' }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>北京交通大学 · 软件工程（专硕）</Text>
+        <Text style={{ fontSize: 14, color: '#0E3F8C', fontWeight: 'bold' }}>03 / 18</Text>
+    </Box>
+</Slide>

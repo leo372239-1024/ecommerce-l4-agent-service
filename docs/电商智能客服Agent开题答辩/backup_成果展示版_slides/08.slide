@@ -1,0 +1,99 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', position: 'relative', fontFamily: 'Microsoft YaHei', padding: '88px 40px 56px 40px' }}>
+    {/* A 页眉 */}
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 64, background: '#0E3F8C', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 0 0 40px' }}>
+        <Text style={{ fontSize: 16, color: '#FFFFFF', letterSpacing: 2 }}>网络计算与边缘智能 · 开题答辩</Text>
+        <Box style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={{ fontSize: 14, color: '#B9CDEA', marginRight: 22 }}>电商 L4 级智能客服 Agent 系统</Text>
+            <Box style={{ width: 190, height: 64, background: '#FFFFFF', justifyContent: 'center', alignItems: 'center' }}>
+                <Image src="assets/bjtu_logo.png" style={{ width: 166, height: 48, objectFit: 'contain' }} />
+            </Box>
+        </Box>
+    </Box>
+
+    {/* B 标题块 */}
+    <Box style={{ flexDirection: 'row', alignItems: 'center', height: 40 }}>
+        <Box style={{ width: 6, height: 34, background: '#1E4FA8', borderRadius: 3, marginRight: 12 }} />
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0E3F8C' }}>关键技术 ① 可验证规划</Text>
+        <Text style={{ fontSize: 15, color: '#8B97A8', marginLeft: 'auto' }}>04 / 06</Text>
+    </Box>
+
+    {/* C 内容区 */}
+    <Box style={{ flexDirection: 'column', gap: 20, marginTop: 16, height: 520 }}>
+        <Box style={{ flexDirection: 'row', gap: 20, height: 400 }}>
+            {/* 左：机制说明 */}
+            <Box style={{ width: 720, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: '20px 24px', flexDirection: 'column' }}>
+                <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+                    <FAIcon name='sitemap' style={{ fill: '#3D7BD9', width: 22, height: 22 }} />
+                    <Text style={{ fontSize: 25, fontWeight: 'bold', color: '#0E3F8C' }}>TaskSpec 约束 + 校验 DAG 编译</Text>
+                </Box>
+                <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.6, marginTop: 8 }}>把「用户目标」变成可静态检查的结构，而不是让模型自由生成一串动作。</Text>
+
+                <Box style={{ flexDirection: 'column', gap: 10, marginTop: 14 }}>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#1E4FA8', width: 76 }}>输入约束</Text>
+                        <Text style={{ fontSize: 16, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>Pydantic TaskSpec 显式声明目标、实体、读写类型与预算上界。</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#1E4FA8', width: 76 }}>依赖编译</Text>
+                        <Text style={{ fontSize: 16, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>节点、依赖、读写顺序与绑定实体均可静态校验，先读后写可验证。</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#1E4FA8', width: 76 }}>覆盖检查</Text>
+                        <Text style={{ fontSize: 16, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>原文已识别的属性若在解析查询中遗漏，直接拒绝该计划，防止只完成复合请求的一部分。</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#1E4FA8', width: 76 }}>有限修复</Text>
+                        <Text style={{ fontSize: 16, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>校验失败进入预算内重规划，次数、Token、工具数与活动时长均受限。</Text>
+                    </Box>
+                </Box>
+
+                <Box style={{ marginTop: 'auto', background: '#FFFFFF', border: '1px solid #E5E7EB', borderRadius: 8, padding: '10px 16px' }}>
+                    <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.5 }}>否定表达保留语义路径；未知属性不声称被该检查覆盖。</Text>
+                </Box>
+            </Box>
+
+            {/* 右：实测对比 */}
+            <Box style={{ width: 460, background: '#FFFFFF', border: '1px solid #D6DCE5', borderRadius: 10, padding: '20px 24px', flexDirection: 'column' }}>
+                <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#0E3F8C' }}>实测对比（冻结模拟）</Text>
+                <Text style={{ fontSize: 14, color: '#8B97A8', marginTop: 4 }}>36 个新复杂场景 × 5 trial = 180 单元 / 29 families</Text>
+
+                <Box style={{ marginTop: 12 }}>
+                    <Text style={{ fontSize: 48, fontWeight: 'bold', color: '#1E4FA8', lineHeight: 1 }}>88.33%</Text>
+                    <Text style={{ fontSize: 15, color: '#4A5568', marginTop: 4 }}>本方案 P：159 / 180 严格成功</Text>
+                </Box>
+
+                <Box style={{ marginTop: 10 }}>
+                    <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#8B97A8', lineHeight: 1 }}>65.00%</Text>
+                    <Text style={{ fontSize: 15, color: '#4A5568', marginTop: 4 }}>基线 B2（原生 ReAct + 混合检索）：117 / 180</Text>
+                </Box>
+
+                <Box style={{ flexDirection: 'row', alignItems: 'baseline', gap: 10, marginTop: 12 }}>
+                    <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#D9534F', lineHeight: 1 }}>+9.14pp</Text>
+                    <Text style={{ fontSize: 15, color: '#4A5568' }}>family 均衡差</Text>
+                </Box>
+                <Text style={{ fontSize: 15, color: '#4A5568', marginTop: 6 }}>95% 聚类区间 [−4.66, +23.45]pp</Text>
+
+                <Box style={{ marginTop: 'auto', background: '#FDF3F3', borderLeft: '4px solid #D9534F', borderRadius: 8, padding: '10px 14px' }}>
+                    <Text style={{ fontSize: 15, color: '#C0392B', lineHeight: 1.5 }}>区间含 0，正效应尚未获统计支持；P 未达预登记 ≥90% 门槛，如实披露。</Text>
+                </Box>
+            </Box>
+        </Box>
+
+        {/* 结论条 */}
+        <Box style={{ height: 100, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 10, padding: '0 26px', flexDirection: 'row', alignItems: 'center', gap: 18 }}>
+            <Box style={{ width: 44, height: 44, borderRadius: 10, background: '#1E4FA8', justifyContent: 'center', alignItems: 'center' }}>
+                <FAIcon name='clipboard-check' style={{ fill: '#FFFFFF', width: 22, height: 22 }} />
+            </Box>
+            <Box style={{ flex: 1 }}>
+                <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#0E3F8C' }}>工程价值</Text>
+                <Text style={{ fontSize: 17, color: '#1A2230', lineHeight: 1.6, marginTop: 2 }}>把「漏掉一个商品属性或订单实体」从隐性风险变成<span style={{ color: '#1E4FA8', fontWeight: 'bold' }}>显式失败</span>，使复合售后请求的完成度可被审计；效果上限仍受模型与场景分布限制。</Text>
+            </Box>
+        </Box>
+    </Box>
+
+    {/* D 页脚 */}
+    <Box style={{ position: 'absolute', bottom: 0, left: 0, width: 1280, height: 56, padding: '0 40px', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid #E5E7EB' }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>北京交通大学 · 软件工程（专硕）</Text>
+        <Text style={{ fontSize: 14, color: '#0E3F8C', fontWeight: 'bold' }}>08 / 18</Text>
+    </Box>
+</Slide>

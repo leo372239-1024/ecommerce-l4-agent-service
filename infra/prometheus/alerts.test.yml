@@ -1,0 +1,34 @@
+rule_files: [alerts.yml]
+evaluation_interval: 15s
+tests:
+  - interval: 15s
+    input_series:
+      - series: 'up{job="agent-api",instance="one"}'
+        values: '1+0x24'
+      - series: 'up{job="agent-api",instance="two"}'
+        values: '0+0x24'
+      - series: 'agent_outbox_pending{job="agent-api",instance="one"}'
+        values: '60+0x24'
+      - series: 'agent_outbox_pending{job="agent-api",instance="two"}'
+        values: '60+0x24'
+    alert_rule_test:
+      - eval_time: 6m
+        alertname: AgentAPIUnavailable
+        exp_alerts: []
+      - eval_time: 6m
+        alertname: AgentOutboxBacklog
+        exp_alerts: []
+  - interval: 15s
+    input_series:
+      - series: 'up{job="agent-api",instance="one"}'
+        values: '0+0x24'
+      - series: 'up{job="agent-api",instance="two"}'
+        values: '0+0x24'
+    alert_rule_test:
+      - eval_time: 2m
+        alertname: AgentAPIUnavailable
+        exp_alerts:
+          - exp_labels: {severity: critical}
+            exp_annotations:
+              summary: "全部Agent API抓取不可用"
+              description: "检查API进程、Docker DNS及依赖就绪状态。"

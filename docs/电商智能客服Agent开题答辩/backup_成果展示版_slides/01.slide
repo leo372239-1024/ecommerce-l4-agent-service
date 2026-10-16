@@ -1,0 +1,62 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', position: 'relative', fontFamily: 'Microsoft YaHei', padding: 0 }}>
+    {/* 顶部深蓝条 */}
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 64, background: '#0E3F8C', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 0 0 40px' }}>
+        <Text style={{ fontSize: 18, color: '#FFFFFF', letterSpacing: 2 }}>网络计算与边缘智能</Text>
+        <Box style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={{ fontSize: 16, color: '#B9CDEA', letterSpacing: 1, marginRight: 22 }}>课程项目开题答辩</Text>
+            <Box style={{ width: 190, height: 64, background: '#FFFFFF', justifyContent: 'center', alignItems: 'center' }}>
+                <Image src="assets/bjtu_logo.png" style={{ width: 166, height: 48, objectFit: 'contain' }} />
+            </Box>
+        </Box>
+    </Box>
+
+    {/* 左侧竖向强调块 */}
+    <Box style={{ position: 'absolute', top: 64, left: 0, width: 10, height: 568, background: '#1E4FA8' }} />
+    {/* 右上浅蓝装饰弧 */}
+    <Box style={{ position: 'absolute', top: 64, right: 0, width: 300, height: 260, background: '#F0F5FC', borderBottomLeftRadius: 260 }} />
+
+    {/* 封面主体 */}
+    <Box style={{ position: 'absolute', top: 132, left: 84, width: 1120, flexDirection: 'column' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12, height: 36 }}>
+            <Box style={{ padding: '6px 20px', background: '#E8EFF8', borderRadius: 18, border: '1px solid #C9DCF5' }}>
+                <Text style={{ fontSize: 17, color: '#1E4FA8', fontWeight: 'bold', letterSpacing: 1 }}>课程项目开题答辩</Text>
+            </Box>
+            <Text style={{ fontSize: 16, color: '#8B97A8' }}>Research Proposal Defense</Text>
+        </Box>
+
+        <Text style={{ fontSize: 60, fontWeight: 'bold', color: '#0E3F8C', lineHeight: 1.25, marginTop: 22 }}>电商 L4 级智能客服 Agent 系统</Text>
+
+        <Text style={{ fontFamily: 'Times New Roman', fontSize: 23, color: '#3D7BD9', lineHeight: 1.5, marginTop: 10 }}>A Verifiable Execution Loop for High-Risk After-Sales Tasks</Text>
+
+        <Box style={{ width: 140, height: 5, background: '#1E4FA8', borderRadius: 3, marginTop: 26 }} />
+
+        <Box style={{ flexDirection: 'row', gap: 56, marginTop: 34 }}>
+            <Box style={{ flexDirection: 'column', gap: 18 }}>
+                <Box style={{ flexDirection: 'row', gap: 10 }}>
+                    <Text style={{ fontSize: 20, color: '#8B97A8', width: 92 }}>汇报人</Text>
+                    <Text style={{ fontSize: 22, color: '#1A2230', fontWeight: 'bold' }}>张藩</Text>
+                </Box>
+                <Box style={{ flexDirection: 'row', gap: 10 }}>
+                    <Text style={{ fontSize: 20, color: '#8B97A8', width: 92 }}>指导教师</Text>
+                    <Text style={{ fontSize: 22, color: '#1A2230', fontWeight: 'bold' }}>高博 老师</Text>
+                </Box>
+            </Box>
+            <Box style={{ flexDirection: 'column', gap: 18 }}>
+                <Box style={{ flexDirection: 'row', gap: 10 }}>
+                    <Text style={{ fontSize: 20, color: '#8B97A8', width: 92 }}>小组成员</Text>
+                    <Text style={{ fontSize: 22, color: '#1A2230' }}>王富祥 · 曹树桐 · 张藩</Text>
+                </Box>
+                <Box style={{ flexDirection: 'row', gap: 10 }}>
+                    <Text style={{ fontSize: 20, color: '#8B97A8', width: 92 }}>专业方向</Text>
+                    <Text style={{ fontSize: 22, color: '#1A2230' }}>软件工程（专业硕士）</Text>
+                </Box>
+            </Box>
+        </Box>
+    </Box>
+
+    {/* 底部信息条 */}
+    <Box style={{ position: 'absolute', bottom: 0, left: 0, width: 1280, height: 88, background: '#F7F9FC', borderTop: '1px solid #D6DCE5', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 44px' }}>
+        <Text style={{ fontSize: 18, color: '#4A5568', letterSpacing: 1 }}>北京交通大学 · 软件工程（专硕）</Text>
+        <Text style={{ fontSize: 18, color: '#0E3F8C', fontWeight: 'bold', letterSpacing: 1 }}>2026 年 10 月</Text>
+    </Box>
+</Slide>

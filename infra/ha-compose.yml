@@ -1,0 +1,10 @@
+# Optional process-redundancy rehearsal on ONE host. PostgreSQL/Redis/web remain singletons.
+# Not a multi-zone high availability deployment.
+services:
+  api:
+    ports: !reset []
+    deploy:
+      replicas: 2
+  worker:
+    deploy:
+      replicas: 2

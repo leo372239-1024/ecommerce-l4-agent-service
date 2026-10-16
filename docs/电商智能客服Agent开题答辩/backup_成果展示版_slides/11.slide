@@ -1,0 +1,107 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', position: 'relative', fontFamily: 'Microsoft YaHei', padding: '88px 40px 56px 40px' }}>
+    {/* A 页眉 */}
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 64, background: '#0E3F8C', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 0 0 40px' }}>
+        <Text style={{ fontSize: 16, color: '#FFFFFF', letterSpacing: 2 }}>网络计算与边缘智能 · 开题答辩</Text>
+        <Box style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={{ fontSize: 14, color: '#B9CDEA', marginRight: 22 }}>电商 L4 级智能客服 Agent 系统</Text>
+            <Box style={{ width: 190, height: 64, background: '#FFFFFF', justifyContent: 'center', alignItems: 'center' }}>
+                <Image src="assets/bjtu_logo.png" style={{ width: 166, height: 48, objectFit: 'contain' }} />
+            </Box>
+        </Box>
+    </Box>
+
+    {/* B 标题块 */}
+    <Box style={{ flexDirection: 'row', alignItems: 'center', height: 40 }}>
+        <Box style={{ width: 6, height: 34, background: '#1E4FA8', borderRadius: 3, marginRight: 12 }} />
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0E3F8C' }}>关键技术 ④ 证据反思与故障恢复</Text>
+        <Text style={{ fontSize: 15, color: '#8B97A8', marginLeft: 'auto' }}>04 / 06</Text>
+    </Box>
+
+    {/* C 内容区 */}
+    <Box style={{ flexDirection: 'column', gap: 12, marginTop: 16, height: 520 }}>
+        {/* 观察包四字段 */}
+        <Box style={{ flexDirection: 'row', gap: 12, height: 72 }}>
+            <Box style={{ flex: 1, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 8, padding: '0 18px', flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+                <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#1E4FA8' }}>来源</Text>
+                <Text style={{ fontSize: 15, color: '#4A5568' }}>数据出处可追溯</Text>
+            </Box>
+            <Box style={{ flex: 1, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 8, padding: '0 18px', flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+                <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#1E4FA8' }}>实体</Text>
+                <Text style={{ fontSize: 15, color: '#4A5568' }}>绑定订单 / 商品</Text>
+            </Box>
+            <Box style={{ flex: 1, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 8, padding: '0 18px', flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+                <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#1E4FA8' }}>版本</Text>
+                <Text style={{ fontSize: 15, color: '#4A5568' }}>状态版本可比对</Text>
+            </Box>
+            <Box style={{ flex: 1, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 8, padding: '0 18px', flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+                <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#1E4FA8' }}>时间</Text>
+                <Text style={{ fontSize: 15, color: '#4A5568' }}>时效与 schema 校验</Text>
+            </Box>
+        </Box>
+
+        <Box style={{ flexDirection: 'row', gap: 20, height: 344 }}>
+            {/* 左：机制 */}
+            <Box style={{ width: 720, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: '20px 24px', flexDirection: 'column' }}>
+                <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+                    <FAIcon name='sync-alt' style={{ fill: '#3D7BD9', width: 22, height: 22 }} />
+                    <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#0E3F8C' }}>观察包驱动的反思与恢复</Text>
+                </Box>
+                <Box style={{ flexDirection: 'column', gap: 10, marginTop: 16 }}>
+                    <Box style={{ flexDirection: 'row', gap: 14, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#1E4FA8', width: 76 }}>证据反思</Text>
+                        <Text style={{ fontSize: 16, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>确定性证据与业务矛盾检查优先；模型建议只能缩小动作范围，不能扩大权限。</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'row', gap: 14, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#1E4FA8', width: 76 }}>变化感知</Text>
+                        <Text style={{ fontSize: 16, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>状态变化触发证据刷新与提案失效，重新取证后必须重新确认。</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'row', gap: 14, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#1E4FA8', width: 76 }}>写入幂等</Text>
+                        <Text style={{ fontSize: 16, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>PostgreSQL 唯一约束 + 合法状态迁移 + 事务 + operation receipt 共同构成幂等边界。</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'row', gap: 14, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#1E4FA8', width: 76 }}>故障接管</Text>
+                        <Text style={{ fontSize: 16, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>租约、fencing 与 LangGraph checkpoint 保证未完成任务被接管，而不是被重复执行。</Text>
+                    </Box>
+                </Box>
+            </Box>
+
+            {/* 右：数据 */}
+            <Box style={{ width: 460, background: '#FFFFFF', border: '1px solid #D6DCE5', borderRadius: 10, padding: '20px 24px', flexDirection: 'column' }}>
+                <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#0E3F8C' }}>实测对比（可恢复故障）</Text>
+
+                <Box style={{ marginTop: 10 }}>
+                    <Text style={{ fontSize: 36, fontWeight: 'bold', color: '#1E4FA8', lineHeight: 1 }}>144/144</Text>
+                    <Text style={{ fontSize: 15, color: '#4A5568', marginTop: 4 }}>本方案 P（100%）</Text>
+                </Box>
+
+                <Box style={{ marginTop: 6 }}>
+                    <Text style={{ fontSize: 26, fontWeight: 'bold', color: '#8B97A8', lineHeight: 1 }}>48/144</Text>
+                    <Text style={{ fontSize: 15, color: '#4A5568', marginTop: 4 }}>基线 A-reflect（33.33%）</Text>
+                </Box>
+
+                <Box style={{ flexDirection: 'row', alignItems: 'baseline', gap: 10, marginTop: 8 }}>
+                    <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#D9534F', lineHeight: 1 }}>+66.67pp</Text>
+                    <Text style={{ fontSize: 15, color: '#4A5568' }}>family 均衡差</Text>
+                </Box>
+                <Text style={{ fontSize: 15, color: '#4A5568', marginTop: 4 }}>95% CI [+33.33, +100]pp</Text>
+
+                <Box style={{ marginTop: 'auto', background: '#F7F9FC', border: '1px solid #E5E7EB', borderRadius: 8, padding: '10px 14px' }}>
+                    <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.5 }}>永久故障的安全停止与无故障对照单独计分，不混入此分母。</Text>
+                </Box>
+            </Box>
+        </Box>
+
+        {/* 结论条 */}
+        <Box style={{ height: 80, background: '#0E3F8C', borderRadius: 10, padding: '0 24px', flexDirection: 'row', alignItems: 'center', gap: 16 }}>
+            <FAIcon name='exclamation-circle' style={{ fill: '#3D7BD9', width: 24, height: 24 }} />
+            <Text style={{ fontSize: 16, color: '#FFFFFF', lineHeight: 1.55 }}>超时<span style={{ color: '#FFC107', fontWeight: 'bold' }}>不等于</span>「没写入」：先按 operation receipt 查询对账，无法确认即转人工；所有循环受模型请求、Token、工具数与活动时长预算约束。</Text>
+        </Box>
+    </Box>
+
+    {/* D 页脚 */}
+    <Box style={{ position: 'absolute', bottom: 0, left: 0, width: 1280, height: 56, padding: '0 40px', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid #E5E7EB' }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>北京交通大学 · 软件工程（专硕）</Text>
+        <Text style={{ fontSize: 14, color: '#0E3F8C', fontWeight: 'bold' }}>11 / 18</Text>
+    </Box>
+</Slide>

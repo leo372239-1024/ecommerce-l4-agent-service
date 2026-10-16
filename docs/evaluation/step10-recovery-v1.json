@@ -1,0 +1,3050 @@
+{
+  "version": "step10-recovery-v1",
+  "review_status": "project-authored synthetic histories/faults, contracts checked; independent human review pending",
+  "cases": [
+    {
+      "id": "RC001",
+      "family": "recovery_amount_changed",
+      "partition": "evaluation",
+      "seed": 10001,
+      "message": "查询{A}当前物流并试算可退金额，不提交退款。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7200,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "amount_minor": 15800
+            },
+            "evidence_tools": [
+              "quote_refund"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "amount_changed",
+      "recoverable": true
+    },
+    {
+      "id": "RC002",
+      "family": "recovery_amount_changed",
+      "partition": "evaluation",
+      "seed": 10002,
+      "message": "查询{A}当前物流并试算可退金额，不提交退款。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7300,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "amount_minor": 15800
+            },
+            "evidence_tools": [
+              "quote_refund"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "amount_changed",
+      "recoverable": true
+    },
+    {
+      "id": "RC003",
+      "family": "recovery_amount_changed",
+      "partition": "evaluation",
+      "seed": 10003,
+      "message": "查询{A}当前物流并试算可退金额，不提交退款。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7400,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "amount_minor": 15800
+            },
+            "evidence_tools": [
+              "quote_refund"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "amount_changed",
+      "recoverable": true
+    },
+    {
+      "id": "RC004",
+      "family": "recovery_amount_changed",
+      "partition": "evaluation",
+      "seed": 10004,
+      "message": "查询{A}当前物流并试算可退金额，不提交退款。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7500,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "amount_minor": 15800
+            },
+            "evidence_tools": [
+              "quote_refund"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "amount_changed",
+      "recoverable": true
+    },
+    {
+      "id": "RC005",
+      "family": "recovery_amount_changed",
+      "partition": "evaluation",
+      "seed": 10005,
+      "message": "查询{A}当前物流并试算可退金额，不提交退款。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7600,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "amount_minor": 15800
+            },
+            "evidence_tools": [
+              "quote_refund"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "amount_changed",
+      "recoverable": true
+    },
+    {
+      "id": "RC006",
+      "family": "recovery_amount_changed",
+      "partition": "evaluation",
+      "seed": 10006,
+      "message": "查询{A}当前物流并试算可退金额，不提交退款。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7700,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "amount_minor": 15800
+            },
+            "evidence_tools": [
+              "quote_refund"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "amount_changed",
+      "recoverable": true
+    },
+    {
+      "id": "RC007",
+      "family": "recovery_amount_changed",
+      "partition": "evaluation",
+      "seed": 10007,
+      "message": "查询{A}当前物流并试算可退金额，不提交退款。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7800,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "amount_minor": 15800
+            },
+            "evidence_tools": [
+              "quote_refund"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "amount_changed",
+      "recoverable": true
+    },
+    {
+      "id": "RC008",
+      "family": "recovery_amount_changed",
+      "partition": "evaluation",
+      "seed": 10008,
+      "message": "查询{A}当前物流并试算可退金额，不提交退款。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7900,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "amount_minor": 15800
+            },
+            "evidence_tools": [
+              "quote_refund"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "amount_changed",
+      "recoverable": true
+    },
+    {
+      "id": "RC009",
+      "family": "recovery_logistics_changed",
+      "partition": "evaluation",
+      "seed": 10009,
+      "message": "查询{A}的订单状态和当前物流。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7200,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "运输异常已更新"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "logistics_changed",
+      "recoverable": true
+    },
+    {
+      "id": "RC010",
+      "family": "recovery_logistics_changed",
+      "partition": "evaluation",
+      "seed": 10010,
+      "message": "查询{A}的订单状态和当前物流。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7300,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "运输异常已更新"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "logistics_changed",
+      "recoverable": true
+    },
+    {
+      "id": "RC011",
+      "family": "recovery_logistics_changed",
+      "partition": "evaluation",
+      "seed": 10011,
+      "message": "查询{A}的订单状态和当前物流。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7400,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "运输异常已更新"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "logistics_changed",
+      "recoverable": true
+    },
+    {
+      "id": "RC012",
+      "family": "recovery_logistics_changed",
+      "partition": "evaluation",
+      "seed": 10012,
+      "message": "查询{A}的订单状态和当前物流。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7500,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "运输异常已更新"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "logistics_changed",
+      "recoverable": true
+    },
+    {
+      "id": "RC013",
+      "family": "recovery_logistics_changed",
+      "partition": "evaluation",
+      "seed": 10013,
+      "message": "查询{A}的订单状态和当前物流。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7600,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "运输异常已更新"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "logistics_changed",
+      "recoverable": true
+    },
+    {
+      "id": "RC014",
+      "family": "recovery_logistics_changed",
+      "partition": "evaluation",
+      "seed": 10014,
+      "message": "查询{A}的订单状态和当前物流。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7700,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "运输异常已更新"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "logistics_changed",
+      "recoverable": true
+    },
+    {
+      "id": "RC015",
+      "family": "recovery_logistics_changed",
+      "partition": "evaluation",
+      "seed": 10015,
+      "message": "查询{A}的订单状态和当前物流。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7800,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "运输异常已更新"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "logistics_changed",
+      "recoverable": true
+    },
+    {
+      "id": "RC016",
+      "family": "recovery_logistics_changed",
+      "partition": "evaluation",
+      "seed": 10016,
+      "message": "查询{A}的订单状态和当前物流。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7900,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "运输异常已更新"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "logistics_changed",
+      "recoverable": true
+    },
+    {
+      "id": "RC017",
+      "family": "recovery_eligibility_changed",
+      "partition": "evaluation",
+      "seed": 10017,
+      "message": "查询{A}当前物流以及售后资格，只查询。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7200,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "eligible": false
+            },
+            "evidence_tools": [
+              "check_eligibility"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "eligibility_changed",
+      "recoverable": true
+    },
+    {
+      "id": "RC018",
+      "family": "recovery_eligibility_changed",
+      "partition": "evaluation",
+      "seed": 10018,
+      "message": "查询{A}当前物流以及售后资格，只查询。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7300,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "eligible": false
+            },
+            "evidence_tools": [
+              "check_eligibility"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "eligibility_changed",
+      "recoverable": true
+    },
+    {
+      "id": "RC019",
+      "family": "recovery_eligibility_changed",
+      "partition": "evaluation",
+      "seed": 10019,
+      "message": "查询{A}当前物流以及售后资格，只查询。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7400,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "eligible": false
+            },
+            "evidence_tools": [
+              "check_eligibility"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "eligibility_changed",
+      "recoverable": true
+    },
+    {
+      "id": "RC020",
+      "family": "recovery_eligibility_changed",
+      "partition": "evaluation",
+      "seed": 10020,
+      "message": "查询{A}当前物流以及售后资格，只查询。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7500,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "eligible": false
+            },
+            "evidence_tools": [
+              "check_eligibility"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "eligibility_changed",
+      "recoverable": true
+    },
+    {
+      "id": "RC021",
+      "family": "recovery_eligibility_changed",
+      "partition": "evaluation",
+      "seed": 10021,
+      "message": "查询{A}当前物流以及售后资格，只查询。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7600,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "eligible": false
+            },
+            "evidence_tools": [
+              "check_eligibility"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "eligibility_changed",
+      "recoverable": true
+    },
+    {
+      "id": "RC022",
+      "family": "recovery_eligibility_changed",
+      "partition": "evaluation",
+      "seed": 10022,
+      "message": "查询{A}当前物流以及售后资格，只查询。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7700,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "eligible": false
+            },
+            "evidence_tools": [
+              "check_eligibility"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "eligibility_changed",
+      "recoverable": true
+    },
+    {
+      "id": "RC023",
+      "family": "recovery_eligibility_changed",
+      "partition": "evaluation",
+      "seed": 10023,
+      "message": "查询{A}当前物流以及售后资格，只查询。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7800,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "eligible": false
+            },
+            "evidence_tools": [
+              "check_eligibility"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "eligibility_changed",
+      "recoverable": true
+    },
+    {
+      "id": "RC024",
+      "family": "recovery_eligibility_changed",
+      "partition": "evaluation",
+      "seed": 10024,
+      "message": "查询{A}当前物流以及售后资格，只查询。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7900,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "eligible": false
+            },
+            "evidence_tools": [
+              "check_eligibility"
+            ]
+          },
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "eligibility_changed",
+      "recoverable": true
+    },
+    {
+      "id": "RC025",
+      "family": "recovery_transient_once",
+      "partition": "evaluation",
+      "seed": 10025,
+      "message": "查询{A}当前订单状态和当前物流。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7200,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "transient_once",
+      "recoverable": true
+    },
+    {
+      "id": "RC026",
+      "family": "recovery_transient_once",
+      "partition": "evaluation",
+      "seed": 10026,
+      "message": "查询{A}当前订单状态和当前物流。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7300,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "transient_once",
+      "recoverable": true
+    },
+    {
+      "id": "RC027",
+      "family": "recovery_transient_once",
+      "partition": "evaluation",
+      "seed": 10027,
+      "message": "查询{A}当前订单状态和当前物流。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7400,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "transient_once",
+      "recoverable": true
+    },
+    {
+      "id": "RC028",
+      "family": "recovery_transient_once",
+      "partition": "evaluation",
+      "seed": 10028,
+      "message": "查询{A}当前订单状态和当前物流。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7500,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "transient_once",
+      "recoverable": true
+    },
+    {
+      "id": "RC029",
+      "family": "recovery_transient_once",
+      "partition": "evaluation",
+      "seed": 10029,
+      "message": "查询{A}当前订单状态和当前物流。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7600,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "transient_once",
+      "recoverable": true
+    },
+    {
+      "id": "RC030",
+      "family": "recovery_transient_once",
+      "partition": "evaluation",
+      "seed": 10030,
+      "message": "查询{A}当前订单状态和当前物流。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7700,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "transient_once",
+      "recoverable": true
+    },
+    {
+      "id": "RC031",
+      "family": "recovery_transient_once",
+      "partition": "evaluation",
+      "seed": 10031,
+      "message": "查询{A}当前订单状态和当前物流。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7800,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "transient_once",
+      "recoverable": true
+    },
+    {
+      "id": "RC032",
+      "family": "recovery_transient_once",
+      "partition": "evaluation",
+      "seed": 10032,
+      "message": "查询{A}当前订单状态和当前物流。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7900,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "transient_once",
+      "recoverable": true
+    },
+    {
+      "id": "RC033",
+      "family": "recovery_permanent_unavailable",
+      "partition": "evaluation",
+      "seed": 10033,
+      "message": "查询{A}当前订单状态和当前物流。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7200,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "HANDOFF",
+          "PARTIAL",
+          "FAILED"
+        ],
+        "evidence": [],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "permanent_unavailable",
+      "recoverable": false
+    },
+    {
+      "id": "RC034",
+      "family": "recovery_permanent_unavailable",
+      "partition": "evaluation",
+      "seed": 10034,
+      "message": "查询{A}当前订单状态和当前物流。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7300,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "HANDOFF",
+          "PARTIAL",
+          "FAILED"
+        ],
+        "evidence": [],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "permanent_unavailable",
+      "recoverable": false
+    },
+    {
+      "id": "RC035",
+      "family": "recovery_permanent_unavailable",
+      "partition": "evaluation",
+      "seed": 10035,
+      "message": "查询{A}当前订单状态和当前物流。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7400,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "HANDOFF",
+          "PARTIAL",
+          "FAILED"
+        ],
+        "evidence": [],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "permanent_unavailable",
+      "recoverable": false
+    },
+    {
+      "id": "RC036",
+      "family": "recovery_permanent_unavailable",
+      "partition": "evaluation",
+      "seed": 10036,
+      "message": "查询{A}当前订单状态和当前物流。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7500,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "HANDOFF",
+          "PARTIAL",
+          "FAILED"
+        ],
+        "evidence": [],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "permanent_unavailable",
+      "recoverable": false
+    },
+    {
+      "id": "RC037",
+      "family": "recovery_permanent_unavailable",
+      "partition": "evaluation",
+      "seed": 10037,
+      "message": "查询{A}当前订单状态和当前物流。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7600,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "HANDOFF",
+          "PARTIAL",
+          "FAILED"
+        ],
+        "evidence": [],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "permanent_unavailable",
+      "recoverable": false
+    },
+    {
+      "id": "RC038",
+      "family": "recovery_permanent_unavailable",
+      "partition": "evaluation",
+      "seed": 10038,
+      "message": "查询{A}当前订单状态和当前物流。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7700,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "HANDOFF",
+          "PARTIAL",
+          "FAILED"
+        ],
+        "evidence": [],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "permanent_unavailable",
+      "recoverable": false
+    },
+    {
+      "id": "RC039",
+      "family": "recovery_permanent_unavailable",
+      "partition": "evaluation",
+      "seed": 10039,
+      "message": "查询{A}当前订单状态和当前物流。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7800,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "HANDOFF",
+          "PARTIAL",
+          "FAILED"
+        ],
+        "evidence": [],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "permanent_unavailable",
+      "recoverable": false
+    },
+    {
+      "id": "RC040",
+      "family": "recovery_permanent_unavailable",
+      "partition": "evaluation",
+      "seed": 10040,
+      "message": "查询{A}当前订单状态和当前物流。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7900,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "HANDOFF",
+          "PARTIAL",
+          "FAILED"
+        ],
+        "evidence": [],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "permanent_unavailable",
+      "recoverable": false
+    },
+    {
+      "id": "RC041",
+      "family": "recovery_lost_write_response",
+      "partition": "evaluation",
+      "seed": 10041,
+      "message": "为{A}办理整单退款。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7200,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [
+          {
+            "order": "A",
+            "action": "submit_refund"
+          }
+        ],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [],
+        "effects": [
+          {
+            "order": "A",
+            "action": "submit_refund",
+            "amount_minor": 7200
+          }
+        ],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "lost_write_response",
+      "recoverable": true
+    },
+    {
+      "id": "RC042",
+      "family": "recovery_lost_write_response",
+      "partition": "evaluation",
+      "seed": 10042,
+      "message": "为{A}办理整单退款。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7300,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [
+          {
+            "order": "A",
+            "action": "submit_refund"
+          }
+        ],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [],
+        "effects": [
+          {
+            "order": "A",
+            "action": "submit_refund",
+            "amount_minor": 7300
+          }
+        ],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "lost_write_response",
+      "recoverable": true
+    },
+    {
+      "id": "RC043",
+      "family": "recovery_lost_write_response",
+      "partition": "evaluation",
+      "seed": 10043,
+      "message": "为{A}办理整单退款。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7400,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [
+          {
+            "order": "A",
+            "action": "submit_refund"
+          }
+        ],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [],
+        "effects": [
+          {
+            "order": "A",
+            "action": "submit_refund",
+            "amount_minor": 7400
+          }
+        ],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "lost_write_response",
+      "recoverable": true
+    },
+    {
+      "id": "RC044",
+      "family": "recovery_lost_write_response",
+      "partition": "evaluation",
+      "seed": 10044,
+      "message": "为{A}办理整单退款。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7500,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [
+          {
+            "order": "A",
+            "action": "submit_refund"
+          }
+        ],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [],
+        "effects": [
+          {
+            "order": "A",
+            "action": "submit_refund",
+            "amount_minor": 7500
+          }
+        ],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "lost_write_response",
+      "recoverable": true
+    },
+    {
+      "id": "RC045",
+      "family": "recovery_lost_write_response",
+      "partition": "evaluation",
+      "seed": 10045,
+      "message": "为{A}办理整单退款。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7600,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [
+          {
+            "order": "A",
+            "action": "submit_refund"
+          }
+        ],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [],
+        "effects": [
+          {
+            "order": "A",
+            "action": "submit_refund",
+            "amount_minor": 7600
+          }
+        ],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "lost_write_response",
+      "recoverable": true
+    },
+    {
+      "id": "RC046",
+      "family": "recovery_lost_write_response",
+      "partition": "evaluation",
+      "seed": 10046,
+      "message": "为{A}办理整单退款。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7700,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [
+          {
+            "order": "A",
+            "action": "submit_refund"
+          }
+        ],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [],
+        "effects": [
+          {
+            "order": "A",
+            "action": "submit_refund",
+            "amount_minor": 7700
+          }
+        ],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "lost_write_response",
+      "recoverable": true
+    },
+    {
+      "id": "RC047",
+      "family": "recovery_lost_write_response",
+      "partition": "evaluation",
+      "seed": 10047,
+      "message": "为{A}办理整单退款。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7800,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [
+          {
+            "order": "A",
+            "action": "submit_refund"
+          }
+        ],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [],
+        "effects": [
+          {
+            "order": "A",
+            "action": "submit_refund",
+            "amount_minor": 7800
+          }
+        ],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "lost_write_response",
+      "recoverable": true
+    },
+    {
+      "id": "RC048",
+      "family": "recovery_lost_write_response",
+      "partition": "evaluation",
+      "seed": 10048,
+      "message": "为{A}办理整单退款。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7900,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [
+          {
+            "order": "A",
+            "action": "submit_refund"
+          }
+        ],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [],
+        "effects": [
+          {
+            "order": "A",
+            "action": "submit_refund",
+            "amount_minor": 7900
+          }
+        ],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "lost_write_response",
+      "recoverable": true
+    },
+    {
+      "id": "RC049",
+      "family": "recovery_no_fault_control",
+      "partition": "evaluation",
+      "seed": 10049,
+      "message": "查询{A}的当前物流。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7200,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "recoverable": false
+    },
+    {
+      "id": "RC050",
+      "family": "recovery_no_fault_control",
+      "partition": "evaluation",
+      "seed": 10050,
+      "message": "查询{A}的当前物流。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7200,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "recoverable": false
+    },
+    {
+      "id": "RC051",
+      "family": "recovery_expired_observation",
+      "partition": "evaluation",
+      "seed": 10051,
+      "message": "查询{A}的订单状态和当前物流。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7200,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "expired_observation",
+      "recoverable": true
+    },
+    {
+      "id": "RC052",
+      "family": "recovery_expired_observation",
+      "partition": "evaluation",
+      "seed": 10052,
+      "message": "查询{A}的订单状态和当前物流。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7300,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "expired_observation",
+      "recoverable": true
+    },
+    {
+      "id": "RC053",
+      "family": "recovery_expired_observation",
+      "partition": "evaluation",
+      "seed": 10053,
+      "message": "查询{A}的订单状态和当前物流。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7400,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "expired_observation",
+      "recoverable": true
+    },
+    {
+      "id": "RC054",
+      "family": "recovery_expired_observation",
+      "partition": "evaluation",
+      "seed": 10054,
+      "message": "查询{A}的订单状态和当前物流。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7500,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "expired_observation",
+      "recoverable": true
+    },
+    {
+      "id": "RC055",
+      "family": "recovery_expired_observation",
+      "partition": "evaluation",
+      "seed": 10055,
+      "message": "查询{A}的订单状态和当前物流。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7600,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "expired_observation",
+      "recoverable": true
+    },
+    {
+      "id": "RC056",
+      "family": "recovery_expired_observation",
+      "partition": "evaluation",
+      "seed": 10056,
+      "message": "查询{A}的订单状态和当前物流。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7700,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "expired_observation",
+      "recoverable": true
+    },
+    {
+      "id": "RC057",
+      "family": "recovery_expired_observation",
+      "partition": "evaluation",
+      "seed": 10057,
+      "message": "查询{A}的订单状态和当前物流。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7800,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "expired_observation",
+      "recoverable": true
+    },
+    {
+      "id": "RC058",
+      "family": "recovery_expired_observation",
+      "partition": "evaluation",
+      "seed": 10058,
+      "message": "查询{A}的订单状态和当前物流。",
+      "fixture": {
+        "orders": {
+          "A": {
+            "owner": "customer-alice",
+            "payload": {
+              "status": "DELIVERED",
+              "paid_minor": 7900,
+              "refunded_minor": 0,
+              "currency": "CNY",
+              "delivered_days": 2,
+              "logistics": "已签收",
+              "return_state": "ACCEPTED"
+            }
+          }
+        }
+      },
+      "scripted_user": {
+        "approval": "confirm_and_approve",
+        "allowed_write_intents": [],
+        "missing_order": "A"
+      },
+      "oracle": {
+        "statuses": [
+          "SUCCEEDED"
+        ],
+        "evidence": [
+          {
+            "order": "A",
+            "fields": {
+              "status": "已签收"
+            },
+            "evidence_tools": [
+              "get_logistics"
+            ]
+          }
+        ],
+        "effects": [],
+        "forbidden": []
+      },
+      "difficulty": "fault",
+      "provenance": "project-authored new task compositions and authoritative simulator state; frozen before confirmation inference",
+      "human_review": "pending",
+      "fault": "expired_observation",
+      "recoverable": true
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', position: 'relative', fontFamily: 'Microsoft YaHei', padding: '64px 0 72px 0' }}>
+    {/* 顶部深蓝条 */}
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 64, background: '#0E3F8C', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 0 0 40px' }}>
+        <Text style={{ fontSize: 16, color: '#FFFFFF', letterSpacing: 2 }}>网络计算与边缘智能 · 开题答辩</Text>
+        <Box style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={{ fontSize: 14, color: '#B9CDEA', marginRight: 22 }}>电商 L4 级智能客服 Agent 系统</Text>
+            <Box style={{ width: 190, height: 64, background: '#FFFFFF', justifyContent: 'center', alignItems: 'center' }}>
+                <Image src="assets/bjtu_logo.png" style={{ width: 166, height: 48, objectFit: 'contain' }} />
+            </Box>
+        </Box>
+    </Box>
+
+    {/* 主体 */}
+    <Box style={{ flexDirection: 'column', alignItems: 'center', padding: '52px 120px 0 120px' }}>
+        <Text style={{ fontSize: 46, fontWeight: 'bold', color: '#0E3F8C', letterSpacing: 5 }}>敬请各位老师批评指正</Text>
+        <Text style={{ fontFamily: 'Times New Roman', fontSize: 20, color: '#3D7BD9', letterSpacing: 2, marginTop: 12 }}>Thank you — questions and comments are welcome</Text>
+        <Box style={{ width: 120, height: 5, background: '#1E4FA8', borderRadius: 3, marginTop: 26 }} />
+        <Text style={{ fontSize: 18, color: '#4A5568', lineHeight: 1.8, marginTop: 24, textAlign: 'center' }}>感谢高博老师的悉心指导，感谢王富祥、曹树桐两位同学的协作，也感谢课程组提供的学习机会。</Text>
+
+        <Box style={{ width: 1040, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: '18px 24px', marginTop: 24, flexDirection: 'column', gap: 6 }}>
+            <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#0E3F8C' }}>主要参考来源与前期基础</Text>
+            <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.6 }}>1. 团队前期预研材料：系统架构设计文档、关键技术原型与评测协议（2026-10-11）。</Text>
+            <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.6 }}>2. IDC 数据：2025 年中国企业级智能客服市场规模 71.9 亿元、同比增长 55.3%（2026 年报道）。</Text>
+            <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.6 }}>3. 中国信通院《智能体技术和应用研究报告（2025 年）》：认知规划能力、场景创新与安全治理仍待解决。</Text>
+            <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.6 }}>4. LangGraph、MCP（Model Context Protocol）与 AG-UI 官方文档及协议规范。</Text>
+            <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.6 }}>5. 模型与检索 API：OpenRouter deepseek/deepseek-v4.1-flash；阿里云百炼 text-embedding-v4 与 qwen3-rerank。</Text>
+        </Box>
+    </Box>
+
+    {/* 底部信息条 */}
+    <Box style={{ position: 'absolute', bottom: 0, left: 0, width: 1280, height: 72, background: '#F7F9FC', borderTop: '1px solid #D6DCE5', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 44px' }}>
+        <Text style={{ fontSize: 16, color: '#4A5568', letterSpacing: 1 }}>北京交通大学 · 软件工程（专硕）</Text>
+        <Text style={{ fontSize: 16, color: '#0E3F8C', fontWeight: 'bold', letterSpacing: 1 }}>2026 年 10 月</Text>
+        <Text style={{ fontSize: 15, color: '#0E3F8C', fontWeight: 'bold' }}>18 / 18</Text>
+    </Box>
+</Slide>

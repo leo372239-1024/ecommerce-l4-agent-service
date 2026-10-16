@@ -1,0 +1,902 @@
+{
+  "version": "step10-routing-v1",
+  "review_status": "project-authored exact-schema business projections; no independent human review",
+  "cases": [
+    {
+      "id": "TR001",
+      "family": "compound_get_order_invoice_get_product_specs_one_order",
+      "aliases": [
+        "A"
+      ],
+      "message": "请查询{A}的发票类型以及商品材质和容量，仅查询信息。",
+      "expected": [
+        {
+          "tool": "get_order_invoice",
+          "order": "A"
+        },
+        {
+          "tool": "get_product_specs",
+          "order": "A"
+        }
+      ]
+    },
+    {
+      "id": "TR002",
+      "family": "compound_get_shipment_tracking_get_return_status_one_order",
+      "aliases": [
+        "A"
+      ],
+      "message": "请查询{A}的物流轨迹节点以及退货验收状态，仅查询信息。",
+      "expected": [
+        {
+          "tool": "get_shipment_tracking",
+          "order": "A"
+        },
+        {
+          "tool": "get_return_status",
+          "order": "A"
+        }
+      ]
+    },
+    {
+      "id": "TR003",
+      "family": "compound_get_delivery_estimate_get_order_address_masked_one_order",
+      "aliases": [
+        "A"
+      ],
+      "message": "请查询{A}的预计送达时间以及脱敏收货地址，仅查询信息。",
+      "expected": [
+        {
+          "tool": "get_delivery_estimate",
+          "order": "A"
+        },
+        {
+          "tool": "get_order_address_masked",
+          "order": "A"
+        }
+      ]
+    },
+    {
+      "id": "TR004",
+      "family": "compound_get_product_specs_get_product_inventory_one_order",
+      "aliases": [
+        "A"
+      ],
+      "message": "请查询{A}的商品材质和容量以及库存数量，仅查询信息。",
+      "expected": [
+        {
+          "tool": "get_product_specs",
+          "order": "A"
+        },
+        {
+          "tool": "get_product_inventory",
+          "order": "A"
+        }
+      ]
+    },
+    {
+      "id": "TR005",
+      "family": "compound_get_product_inventory_get_refund_eta_one_order",
+      "aliases": [
+        "A"
+      ],
+      "message": "请查询{A}的库存数量以及退款到账时效，仅查询信息。",
+      "expected": [
+        {
+          "tool": "get_product_inventory",
+          "order": "A"
+        },
+        {
+          "tool": "get_refund_eta",
+          "order": "A"
+        }
+      ]
+    },
+    {
+      "id": "TR006",
+      "family": "compound_get_product_warranty_get_shipment_packages_one_order",
+      "aliases": [
+        "A"
+      ],
+      "message": "请查询{A}的保修年限和范围以及包裹重量，仅查询信息。",
+      "expected": [
+        {
+          "tool": "get_product_warranty",
+          "order": "A"
+        },
+        {
+          "tool": "get_shipment_packages",
+          "order": "A"
+        }
+      ]
+    },
+    {
+      "id": "TR007",
+      "family": "compound_get_warranty_eligibility_get_product_warranty_one_order",
+      "aliases": [
+        "A"
+      ],
+      "message": "请查询{A}的是否还在保修期以及保修年限和范围，仅查询信息。",
+      "expected": [
+        {
+          "tool": "get_warranty_eligibility",
+          "order": "A"
+        },
+        {
+          "tool": "get_product_warranty",
+          "order": "A"
+        }
+      ]
+    },
+    {
+      "id": "TR008",
+      "family": "compound_get_refund_balance_get_return_instructions_one_order",
+      "aliases": [
+        "A"
+      ],
+      "message": "请查询{A}的剩余可退余额以及退货仓地址，仅查询信息。",
+      "expected": [
+        {
+          "tool": "get_refund_balance",
+          "order": "A"
+        },
+        {
+          "tool": "get_return_instructions",
+          "order": "A"
+        }
+      ]
+    },
+    {
+      "id": "TR009",
+      "family": "compound_get_loyalty_impact_get_ticket_status_one_order",
+      "aliases": [
+        "A"
+      ],
+      "message": "请查询{A}的积分扣回数量以及工单状态，仅查询信息。",
+      "expected": [
+        {
+          "tool": "get_loyalty_impact",
+          "order": "A"
+        },
+        {
+          "tool": "get_ticket_status",
+          "order": "A"
+        }
+      ]
+    },
+    {
+      "id": "TR010",
+      "family": "compound_get_support_hours_get_warranty_eligibility_one_order",
+      "aliases": [
+        "A"
+      ],
+      "message": "请查询{A}的人工客服服务时间以及是否还在保修期，仅查询信息。",
+      "expected": [
+        {
+          "tool": "get_support_hours",
+          "order": "A"
+        },
+        {
+          "tool": "get_warranty_eligibility",
+          "order": "A"
+        }
+      ]
+    },
+    {
+      "id": "TR011",
+      "family": "compound_get_return_status_get_return_shipping_fee_one_order",
+      "aliases": [
+        "A"
+      ],
+      "message": "请查询{A}的退货验收状态以及退货运费承担和金额，仅查询信息。",
+      "expected": [
+        {
+          "tool": "get_return_status",
+          "order": "A"
+        },
+        {
+          "tool": "get_return_shipping_fee",
+          "order": "A"
+        }
+      ]
+    },
+    {
+      "id": "TR012",
+      "family": "compound_get_refund_eta_get_order_invoice_one_order",
+      "aliases": [
+        "A"
+      ],
+      "message": "请查询{A}的退款到账时效以及发票类型，仅查询信息。",
+      "expected": [
+        {
+          "tool": "get_refund_eta",
+          "order": "A"
+        },
+        {
+          "tool": "get_order_invoice",
+          "order": "A"
+        }
+      ]
+    },
+    {
+      "id": "TR013",
+      "family": "compound_get_return_instructions_get_refund_balance_one_order",
+      "aliases": [
+        "A"
+      ],
+      "message": "请查询{A}的退货仓地址以及剩余可退余额，仅查询信息。",
+      "expected": [
+        {
+          "tool": "get_return_instructions",
+          "order": "A"
+        },
+        {
+          "tool": "get_refund_balance",
+          "order": "A"
+        }
+      ]
+    },
+    {
+      "id": "TR014",
+      "family": "compound_get_return_shipping_fee_get_coupon_return_policy_one_order",
+      "aliases": [
+        "A"
+      ],
+      "message": "请查询{A}的退货运费承担和金额以及优惠券返还规则，仅查询信息。",
+      "expected": [
+        {
+          "tool": "get_return_shipping_fee",
+          "order": "A"
+        },
+        {
+          "tool": "get_coupon_return_policy",
+          "order": "A"
+        }
+      ]
+    },
+    {
+      "id": "TR015",
+      "family": "compound_get_coupon_return_policy_get_shipment_tracking_one_order",
+      "aliases": [
+        "A"
+      ],
+      "message": "请查询{A}的优惠券返还规则以及物流轨迹节点，仅查询信息。",
+      "expected": [
+        {
+          "tool": "get_coupon_return_policy",
+          "order": "A"
+        },
+        {
+          "tool": "get_shipment_tracking",
+          "order": "A"
+        }
+      ]
+    },
+    {
+      "id": "TR016",
+      "family": "compound_get_order_payment_get_loyalty_impact_one_order",
+      "aliases": [
+        "A"
+      ],
+      "message": "请查询{A}的支付方式以及积分扣回数量，仅查询信息。",
+      "expected": [
+        {
+          "tool": "get_order_payment",
+          "order": "A"
+        },
+        {
+          "tool": "get_loyalty_impact",
+          "order": "A"
+        }
+      ]
+    },
+    {
+      "id": "TR017",
+      "family": "compound_get_product_shipping_get_order_payment_one_order",
+      "aliases": [
+        "A"
+      ],
+      "message": "请查询{A}的商品配送区域和商品运费以及支付方式，仅查询信息。",
+      "expected": [
+        {
+          "tool": "get_product_shipping",
+          "order": "A"
+        },
+        {
+          "tool": "get_order_payment",
+          "order": "A"
+        }
+      ]
+    },
+    {
+      "id": "TR018",
+      "family": "compound_get_order_address_masked_get_delivery_estimate_one_order",
+      "aliases": [
+        "A"
+      ],
+      "message": "请查询{A}的脱敏收货地址以及预计送达时间，仅查询信息。",
+      "expected": [
+        {
+          "tool": "get_order_address_masked",
+          "order": "A"
+        },
+        {
+          "tool": "get_delivery_estimate",
+          "order": "A"
+        }
+      ]
+    },
+    {
+      "id": "TR019",
+      "family": "compound_get_shipment_packages_get_support_hours_one_order",
+      "aliases": [
+        "A"
+      ],
+      "message": "请查询{A}的包裹重量以及人工客服服务时间，仅查询信息。",
+      "expected": [
+        {
+          "tool": "get_shipment_packages",
+          "order": "A"
+        },
+        {
+          "tool": "get_support_hours",
+          "order": "A"
+        }
+      ]
+    },
+    {
+      "id": "TR020",
+      "family": "compound_get_ticket_status_get_product_shipping_one_order",
+      "aliases": [
+        "A"
+      ],
+      "message": "请查询{A}的工单状态以及商品配送区域和商品运费，仅查询信息。",
+      "expected": [
+        {
+          "tool": "get_ticket_status",
+          "order": "A"
+        },
+        {
+          "tool": "get_product_shipping",
+          "order": "A"
+        }
+      ]
+    },
+    {
+      "id": "TR021",
+      "family": "compound_get_order_invoice_get_product_specs_one_order",
+      "aliases": [
+        "A"
+      ],
+      "message": "请查询{A}的发票类型以及商品材质和容量，仅查询信息。",
+      "expected": [
+        {
+          "tool": "get_order_invoice",
+          "order": "A"
+        },
+        {
+          "tool": "get_product_specs",
+          "order": "A"
+        }
+      ]
+    },
+    {
+      "id": "TR022",
+      "family": "compound_get_shipment_tracking_get_return_status_one_order",
+      "aliases": [
+        "A"
+      ],
+      "message": "请查询{A}的物流轨迹节点以及退货验收状态，仅查询信息。",
+      "expected": [
+        {
+          "tool": "get_shipment_tracking",
+          "order": "A"
+        },
+        {
+          "tool": "get_return_status",
+          "order": "A"
+        }
+      ]
+    },
+    {
+      "id": "TR023",
+      "family": "compound_get_delivery_estimate_get_order_address_masked_one_order",
+      "aliases": [
+        "A"
+      ],
+      "message": "请查询{A}的预计送达时间以及脱敏收货地址，仅查询信息。",
+      "expected": [
+        {
+          "tool": "get_delivery_estimate",
+          "order": "A"
+        },
+        {
+          "tool": "get_order_address_masked",
+          "order": "A"
+        }
+      ]
+    },
+    {
+      "id": "TR024",
+      "family": "compound_get_product_specs_get_product_inventory_one_order",
+      "aliases": [
+        "A"
+      ],
+      "message": "请查询{A}的商品材质和容量以及库存数量，仅查询信息。",
+      "expected": [
+        {
+          "tool": "get_product_specs",
+          "order": "A"
+        },
+        {
+          "tool": "get_product_inventory",
+          "order": "A"
+        }
+      ]
+    },
+    {
+      "id": "TR025",
+      "family": "compound_get_product_inventory_get_refund_eta_two_orders",
+      "aliases": [
+        "A",
+        "B"
+      ],
+      "message": "请查询{A}的库存数量，另外核对{B}的退款到账时效，仅查询信息，不办理售后。",
+      "expected": [
+        {
+          "tool": "get_product_inventory",
+          "order": "A"
+        },
+        {
+          "tool": "get_refund_eta",
+          "order": "B"
+        }
+      ]
+    },
+    {
+      "id": "TR026",
+      "family": "compound_get_product_warranty_get_shipment_packages_two_orders",
+      "aliases": [
+        "A",
+        "B"
+      ],
+      "message": "请查询{A}的保修年限和范围，另外核对{B}的包裹重量，仅查询信息，不办理售后。",
+      "expected": [
+        {
+          "tool": "get_product_warranty",
+          "order": "A"
+        },
+        {
+          "tool": "get_shipment_packages",
+          "order": "B"
+        }
+      ]
+    },
+    {
+      "id": "TR027",
+      "family": "compound_get_warranty_eligibility_get_product_warranty_two_orders",
+      "aliases": [
+        "A",
+        "B"
+      ],
+      "message": "请查询{A}的是否还在保修期，另外核对{B}的保修年限和范围，仅查询信息，不办理售后。",
+      "expected": [
+        {
+          "tool": "get_warranty_eligibility",
+          "order": "A"
+        },
+        {
+          "tool": "get_product_warranty",
+          "order": "B"
+        }
+      ]
+    },
+    {
+      "id": "TR028",
+      "family": "compound_get_refund_balance_get_return_instructions_two_orders",
+      "aliases": [
+        "A",
+        "B"
+      ],
+      "message": "请查询{A}的剩余可退余额，另外核对{B}的退货仓地址，仅查询信息，不办理售后。",
+      "expected": [
+        {
+          "tool": "get_refund_balance",
+          "order": "A"
+        },
+        {
+          "tool": "get_return_instructions",
+          "order": "B"
+        }
+      ]
+    },
+    {
+      "id": "TR029",
+      "family": "compound_get_loyalty_impact_get_ticket_status_two_orders",
+      "aliases": [
+        "A",
+        "B"
+      ],
+      "message": "请查询{A}的积分扣回数量，另外核对{B}的工单状态，仅查询信息，不办理售后。",
+      "expected": [
+        {
+          "tool": "get_loyalty_impact",
+          "order": "A"
+        },
+        {
+          "tool": "get_ticket_status",
+          "order": "B"
+        }
+      ]
+    },
+    {
+      "id": "TR030",
+      "family": "compound_get_support_hours_get_warranty_eligibility_two_orders",
+      "aliases": [
+        "A",
+        "B"
+      ],
+      "message": "请查询{A}的人工客服服务时间，另外核对{B}的是否还在保修期，仅查询信息，不办理售后。",
+      "expected": [
+        {
+          "tool": "get_support_hours",
+          "order": "A"
+        },
+        {
+          "tool": "get_warranty_eligibility",
+          "order": "B"
+        }
+      ]
+    },
+    {
+      "id": "TR031",
+      "family": "compound_get_return_status_get_return_shipping_fee_two_orders",
+      "aliases": [
+        "A",
+        "B"
+      ],
+      "message": "请查询{A}的退货验收状态，另外核对{B}的退货运费承担和金额，仅查询信息，不办理售后。",
+      "expected": [
+        {
+          "tool": "get_return_status",
+          "order": "A"
+        },
+        {
+          "tool": "get_return_shipping_fee",
+          "order": "B"
+        }
+      ]
+    },
+    {
+      "id": "TR032",
+      "family": "compound_get_refund_eta_get_order_invoice_two_orders",
+      "aliases": [
+        "A",
+        "B"
+      ],
+      "message": "请查询{A}的退款到账时效，另外核对{B}的发票类型，仅查询信息，不办理售后。",
+      "expected": [
+        {
+          "tool": "get_refund_eta",
+          "order": "A"
+        },
+        {
+          "tool": "get_order_invoice",
+          "order": "B"
+        }
+      ]
+    },
+    {
+      "id": "TR033",
+      "family": "compound_get_return_instructions_get_refund_balance_two_orders",
+      "aliases": [
+        "A",
+        "B"
+      ],
+      "message": "请查询{A}的退货仓地址，另外核对{B}的剩余可退余额，仅查询信息，不办理售后。",
+      "expected": [
+        {
+          "tool": "get_return_instructions",
+          "order": "A"
+        },
+        {
+          "tool": "get_refund_balance",
+          "order": "B"
+        }
+      ]
+    },
+    {
+      "id": "TR034",
+      "family": "compound_get_return_shipping_fee_get_coupon_return_policy_two_orders",
+      "aliases": [
+        "A",
+        "B"
+      ],
+      "message": "请查询{A}的退货运费承担和金额，另外核对{B}的优惠券返还规则，仅查询信息，不办理售后。",
+      "expected": [
+        {
+          "tool": "get_return_shipping_fee",
+          "order": "A"
+        },
+        {
+          "tool": "get_coupon_return_policy",
+          "order": "B"
+        }
+      ]
+    },
+    {
+      "id": "TR035",
+      "family": "compound_get_coupon_return_policy_get_shipment_tracking_two_orders",
+      "aliases": [
+        "A",
+        "B"
+      ],
+      "message": "请查询{A}的优惠券返还规则，另外核对{B}的物流轨迹节点，仅查询信息，不办理售后。",
+      "expected": [
+        {
+          "tool": "get_coupon_return_policy",
+          "order": "A"
+        },
+        {
+          "tool": "get_shipment_tracking",
+          "order": "B"
+        }
+      ]
+    },
+    {
+      "id": "TR036",
+      "family": "compound_get_order_payment_get_loyalty_impact_two_orders",
+      "aliases": [
+        "A",
+        "B"
+      ],
+      "message": "请查询{A}的支付方式，另外核对{B}的积分扣回数量，仅查询信息，不办理售后。",
+      "expected": [
+        {
+          "tool": "get_order_payment",
+          "order": "A"
+        },
+        {
+          "tool": "get_loyalty_impact",
+          "order": "B"
+        }
+      ]
+    },
+    {
+      "id": "TR037",
+      "family": "compound_get_product_shipping_get_order_payment_two_orders",
+      "aliases": [
+        "A",
+        "B"
+      ],
+      "message": "请查询{A}的商品配送区域和商品运费，另外核对{B}的支付方式，仅查询信息，不办理售后。",
+      "expected": [
+        {
+          "tool": "get_product_shipping",
+          "order": "A"
+        },
+        {
+          "tool": "get_order_payment",
+          "order": "B"
+        }
+      ]
+    },
+    {
+      "id": "TR038",
+      "family": "compound_get_order_address_masked_get_delivery_estimate_two_orders",
+      "aliases": [
+        "A",
+        "B"
+      ],
+      "message": "请查询{A}的脱敏收货地址，另外核对{B}的预计送达时间，仅查询信息，不办理售后。",
+      "expected": [
+        {
+          "tool": "get_order_address_masked",
+          "order": "A"
+        },
+        {
+          "tool": "get_delivery_estimate",
+          "order": "B"
+        }
+      ]
+    },
+    {
+      "id": "TR039",
+      "family": "compound_get_shipment_packages_get_support_hours_two_orders",
+      "aliases": [
+        "A",
+        "B"
+      ],
+      "message": "请查询{A}的包裹重量，另外核对{B}的人工客服服务时间，仅查询信息，不办理售后。",
+      "expected": [
+        {
+          "tool": "get_shipment_packages",
+          "order": "A"
+        },
+        {
+          "tool": "get_support_hours",
+          "order": "B"
+        }
+      ]
+    },
+    {
+      "id": "TR040",
+      "family": "compound_get_ticket_status_get_product_shipping_two_orders",
+      "aliases": [
+        "A",
+        "B"
+      ],
+      "message": "请查询{A}的工单状态，另外核对{B}的商品配送区域和商品运费，仅查询信息，不办理售后。",
+      "expected": [
+        {
+          "tool": "get_ticket_status",
+          "order": "A"
+        },
+        {
+          "tool": "get_product_shipping",
+          "order": "B"
+        }
+      ]
+    },
+    {
+      "id": "TR041",
+      "family": "compound_get_order_invoice_get_product_specs_two_orders",
+      "aliases": [
+        "A",
+        "B"
+      ],
+      "message": "请查询{A}的发票类型，另外核对{B}的商品材质和容量，仅查询信息，不办理售后。",
+      "expected": [
+        {
+          "tool": "get_order_invoice",
+          "order": "A"
+        },
+        {
+          "tool": "get_product_specs",
+          "order": "B"
+        }
+      ]
+    },
+    {
+      "id": "TR042",
+      "family": "compound_get_shipment_tracking_get_return_status_two_orders",
+      "aliases": [
+        "A",
+        "B"
+      ],
+      "message": "请查询{A}的物流轨迹节点，另外核对{B}的退货验收状态，仅查询信息，不办理售后。",
+      "expected": [
+        {
+          "tool": "get_shipment_tracking",
+          "order": "A"
+        },
+        {
+          "tool": "get_return_status",
+          "order": "B"
+        }
+      ]
+    },
+    {
+      "id": "TR043",
+      "family": "compound_get_delivery_estimate_get_order_address_masked_two_orders",
+      "aliases": [
+        "A",
+        "B"
+      ],
+      "message": "请查询{A}的预计送达时间，另外核对{B}的脱敏收货地址，仅查询信息，不办理售后。",
+      "expected": [
+        {
+          "tool": "get_delivery_estimate",
+          "order": "A"
+        },
+        {
+          "tool": "get_order_address_masked",
+          "order": "B"
+        }
+      ]
+    },
+    {
+      "id": "TR044",
+      "family": "compound_get_product_specs_get_product_inventory_two_orders",
+      "aliases": [
+        "A",
+        "B"
+      ],
+      "message": "请查询{A}的商品材质和容量，另外核对{B}的库存数量，仅查询信息，不办理售后。",
+      "expected": [
+        {
+          "tool": "get_product_specs",
+          "order": "A"
+        },
+        {
+          "tool": "get_product_inventory",
+          "order": "B"
+        }
+      ]
+    },
+    {
+      "id": "TR045",
+      "family": "paraphrase_get_order_payment",
+      "aliases": [
+        "A"
+      ],
+      "message": "请核实订单{A}：当初付款用的哪种方式，只问资料。",
+      "expected": [
+        {
+          "tool": "get_order_payment",
+          "order": "A"
+        }
+      ]
+    },
+    {
+      "id": "TR046",
+      "family": "paraphrase_get_delivery_estimate",
+      "aliases": [
+        "A"
+      ],
+      "message": "请核实订单{A}：物流配送大概哪天到，只问资料。",
+      "expected": [
+        {
+          "tool": "get_delivery_estimate",
+          "order": "A"
+        }
+      ]
+    },
+    {
+      "id": "TR047",
+      "family": "paraphrase_get_return_status",
+      "aliases": [
+        "A"
+      ],
+      "message": "请核实订单{A}：退回来的仓库有没有验收好，只问资料。",
+      "expected": [
+        {
+          "tool": "get_return_status",
+          "order": "A"
+        }
+      ]
+    },
+    {
+      "id": "TR048",
+      "family": "paraphrase_get_coupon_return_policy",
+      "aliases": [
+        "A"
+      ],
+      "message": "请核实订单{A}：我的券整单退完会不会还回来，只问资料。",
+      "expected": [
+        {
+          "tool": "get_coupon_return_policy",
+          "order": "A"
+        }
+      ]
+    },
+    {
+      "id": "TR049",
+      "family": "paraphrase_get_product_specs",
+      "aliases": [
+        "A"
+      ],
+      "message": "请核实订单{A}：买的杯子是什么材料做的，只问资料。",
+      "expected": [
+        {
+          "tool": "get_product_specs",
+          "order": "A"
+        }
+      ]
+    },
+    {
+      "id": "TR050",
+      "family": "paraphrase_get_order_discounts",
+      "aliases": [
+        "A"
+      ],
+      "message": "请核实订单{A}：这一单折扣是怎样分到商品上的，只问资料。",
+      "expected": [
+        {
+          "tool": "get_order_discounts",
+          "order": "A"
+        }
+      ]
+    }
+  ]
+}

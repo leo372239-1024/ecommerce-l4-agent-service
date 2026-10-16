@@ -1,0 +1,36 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', position: 'relative', fontFamily: 'Segoe UI', padding: '64px 0 72px 0' }}>
+    {/* top dark-blue bar */}
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 64, background: '#0E3F8C', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 0 0 40px' }}>
+        <Text style={{ fontSize: 16, color: '#FFFFFF', letterSpacing: 2 }}>Network Computing and Edge Intelligence · Proposal Defense</Text>
+        <Box style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={{ fontSize: 14, color: '#B9CDEA', marginRight: 22 }}>L4 Intelligent Customer Service Agent for E-Commerce</Text>
+            <Box style={{ width: 190, height: 64, background: '#FFFFFF', justifyContent: 'center', alignItems: 'center' }}>
+                <Image src="assets/bjtu_logo.png" style={{ width: 166, height: 48, objectFit: 'contain' }} />
+            </Box>
+        </Box>
+    </Box>
+
+    {/* body */}
+    <Box style={{ flexDirection: 'column', alignItems: 'center', padding: '52px 120px 0 120px' }}>
+        <Text style={{ fontSize: 40, fontWeight: 'bold', color: '#0E3F8C', letterSpacing: 5 }}>We Welcome Your Comments</Text>
+        <Text style={{ fontFamily: 'Times New Roman', fontSize: 20, color: '#3D7BD9', letterSpacing: 2, marginTop: 12 }}>Thank you — questions and comments are welcome</Text>
+        <Box style={{ width: 120, height: 5, background: '#1E4FA8', borderRadius: 3, marginTop: 26 }} />
+        <Text style={{ fontSize: 18, color: '#4A5568', lineHeight: 1.8, marginTop: 24, textAlign: 'center' }}>Our thanks to Prof. Gao Bo for his careful guidance, to Wang Fuxiang and Cao Shutong for their collaboration, and to the course team for this learning opportunity.</Text>
+
+        <Box style={{ width: 1040, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: '18px 24px', marginTop: 24, flexDirection: 'column', gap: 6 }}>
+            <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#0E3F8C' }}>Main References and Prior Work</Text>
+            <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.6 }}>1. Team prior-pilot material: system architecture design, key-technology prototypes and the evaluation protocol (2026-10-11).</Text>
+            <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.6 }}>2. IDC data: China's enterprise intelligent customer service market was RMB 7.19 bn in 2025, +55.3% year on year (reported 2026).</Text>
+            <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.6 }}>3. CAICT, Agent Technology and Application Research Report (2025): cognitive planning, scenario innovation and security governance remain open.</Text>
+            <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.6 }}>4. Official documentation and protocol specifications for LangGraph, MCP (Model Context Protocol) and AG-UI.</Text>
+            <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.6 }}>5. Model and retrieval APIs: OpenRouter deepseek/deepseek-v4.1-flash; Alibaba Cloud Bailian text-embedding-v4 and qwen3-rerank.</Text>
+        </Box>
+    </Box>
+
+    {/* bottom info bar */}
+    <Box style={{ position: 'absolute', bottom: 0, left: 0, width: 1280, height: 72, background: '#F7F9FC', borderTop: '1px solid #D6DCE5', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 44px' }}>
+        <Text style={{ fontSize: 16, color: '#4A5568', letterSpacing: 1 }}>Beijing Jiaotong University · Software Engineering (Professional Master)</Text>
+        <Text style={{ fontSize: 16, color: '#0E3F8C', fontWeight: 'bold', letterSpacing: 1 }}>October 2026</Text>
+        <Text style={{ fontSize: 15, color: '#0E3F8C', fontWeight: 'bold' }}>18 / 18</Text>
+    </Box>
+</Slide>

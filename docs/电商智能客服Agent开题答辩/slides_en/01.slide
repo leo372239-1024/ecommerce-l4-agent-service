@@ -1,0 +1,62 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', position: 'relative', fontFamily: 'Segoe UI', padding: 0 }}>
+    {/* A top dark-blue bar */}
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 64, background: '#0E3F8C', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 0 0 40px' }}>
+        <Text style={{ fontSize: 18, color: '#FFFFFF', letterSpacing: 2 }}>Network Computing and Edge Intelligence</Text>
+        <Box style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={{ fontSize: 16, color: '#B9CDEA', letterSpacing: 1, marginRight: 22 }}>Course Project Proposal Defense</Text>
+            <Box style={{ width: 190, height: 64, background: '#FFFFFF', justifyContent: 'center', alignItems: 'center' }}>
+                <Image src="assets/bjtu_logo.png" style={{ width: 166, height: 48, objectFit: 'contain' }} />
+            </Box>
+        </Box>
+    </Box>
+
+    {/* left vertical accent */}
+    <Box style={{ position: 'absolute', top: 64, left: 0, width: 10, height: 568, background: '#1E4FA8' }} />
+    {/* top-right light-blue decorative arc */}
+    <Box style={{ position: 'absolute', top: 64, right: 0, width: 300, height: 260, background: '#F0F5FC', borderBottomLeftRadius: 260 }} />
+
+    {/* cover body */}
+    <Box style={{ position: 'absolute', top: 132, left: 84, width: 1120, flexDirection: 'column' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12, height: 36 }}>
+            <Box style={{ padding: '6px 20px', background: '#E8EFF8', borderRadius: 18, border: '1px solid #C9DCF5' }}>
+                <Text style={{ fontSize: 17, color: '#1E4FA8', fontWeight: 'bold', letterSpacing: 1 }}>Course Project Proposal Defense</Text>
+            </Box>
+            <Text style={{ fontSize: 16, color: '#8B97A8' }}>Research Proposal Defense</Text>
+        </Box>
+
+        <Text style={{ fontSize: 52, fontWeight: 'bold', color: '#0E3F8C', lineHeight: 1.25, marginTop: 22 }}>L4 Intelligent Customer Service<br />Agent System for E-Commerce</Text>
+
+        <Text style={{ fontFamily: 'Times New Roman', fontSize: 23, color: '#3D7BD9', lineHeight: 1.5, marginTop: 10 }}>A Verifiable Execution Loop for High-Risk After-Sales Tasks</Text>
+
+        <Box style={{ width: 140, height: 5, background: '#1E4FA8', borderRadius: 3, marginTop: 26 }} />
+
+        <Box style={{ flexDirection: 'row', gap: 56, marginTop: 34 }}>
+            <Box style={{ flexDirection: 'column', gap: 18 }}>
+                <Box style={{ flexDirection: 'row', gap: 10 }}>
+                    <Text style={{ fontSize: 18, color: '#8B97A8', width: 116 }}>Presenter</Text>
+                    <Text style={{ fontSize: 22, color: '#1A2230', fontWeight: 'bold' }}>Zhang Fan</Text>
+                </Box>
+                <Box style={{ flexDirection: 'row', gap: 10 }}>
+                    <Text style={{ fontSize: 18, color: '#8B97A8', width: 116 }}>Supervisor</Text>
+                    <Text style={{ fontSize: 22, color: '#1A2230', fontWeight: 'bold' }}>Prof. Gao Bo</Text>
+                </Box>
+            </Box>
+            <Box style={{ flexDirection: 'column', gap: 18 }}>
+                <Box style={{ flexDirection: 'row', gap: 10 }}>
+                    <Text style={{ fontSize: 18, color: '#8B97A8', width: 116 }}>Team</Text>
+                    <Text style={{ fontSize: 22, color: '#1A2230' }}>Wang Fuxiang · Cao Shutong · Zhang Fan</Text>
+                </Box>
+                <Box style={{ flexDirection: 'row', gap: 10 }}>
+                    <Text style={{ fontSize: 18, color: '#8B97A8', width: 116 }}>Program</Text>
+                    <Text style={{ fontSize: 22, color: '#1A2230' }}>Software Engineering (Professional Master)</Text>
+                </Box>
+            </Box>
+        </Box>
+    </Box>
+
+    {/* bottom info bar */}
+    <Box style={{ position: 'absolute', bottom: 0, left: 0, width: 1280, height: 88, background: '#F7F9FC', borderTop: '1px solid #D6DCE5', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 44px' }}>
+        <Text style={{ fontSize: 18, color: '#4A5568', letterSpacing: 1 }}>Beijing Jiaotong University · Software Engineering (Professional Master)</Text>
+        <Text style={{ fontSize: 18, color: '#0E3F8C', fontWeight: 'bold', letterSpacing: 1 }}>October 2026</Text>
+    </Box>
+</Slide>

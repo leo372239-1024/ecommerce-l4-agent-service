@@ -1,0 +1,112 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', position: 'relative', fontFamily: 'Microsoft YaHei', padding: '88px 40px 56px 40px' }}>
+    {/* A 页眉 */}
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 64, background: '#0E3F8C', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 0 0 40px' }}>
+        <Text style={{ fontSize: 16, color: '#FFFFFF', letterSpacing: 2 }}>网络计算与边缘智能 · 开题答辩</Text>
+        <Box style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={{ fontSize: 14, color: '#B9CDEA', marginRight: 22 }}>电商 L4 级智能客服 Agent 系统</Text>
+            <Box style={{ width: 190, height: 64, background: '#FFFFFF', justifyContent: 'center', alignItems: 'center' }}>
+                <Image src="assets/bjtu_logo.png" style={{ width: 166, height: 48, objectFit: 'contain' }} />
+            </Box>
+        </Box>
+    </Box>
+
+    {/* B 标题块 */}
+    <Box style={{ flexDirection: 'row', alignItems: 'center', height: 40 }}>
+        <Box style={{ width: 6, height: 34, background: '#1E4FA8', borderRadius: 3, marginRight: 12 }} />
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0E3F8C' }}>研究现状与工程能力断层</Text>
+        <Text style={{ fontSize: 15, color: '#8B97A8', marginLeft: 'auto' }}>01 / 06</Text>
+    </Box>
+
+    {/* C 内容区 */}
+    <Box style={{ flexDirection: 'column', gap: 20, marginTop: 16, height: 520 }}>
+        <Box style={{ flexDirection: 'row', gap: 20, height: 400 }}>
+            {/* 左：现有技术栈 */}
+            <Box style={{ width: 590, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: '20px 24px', flexDirection: 'column' }}>
+                <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+                    <FAIcon name='layer-group' style={{ fill: '#3D7BD9', width: 22, height: 22 }} />
+                    <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#0E3F8C' }}>现有技术栈：组件层面已成熟</Text>
+                </Box>
+                <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.6, marginTop: 8 }}>公开框架与协议已把「Agent 能调用工具并回答」做成工程标配。</Text>
+
+                <Box style={{ flexDirection: 'column', marginTop: 14 }}>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start', paddingBottom: 10, borderBottom: '1px solid #E5E7EB' }}>
+                        <FAIcon name='check-circle' style={{ fill: '#1E4FA8', width: 20, height: 20, marginTop: 2 }} />
+                        <Box style={{ flex: 1 }}>
+                            <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#1A2230' }}>规划与执行</Text>
+                            <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.5, marginTop: 2 }}>ReAct 式工具调用、函数调用、LangGraph 持久执行与 checkpoint</Text>
+                        </Box>
+                    </Box>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start', paddingVertical: 10, borderBottom: '1px solid #E5E7EB' }}>
+                        <FAIcon name='check-circle' style={{ fill: '#1E4FA8', width: 20, height: 20, marginTop: 2 }} />
+                        <Box style={{ flex: 1 }}>
+                            <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#1A2230' }}>检索增强</Text>
+                            <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.5, marginTop: 2 }}>BM25 词法召回 + 向量语义召回 + RRF 融合 + 精排模型</Text>
+                        </Box>
+                    </Box>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start', paddingVertical: 10, borderBottom: '1px solid #E5E7EB' }}>
+                        <FAIcon name='check-circle' style={{ fill: '#1E4FA8', width: 20, height: 20, marginTop: 2 }} />
+                        <Box style={{ flex: 1 }}>
+                            <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#1A2230' }}>记忆机制</Text>
+                            <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.5, marginTop: 2 }}>情景 / 语义 / 程序记忆，AWM 工作流模板与受控复用</Text>
+                        </Box>
+                    </Box>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start', paddingVertical: 10, borderBottom: '1px solid #E5E7EB' }}>
+                        <FAIcon name='check-circle' style={{ fill: '#1E4FA8', width: 20, height: 20, marginTop: 2 }} />
+                        <Box style={{ flex: 1 }}>
+                            <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#1A2230' }}>工具协议与网关</Text>
+                            <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.5, marginTop: 2 }}>MCP 标准化商家接口，网关统一授权、提案与参数校验</Text>
+                        </Box>
+                    </Box>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start', paddingTop: 10 }}>
+                        <FAIcon name='check-circle' style={{ fill: '#1E4FA8', width: 20, height: 20, marginTop: 2 }} />
+                        <Box style={{ flex: 1 }}>
+                            <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#1A2230' }}>可观测</Text>
+                            <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.5, marginTop: 2 }}>OpenTelemetry → Jaeger / Prometheus / Grafana 全链路 Trace</Text>
+                        </Box>
+                    </Box>
+                </Box>
+            </Box>
+
+            {/* 右：能力断层 */}
+            <Box style={{ width: 590, background: '#FFFFFF', border: '1px solid #D6DCE5', borderRadius: 10, padding: '20px 24px', flexDirection: 'column' }}>
+                <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+                    <FAIcon name='exclamation-triangle' style={{ fill: '#D9534F', width: 22, height: 22 }} />
+                    <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#0E3F8C' }}>能力断层：写操作闭环缺失</Text>
+                </Box>
+                <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.6, marginTop: 8 }}>一旦涉及退款、取消等高风险写操作，成熟组件的默认假设即失效。</Text>
+
+                <Box style={{ flexDirection: 'column', gap: 12, marginTop: 16 }}>
+                    <Box style={{ background: '#FDF3F3', borderLeft: '4px solid #D9534F', borderRadius: 8, padding: '12px 16px' }}>
+                        <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#C0392B' }}>证据与授权未联动</Text>
+                        <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.6, marginTop: 4 }}>历史摘要被当作当前事实，旧金额与旧审批被继续沿用。</Text>
+                    </Box>
+                    <Box style={{ background: '#FDF3F3', borderLeft: '4px solid #D9534F', borderRadius: 8, padding: '12px 16px' }}>
+                        <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#C0392B' }}>写入缺幂等边界</Text>
+                        <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.6, marginTop: 4 }}>请求超时无法判断事务是否已提交，存在重复扣款 / 退款风险。</Text>
+                    </Box>
+                    <Box style={{ background: '#FDF3F3', borderLeft: '4px solid #D9534F', borderRadius: 8, padding: '12px 16px' }}>
+                        <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#C0392B' }}>评测只看终态</Text>
+                        <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.6, marginTop: 4 }}>SUCCEEDED 不等于订单作用域、当前证据与回执均正确。</Text>
+                    </Box>
+                </Box>
+            </Box>
+        </Box>
+
+        {/* 底部定位声明条 */}
+        <Box style={{ height: 100, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 10, padding: '0 28px', flexDirection: 'row', alignItems: 'center', gap: 18 }}>
+            <Box style={{ width: 44, height: 44, borderRadius: 10, background: '#1E4FA8', justifyContent: 'center', alignItems: 'center' }}>
+                <FAIcon name='bullseye' style={{ fill: '#FFFFFF', width: 22, height: 22 }} />
+            </Box>
+            <Box style={{ flex: 1 }}>
+                <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#0E3F8C' }}>本课题的差异化定位</Text>
+                <Text style={{ fontSize: 17, color: '#1A2230', lineHeight: 1.6, marginTop: 2 }}>不宣称国内市场空白、不宣称超越商业产品；定位是把高风险售后事务的<span style={{ color: '#1E4FA8', fontWeight: 'bold' }}>可验证执行闭环</span>做出来，并以冻结模拟评测<span style={{ color: '#1E4FA8', fontWeight: 'bold' }}>逐项量化</span>其效果与边界。</Text>
+            </Box>
+        </Box>
+    </Box>
+
+    {/* D 页脚 */}
+    <Box style={{ position: 'absolute', bottom: 0, left: 0, width: 1280, height: 56, padding: '0 40px', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid #E5E7EB' }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>北京交通大学 · 软件工程（专硕）</Text>
+        <Text style={{ fontSize: 14, color: '#0E3F8C', fontWeight: 'bold' }}>04 / 18</Text>
+    </Box>
+</Slide>

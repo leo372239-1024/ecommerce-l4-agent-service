@@ -1,0 +1,83 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', padding: 0, flexDirection: 'row' }}>
+    {/* 左侧深蓝导航栏 */}
+    <Box style={{ width: 380, height: 720, background: '#0E3F8C', flexDirection: 'column', justifyContent: 'center', padding: '0 48px' }}>
+        <Text style={{ fontSize: 46, fontWeight: 'bold', color: '#FFFFFF', letterSpacing: 8 }}>目录</Text>
+        <Text style={{ fontFamily: 'Times New Roman', fontSize: 18, color: '#B9CDEA', letterSpacing: 3, marginTop: 12 }}>CONTENTS</Text>
+        <Box style={{ width: 64, height: 4, background: '#3D7BD9', borderRadius: 2, marginTop: 24 }} />
+        <Text style={{ fontSize: 17, color: '#B9CDEA', lineHeight: 1.9, marginTop: 30 }}>从立项必要性与核心想法出发，<br />给出研究内容、技术方案、<br />预期效果与实施计划。</Text>
+        <Text style={{ fontFamily: 'Times New Roman', fontSize: 14, color: '#7FA3D6', letterSpacing: 1, marginTop: 46 }}>E-Commerce L4 Agent · 2026</Text>
+    </Box>
+
+    {/* 右侧六项导航 */}
+    <Box style={{ flex: 1, height: 720, position: 'relative', padding: '92px 44px 0 72px' }}>
+        <Box style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 20, height: 540 }}>
+            <Box style={{ width: 382, height: 166, background: '#F7F9FC', border: '1px solid #E5E7EB', borderRadius: 10, padding: '18px 22px', flexDirection: 'column' }}>
+                <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+                    <Box style={{ width: 38, height: 38, borderRadius: 8, background: '#1E4FA8', justifyContent: 'center', alignItems: 'center' }}>
+                        <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#FFFFFF' }}>01</Text>
+                    </Box>
+                    <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#0E3F8C' }}>立项必要性</Text>
+                </Box>
+                <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.7, marginTop: 12 }}>行业规模与需求增长；现有能力断层与待解决的工程痛点</Text>
+            </Box>
+
+            <Box style={{ width: 382, height: 166, background: '#F7F9FC', border: '1px solid #E5E7EB', borderRadius: 10, padding: '18px 22px', flexDirection: 'column' }}>
+                <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+                    <Box style={{ width: 38, height: 38, borderRadius: 8, background: '#1E4FA8', justifyContent: 'center', alignItems: 'center' }}>
+                        <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#FFFFFF' }}>02</Text>
+                    </Box>
+                    <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#0E3F8C' }}>项目主题与核心想法</Text>
+                </Box>
+                <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.7, marginTop: 12 }}>项目定位、核心想法与差异化边界；研究目标与内容拆解</Text>
+            </Box>
+
+            <Box style={{ width: 382, height: 166, background: '#F7F9FC', border: '1px solid #E5E7EB', borderRadius: 10, padding: '18px 22px', flexDirection: 'column' }}>
+                <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+                    <Box style={{ width: 38, height: 38, borderRadius: 8, background: '#1E4FA8', justifyContent: 'center', alignItems: 'center' }}>
+                        <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#FFFFFF' }}>03</Text>
+                    </Box>
+                    <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#0E3F8C' }}>研究内容与技术方案</Text>
+                </Box>
+                <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.7, marginTop: 12 }}>总体架构、业务流程设计，以及技术选型与部署形态</Text>
+            </Box>
+
+            <Box style={{ width: 382, height: 166, background: '#F7F9FC', border: '1px solid #E5E7EB', borderRadius: 10, padding: '18px 22px', flexDirection: 'column' }}>
+                <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+                    <Box style={{ width: 38, height: 38, borderRadius: 8, background: '#1E4FA8', justifyContent: 'center', alignItems: 'center' }}>
+                        <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#FFFFFF' }}>04</Text>
+                    </Box>
+                    <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#0E3F8C' }}>关键技术与安全设计</Text>
+                </Box>
+                <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.7, marginTop: 12 }}>四项关键技术方向，以及权限、隔离与可信边界设计</Text>
+            </Box>
+
+            <Box style={{ width: 382, height: 166, background: '#F7F9FC', border: '1px solid #E5E7EB', borderRadius: 10, padding: '18px 22px', flexDirection: 'column' }}>
+                <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+                    <Box style={{ width: 38, height: 38, borderRadius: 8, background: '#1E4FA8', justifyContent: 'center', alignItems: 'center' }}>
+                        <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#FFFFFF' }}>05</Text>
+                    </Box>
+                    <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#0E3F8C' }}>预期效果与验收指标</Text>
+                </Box>
+                <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.7, marginTop: 12 }}>预期技术效果、量化目标与对照实验设计</Text>
+            </Box>
+
+            <Box style={{ width: 382, height: 166, background: '#F7F9FC', border: '1px solid #E5E7EB', borderRadius: 10, padding: '18px 22px', flexDirection: 'column' }}>
+                <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+                    <Box style={{ width: 38, height: 38, borderRadius: 8, background: '#1E4FA8', justifyContent: 'center', alignItems: 'center' }}>
+                        <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#FFFFFF' }}>06</Text>
+                    </Box>
+                    <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#0E3F8C' }}>可行性与实施计划</Text>
+                </Box>
+                <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.7, marginTop: 12 }}>技术/资源可行性、阶段计划、里程碑与团队分工</Text>
+            </Box>
+        </Box>
+
+        <Box style={{ position: 'absolute', top: 20, right: 44 }}>
+            <Image src="assets/bjtu_logo.png" style={{ width: 158, height: 46, objectFit: 'contain' }} />
+        </Box>
+
+        <Box style={{ position: 'absolute', bottom: 24, right: 44 }}>
+            <Text style={{ fontSize: 15, color: '#0E3F8C', fontWeight: 'bold' }}>02 / 18</Text>
+        </Box>
+    </Box>
+</Slide>

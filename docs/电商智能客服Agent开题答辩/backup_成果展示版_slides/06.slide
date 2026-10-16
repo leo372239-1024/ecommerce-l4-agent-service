@@ -1,0 +1,150 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', position: 'relative', fontFamily: 'Microsoft YaHei', padding: '88px 40px 56px 40px' }}>
+    {/* A 页眉 */}
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 64, background: '#0E3F8C', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 0 0 40px' }}>
+        <Text style={{ fontSize: 16, color: '#FFFFFF', letterSpacing: 2 }}>网络计算与边缘智能 · 开题答辩</Text>
+        <Box style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={{ fontSize: 14, color: '#B9CDEA', marginRight: 22 }}>电商 L4 级智能客服 Agent 系统</Text>
+            <Box style={{ width: 190, height: 64, background: '#FFFFFF', justifyContent: 'center', alignItems: 'center' }}>
+                <Image src="assets/bjtu_logo.png" style={{ width: 166, height: 48, objectFit: 'contain' }} />
+            </Box>
+        </Box>
+    </Box>
+
+    {/* B 标题块 */}
+    <Box style={{ flexDirection: 'row', alignItems: 'center', height: 40 }}>
+        <Box style={{ width: 6, height: 34, background: '#1E4FA8', borderRadius: 3, marginRight: 12 }} />
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0E3F8C' }}>系统总体架构</Text>
+        <Text style={{ fontSize: 15, color: '#8B97A8', marginLeft: 'auto' }}>04 / 06</Text>
+    </Box>
+
+    {/* C 内容区：分层架构图 + 结论条 */}
+    <Box style={{ flexDirection: 'column', gap: 12, marginTop: 16, height: 520 }}>
+        <Box style={{ flexDirection: 'column', gap: 10, height: 434, marginTop: 12 }}>
+            {/* 用户层 */}
+            <Box style={{ flexDirection: 'row', alignItems: 'center', height: 64, gap: 12 }}>
+                <Box style={{ width: 140, height: 64, background: '#0E3F8C', borderRadius: 8, justifyContent: 'center', alignItems: 'center' }}>
+                    <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#FFFFFF' }}>用户层</Text>
+                </Box>
+                <Box style={{ flex: 1, flexDirection: 'row', gap: 12 }}>
+                    <Box style={{ flex: 1, height: 46, background: '#FFFFFF', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1A2230' }}>客户 · 客服 · 主管</Text>
+                    </Box>
+                    <Box style={{ flex: 1, height: 46, background: '#FFFFFF', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1A2230' }}>React + Ant Design 工作台</Text>
+                    </Box>
+                    <Box style={{ flex: 1, height: 46, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1E4FA8' }}>REST 提交 · SSE（AG-UI）持久事件</Text>
+                    </Box>
+                </Box>
+            </Box>
+
+            {/* 接入层 */}
+            <Box style={{ flexDirection: 'row', alignItems: 'center', height: 64, gap: 12 }}>
+                <Box style={{ width: 140, height: 64, background: '#0E3F8C', borderRadius: 8, justifyContent: 'center', alignItems: 'center' }}>
+                    <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#FFFFFF' }}>接入层</Text>
+                </Box>
+                <Box style={{ flex: 1, flexDirection: 'row', gap: 12 }}>
+                    <Box style={{ flex: 1, height: 46, background: '#FFFFFF', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1A2230' }}>Nginx 入口（动态 DNS 解析）</Text>
+                    </Box>
+                    <Box style={{ flex: 1, height: 46, background: '#FFFFFF', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1A2230' }}>FastAPI API（async · OpenAPI）</Text>
+                    </Box>
+                    <Box style={{ flex: 1, height: 46, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1E4FA8' }}>会话认证 · CSRF · RBAC + 资源 ABAC</Text>
+                    </Box>
+                </Box>
+            </Box>
+
+            {/* 执行层 */}
+            <Box style={{ flexDirection: 'row', alignItems: 'center', height: 64, gap: 12 }}>
+                <Box style={{ width: 140, height: 64, background: '#0E3F8C', borderRadius: 8, justifyContent: 'center', alignItems: 'center' }}>
+                    <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#FFFFFF' }}>执行层</Text>
+                </Box>
+                <Box style={{ flex: 1, flexDirection: 'row', gap: 12 }}>
+                    <Box style={{ flex: 1, height: 46, background: '#FFFFFF', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1A2230' }}>Redis Pub/Sub 任务唤醒</Text>
+                    </Box>
+                    <Box style={{ flex: 1, height: 46, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1E4FA8' }}>LangGraph Worker（租约 / checkpoint）</Text>
+                    </Box>
+                    <Box style={{ flex: 1, height: 46, background: '#FFFFFF', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1A2230' }}>TaskSpec · 校验 DAG · 预算控制</Text>
+                    </Box>
+                </Box>
+            </Box>
+
+            {/* 能力层 */}
+            <Box style={{ flexDirection: 'row', alignItems: 'center', height: 64, gap: 12 }}>
+                <Box style={{ width: 140, height: 64, background: '#1E4FA8', borderRadius: 8, justifyContent: 'center', alignItems: 'center' }}>
+                    <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#FFFFFF' }}>能力层</Text>
+                </Box>
+                <Box style={{ flex: 1, flexDirection: 'row', gap: 12 }}>
+                    <Box style={{ flex: 1, height: 46, background: '#FFFFFF', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1A2230' }}>可验证规划</Text>
+                    </Box>
+                    <Box style={{ flex: 1, height: 46, background: '#FFFFFF', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1A2230' }}>受权工具路由</Text>
+                    </Box>
+                    <Box style={{ flex: 1, height: 46, background: '#FFFFFF', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1A2230' }}>上下文与时效记忆</Text>
+                    </Box>
+                    <Box style={{ flex: 1, height: 46, background: '#FFFFFF', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1A2230' }}>证据反思与恢复</Text>
+                    </Box>
+                </Box>
+            </Box>
+
+            {/* 集成层 */}
+            <Box style={{ flexDirection: 'row', alignItems: 'center', height: 64, gap: 12 }}>
+                <Box style={{ width: 140, height: 64, background: '#0E3F8C', borderRadius: 8, justifyContent: 'center', alignItems: 'center' }}>
+                    <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#FFFFFF' }}>集成层</Text>
+                </Box>
+                <Box style={{ flex: 1, flexDirection: 'row', gap: 12 }}>
+                    <Box style={{ flex: 1, height: 46, background: '#FFFFFF', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1A2230' }}>MCP 商家服务 · 40 个真实工具</Text>
+                    </Box>
+                    <Box style={{ flex: 1, height: 46, background: '#FFFFFF', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1A2230' }}>混合检索：BM25 + 向量 + RRF + 精排</Text>
+                    </Box>
+                    <Box style={{ flex: 1, height: 46, background: '#FFFFFF', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1A2230' }}>固定计算 Sandbox（无网络 / 只读）</Text>
+                    </Box>
+                </Box>
+            </Box>
+
+            {/* 存储与观测层 */}
+            <Box style={{ flexDirection: 'row', alignItems: 'center', height: 64, gap: 12 }}>
+                <Box style={{ width: 140, height: 64, background: '#0E3F8C', borderRadius: 8, justifyContent: 'center', alignItems: 'center' }}>
+                    <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#FFFFFF' }}>存储与观测</Text>
+                </Box>
+                <Box style={{ flex: 1, flexDirection: 'row', gap: 12 }}>
+                    <Box style={{ flex: 1, height: 46, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1E4FA8', fontWeight: 'bold' }}>PostgreSQL 权威存储</Text>
+                    </Box>
+                    <Box style={{ flex: 1, height: 46, background: '#FFFFFF', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1A2230' }}>Redis 通知 / Outbox 轮询</Text>
+                    </Box>
+                    <Box style={{ flex: 1, height: 46, background: '#FFFFFF', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1A2230' }}>Jaeger · Prometheus · Grafana</Text>
+                    </Box>
+                    <Box style={{ flex: 1, height: 46, background: '#FFFFFF', border: '1px solid #C9DCF5', borderRadius: 6, justifyContent: 'center', padding: '0 14px' }}>
+                        <Text style={{ fontSize: 15, color: '#1A2230' }}>OpenRouter LLM</Text>
+                    </Box>
+                </Box>
+            </Box>
+        </Box>
+
+        {/* 结论条 */}
+        <Box style={{ height: 56, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 10, padding: '0 24px', flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+            <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#0E3F8C' }}>关键约束</Text>
+            <Text style={{ fontSize: 15, color: '#1A2230' }}>PostgreSQL 为唯一权威源；Redis 仅加速唤醒，丢失由 DB 轮询兜底；Jaeger 内存 Trace 重启即失，业务事件持久保留。</Text>
+        </Box>
+    </Box>
+
+    {/* D 页脚 */}
+    <Box style={{ position: 'absolute', bottom: 0, left: 0, width: 1280, height: 56, padding: '0 40px', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid #E5E7EB' }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>北京交通大学 · 软件工程（专硕）</Text>
+        <Text style={{ fontSize: 14, color: '#0E3F8C', fontWeight: 'bold' }}>06 / 18</Text>
+    </Box>
+</Slide>

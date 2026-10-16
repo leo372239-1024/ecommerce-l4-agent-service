@@ -1,0 +1,36 @@
+name: Locked build and delivery checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9 # v7
+        with:
+          version: 0.11.19
+          enable-cache: true
+      - name: Lock, lint and backend tests
+        working-directory: backend
+        run: |
+          uv python install 3.12.13
+          uv lock --check
+          uv sync --frozen
+          uv run --frozen ruff check app tests migrations ../scripts ../sandbox
+          uv run --frozen pytest -q
+          uv run --frozen pip-audit
+      - name: Prepare local configuration
+        run: uv run --project backend --frozen python scripts/bootstrap.py
+      - name: Validate Compose and build locked containers
+        run: |
+          docker compose --env-file .env --env-file infra/images.env -f infra/docker-compose.yml --profile search --profile observability config --quiet
+          uv run --project backend --frozen python scripts/stack.py up --skip-tool-publish
+          uv run --project backend --frozen python scripts/stack.py smoke
+      - name: Validate operational alert rules
+        run: |
+          docker compose --env-file .env --env-file infra/images.env -f infra/docker-compose.yml --profile observability run --rm --no-deps --entrypoint promtool prometheus check config /etc/prometheus/prometheus.yml
+          docker compose --env-file .env --env-file infra/images.env -f infra/docker-compose.yml --profile observability run --rm --no-deps --workdir /etc/prometheus --entrypoint promtool prometheus test rules alerts.test.yml
+      - name: Stop project containers
+        if: always()
+        run: docker compose --env-file .env --env-file infra/images.env -f infra/docker-compose.yml down

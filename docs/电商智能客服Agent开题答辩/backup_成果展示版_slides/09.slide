@@ -1,0 +1,99 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', position: 'relative', fontFamily: 'Microsoft YaHei', padding: '88px 40px 56px 40px' }}>
+    {/* A 页眉 */}
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 64, background: '#0E3F8C', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 0 0 40px' }}>
+        <Text style={{ fontSize: 16, color: '#FFFFFF', letterSpacing: 2 }}>网络计算与边缘智能 · 开题答辩</Text>
+        <Box style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={{ fontSize: 14, color: '#B9CDEA', marginRight: 22 }}>电商 L4 级智能客服 Agent 系统</Text>
+            <Box style={{ width: 190, height: 64, background: '#FFFFFF', justifyContent: 'center', alignItems: 'center' }}>
+                <Image src="assets/bjtu_logo.png" style={{ width: 166, height: 48, objectFit: 'contain' }} />
+            </Box>
+        </Box>
+    </Box>
+
+    {/* B 标题块 */}
+    <Box style={{ flexDirection: 'row', alignItems: 'center', height: 40 }}>
+        <Box style={{ width: 6, height: 34, background: '#1E4FA8', borderRadius: 3, marginRight: 12 }} />
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0E3F8C' }}>关键技术 ② 受权工具路由</Text>
+        <Text style={{ fontSize: 15, color: '#8B97A8', marginLeft: 'auto' }}>04 / 06</Text>
+    </Box>
+
+    {/* C 内容区 */}
+    <Box style={{ flexDirection: 'column', gap: 12, marginTop: 16, height: 520 }}>
+        {/* 权限前置流程条 */}
+        <Box style={{ height: 84, background: '#0E3F8C', borderRadius: 10, padding: '0 22px', flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+            <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#3D7BD9', width: 68 }}>权限前置</Text>
+            <Box style={{ padding: '7px 16px', background: '#FFFFFF', borderRadius: 16 }}>
+                <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#0E3F8C', lineHeight: 1.2 }}>认证</Text>
+            </Box>
+            <Text style={{ fontSize: 18, color: '#7FA3D6' }}>→</Text>
+            <Box style={{ padding: '7px 16px', background: '#FFFFFF', borderRadius: 16 }}>
+                <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#0E3F8C', lineHeight: 1.2 }}>范围过滤</Text>
+            </Box>
+            <Text style={{ fontSize: 18, color: '#7FA3D6' }}>→</Text>
+            <Box style={{ padding: '7px 16px', background: '#FFFFFF', borderRadius: 16 }}>
+                <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#0E3F8C', lineHeight: 1.2 }}>候选检索</Text>
+            </Box>
+            <Text style={{ fontSize: 18, color: '#7FA3D6' }}>→</Text>
+            <Box style={{ padding: '7px 16px', background: '#FFFFFF', borderRadius: 16 }}>
+                <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#0E3F8C', lineHeight: 1.2 }}>参数 / 版本二次校验</Text>
+            </Box>
+            <Text style={{ fontSize: 18, color: '#7FA3D6' }}>→</Text>
+            <Box style={{ padding: '7px 16px', background: '#3D7BD9', borderRadius: 16 }}>
+                <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#FFFFFF', lineHeight: 1.2 }}>受控执行</Text>
+            </Box>
+        </Box>
+
+        {/* 三栏 */}
+        <Box style={{ flexDirection: 'row', gap: 15, height: 316 }}>
+            <Box style={{ flex: 1, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: '20px 22px', flexDirection: 'column' }}>
+                <Box style={{ width: 44, height: 44, borderRadius: 10, background: '#E8EFF8', justifyContent: 'center', alignItems: 'center' }}>
+                    <FAIcon name='filter' style={{ fill: '#1E4FA8', width: 22, height: 22 }} />
+                </Box>
+                <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#0E3F8C', marginTop: 12 }}>过滤先于检索</Text>
+                <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.6, marginTop: 10 }}>认证与资源授权在检索之前完成，未授权工具不进入候选集，从结构上消除「先召回、再拦截」的越权窗口。</Text>
+                <Box style={{ marginTop: 'auto', paddingTop: 12, borderTop: '1px solid #E5E7EB' }}>
+                    <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#D9534F' }}>模型无权扩张权限</Text>
+                </Box>
+            </Box>
+
+            <Box style={{ flex: 1, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: '20px 22px', flexDirection: 'column' }}>
+                <Box style={{ width: 44, height: 44, borderRadius: 10, background: '#E8EFF8', justifyContent: 'center', alignItems: 'center' }}>
+                    <FAIcon name='plug' style={{ fill: '#1E4FA8', width: 22, height: 22 }} />
+                </Box>
+                <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#0E3F8C', marginTop: 12 }}>40 个真实 MCP 工具</Text>
+                <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.6, marginTop: 10 }}>工具按发布方业务投影契约确定业务效果；明确效果走受控参数绑定，schema、目录版本与参数在调用前二次校验。</Text>
+                <Box style={{ marginTop: 'auto', paddingTop: 12, borderTop: '1px solid #E5E7EB' }}>
+                    <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#1E4FA8' }}>参数绑定受控，效果可枚举</Text>
+                </Box>
+            </Box>
+
+            <Box style={{ flex: 1, background: '#FFFFFF', border: '1px solid #D6DCE5', borderRadius: 10, padding: '20px 22px', flexDirection: 'column' }}>
+                <Box style={{ width: 44, height: 44, borderRadius: 10, background: '#E8EFF8', justifyContent: 'center', alignItems: 'center' }}>
+                    <FAIcon name='chart-bar' style={{ fill: '#1E4FA8', width: 22, height: 22 }} />
+                </Box>
+                <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#0E3F8C', marginTop: 12 }}>1000 项目录组件测量</Text>
+                <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.6, marginTop: 10 }}>40 个真实工具 + 960 个固定公开描述作为干扰；50 例 × 3 trial，两组均 150/150，差值 0pp。</Text>
+                <Box style={{ marginTop: 'auto', paddingTop: 12, borderTop: '1px solid #E5E7EB' }}>
+                    <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#D9534F' }}>基线已达样本上限，未达 +5pp</Text>
+                </Box>
+            </Box>
+        </Box>
+
+        {/* 结论条 */}
+        <Box style={{ height: 96, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 10, padding: '0 26px', flexDirection: 'row', alignItems: 'center', gap: 18 }}>
+            <Box style={{ width: 44, height: 44, borderRadius: 10, background: '#1E4FA8', justifyContent: 'center', alignItems: 'center' }}>
+                <FAIcon name='shield-alt' style={{ fill: '#FFFFFF', width: 22, height: 22 }} />
+            </Box>
+            <Box style={{ flex: 1 }}>
+                <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#0E3F8C' }}>结论与边界</Text>
+                <Text style={{ fontSize: 16, color: '#1A2230', lineHeight: 1.6, marginTop: 2 }}>路由在 1000 项规模下无质量回退；但该结果不支持「路由准确率胜过混合检索」，也不代表 960 个公开描述对应的真实 API 均可调用。</Text>
+            </Box>
+        </Box>
+    </Box>
+
+    {/* D 页脚 */}
+    <Box style={{ position: 'absolute', bottom: 0, left: 0, width: 1280, height: 56, padding: '0 40px', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid #E5E7EB' }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>北京交通大学 · 软件工程（专硕）</Text>
+        <Text style={{ fontSize: 14, color: '#0E3F8C', fontWeight: 'bold' }}>09 / 18</Text>
+    </Box>
+</Slide>

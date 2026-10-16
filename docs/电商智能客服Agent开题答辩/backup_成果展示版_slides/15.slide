@@ -1,0 +1,111 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', position: 'relative', fontFamily: 'Microsoft YaHei', padding: '88px 40px 56px 40px' }}>
+    {/* A 页眉 */}
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 64, background: '#0E3F8C', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 0 0 40px' }}>
+        <Text style={{ fontSize: 16, color: '#FFFFFF', letterSpacing: 2 }}>网络计算与边缘智能 · 开题答辩</Text>
+        <Box style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={{ fontSize: 14, color: '#B9CDEA', marginRight: 22 }}>电商 L4 级智能客服 Agent 系统</Text>
+            <Box style={{ width: 190, height: 64, background: '#FFFFFF', justifyContent: 'center', alignItems: 'center' }}>
+                <Image src="assets/bjtu_logo.png" style={{ width: 166, height: 48, objectFit: 'contain' }} />
+            </Box>
+        </Box>
+    </Box>
+
+    {/* B 标题块 */}
+    <Box style={{ flexDirection: 'row', alignItems: 'center', height: 40 }}>
+        <Box style={{ width: 6, height: 34, background: '#1E4FA8', borderRadius: 3, marginRight: 12 }} />
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0E3F8C' }}>量化结果与关键指标</Text>
+        <Text style={{ fontSize: 15, color: '#8B97A8', marginLeft: 'auto' }}>05 / 06</Text>
+    </Box>
+
+    {/* C 内容区 */}
+    <Box style={{ flexDirection: 'column', gap: 12, marginTop: 16, height: 520 }}>
+        {/* 主表 */}
+        <Box style={{ height: 312 }}>
+            <Table
+                style={{ width: '100%', height: '100%' }}
+                defaultTextStyle={{ fontSize: 16, textAlign: 'center', color: '#1A2230' }}
+                defaultCellStyle={{
+                    border: {
+                        left: { width: 1, color: '#E5E7EB' },
+                        right: { width: 1, color: '#E5E7EB' },
+                        top: { width: 1, color: '#E5E7EB' },
+                        bottom: { width: 1, color: '#E5E7EB' },
+                    },
+                }}
+                cells={[
+                    [
+                        { text: '技术与比较组', textStyle: { bold: true, color: '#FFFFFF', fontSize: 16 }, cellStyle: { background: { color: '#0E3F8C' } } },
+                        { text: '主集规模', textStyle: { bold: true, color: '#FFFFFF', fontSize: 16 }, cellStyle: { background: { color: '#0E3F8C' } } },
+                        { text: '基线严格成功', textStyle: { bold: true, color: '#FFFFFF', fontSize: 16 }, cellStyle: { background: { color: '#0E3F8C' } } },
+                        { text: '本方案 P', textStyle: { bold: true, color: '#FFFFFF', fontSize: 16 }, cellStyle: { background: { color: '#0E3F8C' } } },
+                        { text: 'family 均衡差 / 95% 区间', textStyle: { bold: true, color: '#FFFFFF', fontSize: 16 }, cellStyle: { background: { color: '#0E3F8C' } } },
+                        { text: '结论', textStyle: { bold: true, color: '#FFFFFF', fontSize: 16 }, cellStyle: { background: { color: '#0E3F8C' } } },
+                    ],
+                    [
+                        '可验证规划 P vs B2',
+                        '36 场景 × 5 = 180',
+                        '117/180（65.00%）',
+                        { text: '159/180（88.33%）', textStyle: { bold: true, color: '#1E4FA8' } },
+                        '+9.14pp [−4.66, +23.45]',
+                        { text: '未达 ≥90%', textStyle: { bold: true, color: '#D9534F' } },
+                    ],
+                    [
+                        { text: '工具路由 P vs R-hybrid', cellStyle: { background: { color: '#F7F9FC' } } },
+                        { text: '50 例 × 3 = 150', cellStyle: { background: { color: '#F7F9FC' } } },
+                        { text: '150/150（100%）', cellStyle: { background: { color: '#F7F9FC' } } },
+                        { text: '150/150（100%）', textStyle: { bold: true, color: '#1E4FA8' }, cellStyle: { background: { color: '#F7F9FC' } } },
+                        { text: '0pp [0, 0]', cellStyle: { background: { color: '#F7F9FC' } } },
+                        { text: '无回退，未达 +5pp', textStyle: { bold: true, color: '#D9534F' }, cellStyle: { background: { color: '#F7F9FC' } } },
+                    ],
+                    [
+                        '时效记忆 V4 P vs M-vector',
+                        '60 组合 × 3 = 180',
+                        '62/180（34.44%）',
+                        { text: '180/180（100%）', textStyle: { bold: true, color: '#1E4FA8' } },
+                        '+75.64pp [+55.13, +92.31]',
+                        { text: '达到登记门槛', textStyle: { bold: true, color: '#1E4FA8' } },
+                    ],
+                    [
+                        { text: '失败恢复 P vs A-reflect', cellStyle: { background: { color: '#F7F9FC' } } },
+                        { text: '48 场景 × 3 = 144', cellStyle: { background: { color: '#F7F9FC' } } },
+                        { text: '48/144（33.33%）', cellStyle: { background: { color: '#F7F9FC' } } },
+                        { text: '144/144（100%）', textStyle: { bold: true, color: '#1E4FA8' }, cellStyle: { background: { color: '#F7F9FC' } } },
+                        { text: '+66.67pp [+33.33, +100]', cellStyle: { background: { color: '#F7F9FC' } } },
+                        { text: '达到登记门槛', textStyle: { bold: true, color: '#1E4FA8' }, cellStyle: { background: { color: '#F7F9FC' } } },
+                    ],
+                ]}
+            />
+        </Box>
+
+        {/* 概览条 */}
+        <Box style={{ height: 84, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 10, padding: '0 26px', flexDirection: 'row', alignItems: 'center', gap: 30 }}>
+            <Box style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8 }}>
+                <Text style={{ fontSize: 30, fontWeight: 'bold', color: '#1E4FA8', lineHeight: 1 }}>3762</Text>
+                <Text style={{ fontSize: 15, color: '#4A5568' }}>个冻结评测单元</Text>
+            </Box>
+            <Box style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8 }}>
+                <Text style={{ fontSize: 30, fontWeight: 'bold', color: '#1E4FA8', lineHeight: 1 }}>2 / 4</Text>
+                <Text style={{ fontSize: 15, color: '#4A5568' }}>项主指标达到预登记门槛</Text>
+            </Box>
+            <Box style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8 }}>
+                <Text style={{ fontSize: 30, fontWeight: 'bold', color: '#D9534F', lineHeight: 1 }}>2 / 4</Text>
+                <Text style={{ fontSize: 15, color: '#4A5568' }}>项未达标（规划绝对值、路由差值）</Text>
+            </Box>
+        </Box>
+
+        {/* 结论条 */}
+        <Box style={{ height: 100, background: '#0E3F8C', borderRadius: 10, padding: '0 26px', flexDirection: 'row', alignItems: 'center', gap: 18 }}>
+            <FAIcon name='chart-line' style={{ fill: '#3D7BD9', width: 26, height: 26 }} />
+            <Box style={{ flex: 1 }}>
+                <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#FFFFFF' }}>如实交付结论</Text>
+                <Text style={{ fontSize: 16, color: '#B9CDEA', lineHeight: 1.55, marginTop: 2 }}>记忆与恢复两项达到预登记门槛且区间下界高于目标；规划与路由两项未达目标，区间含 0 或基线已触样本上限，一并交付、不作修饰。</Text>
+            </Box>
+        </Box>
+    </Box>
+
+    {/* D 页脚 */}
+    <Box style={{ position: 'absolute', bottom: 0, left: 0, width: 1280, height: 56, padding: '0 40px', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid #E5E7EB' }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>北京交通大学 · 软件工程（专硕）</Text>
+        <Text style={{ fontSize: 14, color: '#0E3F8C', fontWeight: 'bold' }}>15 / 18</Text>
+    </Box>
+</Slide>

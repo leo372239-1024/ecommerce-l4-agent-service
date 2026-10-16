@@ -1,0 +1,116 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', position: 'relative', fontFamily: 'Microsoft YaHei', padding: '88px 40px 56px 40px' }}>
+    {/* A 页眉 */}
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 64, background: '#0E3F8C', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 0 0 40px' }}>
+        <Text style={{ fontSize: 16, color: '#FFFFFF', letterSpacing: 2 }}>网络计算与边缘智能 · 开题答辩</Text>
+        <Box style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={{ fontSize: 14, color: '#B9CDEA', marginRight: 22 }}>电商 L4 级智能客服 Agent 系统</Text>
+            <Box style={{ width: 190, height: 64, background: '#FFFFFF', justifyContent: 'center', alignItems: 'center' }}>
+                <Image src="assets/bjtu_logo.png" style={{ width: 166, height: 48, objectFit: 'contain' }} />
+            </Box>
+        </Box>
+    </Box>
+
+    {/* B 标题块 */}
+    <Box style={{ flexDirection: 'row', alignItems: 'center', height: 40 }}>
+        <Box style={{ width: 6, height: 34, background: '#1E4FA8', borderRadius: 3, marginRight: 12 }} />
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0E3F8C' }}>技术方案：技术选型与部署形态</Text>
+        <Text style={{ fontSize: 15, color: '#8B97A8', marginLeft: 'auto' }}>03 / 06</Text>
+    </Box>
+
+    {/* C 内容区 */}
+    <Box style={{ flexDirection: 'column', gap: 12, marginTop: 16, height: 520 }}>
+        {/* 技术栈条 */}
+        <Box style={{ height: 76, background: '#0E3F8C', borderRadius: 10, padding: '0 22px', flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+            <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#3D7BD9', width: 96 }}>拟采用技术栈</Text>
+            <Box style={{ padding: '6px 14px', background: '#FFFFFF', borderRadius: 14 }}>
+                <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#0E3F8C', lineHeight: 1.2 }}>React + Ant Design</Text>
+            </Box>
+            <Box style={{ padding: '6px 14px', background: '#FFFFFF', borderRadius: 14 }}>
+                <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#0E3F8C', lineHeight: 1.2 }}>FastAPI</Text>
+            </Box>
+            <Box style={{ padding: '6px 14px', background: '#FFFFFF', borderRadius: 14 }}>
+                <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#0E3F8C', lineHeight: 1.2 }}>LangGraph</Text>
+            </Box>
+            <Box style={{ padding: '6px 14px', background: '#FFFFFF', borderRadius: 14 }}>
+                <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#0E3F8C', lineHeight: 1.2 }}>MCP</Text>
+            </Box>
+            <Box style={{ padding: '6px 14px', background: '#FFFFFF', borderRadius: 14 }}>
+                <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#0E3F8C', lineHeight: 1.2 }}>PostgreSQL</Text>
+            </Box>
+            <Box style={{ padding: '6px 14px', background: '#FFFFFF', borderRadius: 14 }}>
+                <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#0E3F8C', lineHeight: 1.2 }}>Redis</Text>
+            </Box>
+            <Box style={{ padding: '6px 14px', background: '#FFFFFF', borderRadius: 14 }}>
+                <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#0E3F8C', lineHeight: 1.2 }}>Elasticsearch + pgvector</Text>
+            </Box>
+            <Box style={{ padding: '6px 14px', background: '#3D7BD9', borderRadius: 14 }}>
+                <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#FFFFFF', lineHeight: 1.2 }}>Docker Compose</Text>
+            </Box>
+        </Box>
+
+        <Box style={{ flexDirection: 'row', gap: 20, height: 320 }}>
+            {/* 左：选型理由 */}
+            <Box style={{ width: 700, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: '20px 24px', flexDirection: 'column' }}>
+                <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#0E3F8C' }}>关键选型理由</Text>
+                <Box style={{ flexDirection: 'column', gap: 10, marginTop: 14 }}>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#1E4FA8', width: 82 }}>执行编排</Text>
+                        <Text style={{ fontSize: 16, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>LangGraph 提供持久状态、暂停与恢复；Pydantic 契约让计划可静态校验。</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#1E4FA8', width: 82 }}>数据一致性</Text>
+                        <Text style={{ fontSize: 16, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>PostgreSQL 作为唯一权威源，承载任务、事件、审批、幂等记录与业务账本。</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#1E4FA8', width: 82 }}>检索策略</Text>
+                        <Text style={{ fontSize: 16, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>BM25 词法召回 + 向量语义召回 + RRF 融合 + 精排，两类召回互补。</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#1E4FA8', width: 82 }}>模型接入</Text>
+                        <Text style={{ fontSize: 16, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>走兼容接口并记录真实供应商与用量，降低与单一供应商的耦合。</Text>
+                    </Box>
+                </Box>
+            </Box>
+
+            {/* 右：部署与可观测形态 */}
+            <Box style={{ width: 480, background: '#FFFFFF', border: '1px solid #D6DCE5', borderRadius: 10, padding: '20px 24px', flexDirection: 'column' }}>
+                <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#0E3F8C' }}>部署与可观测形态</Text>
+                <Box style={{ flexDirection: 'column', gap: 6, marginTop: 10 }}>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#1E4FA8', width: 72 }}>分容器</Text>
+                        <Text style={{ fontSize: 15, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>API / Worker / MCP / Sandbox / 数据库独立进程，单机编排。</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#1E4FA8', width: 72 }}>依赖冻结</Text>
+                        <Text style={{ fontSize: 15, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>锁文件与镜像 digest 固定，保证实验可复现。</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#1E4FA8', width: 72 }}>通知兜底</Text>
+                        <Text style={{ fontSize: 15, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>Outbox + Redis 唤醒，通知丢失由数据库轮询发现任务。</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start' }}>
+                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#1E4FA8', width: 72 }}>可观测</Text>
+                        <Text style={{ fontSize: 15, color: '#1A2230', lineHeight: 1.5, flex: 1 }}>OpenTelemetry → Jaeger；Prometheus → Grafana。</Text>
+                    </Box>
+                </Box>
+            </Box>
+        </Box>
+
+        {/* 选型原则条 */}
+        <Box style={{ height: 100, background: '#F0F5FC', border: '1px solid #C9DCF5', borderRadius: 10, padding: '0 26px', flexDirection: 'row', alignItems: 'center', gap: 18 }}>
+            <Box style={{ width: 44, height: 44, borderRadius: 10, background: '#1E4FA8', justifyContent: 'center', alignItems: 'center' }}>
+                <FAIcon name='cogs' style={{ fill: '#FFFFFF', width: 22, height: 22 }} />
+            </Box>
+            <Box style={{ flex: 1 }}>
+                <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#0E3F8C' }}>选型原则</Text>
+                <Text style={{ fontSize: 16, color: '#1A2230', lineHeight: 1.55, marginTop: 2 }}>组件由明确需求触发引入，不以堆叠代表质量；本期<b>不引入</b> Kafka / Kubernetes / Istio，也<b>不接入</b>真实商家系统与组织 IdP。</Text>
+            </Box>
+        </Box>
+    </Box>
+
+    {/* D 页脚 */}
+    <Box style={{ position: 'absolute', bottom: 0, left: 0, width: 1280, height: 56, padding: '0 40px', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid #E5E7EB' }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>北京交通大学 · 软件工程（专硕）</Text>
+        <Text style={{ fontSize: 14, color: '#0E3F8C', fontWeight: 'bold' }}>09 / 18</Text>
+    </Box>
+</Slide>

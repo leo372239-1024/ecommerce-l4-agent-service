@@ -1,0 +1,289 @@
+name: l4-agent
+
+x-app-env: &app-env
+  APP_ENV: ${APP_ENV:-development}
+  APP_SECRETS_DIR: /run/secrets
+  POSTGRES_HOST: postgres
+  POSTGRES_PORT: 5432
+  POSTGRES_USER: agent
+  POSTGRES_DB: agent
+  REDIS_URL: redis://redis:6379/0
+  ELASTICSEARCH_ENABLED: ${ELASTICSEARCH_ENABLED:-false}
+  ELASTICSEARCH_URL: http://elasticsearch:9200
+  ZHIPU_API_BASE: ${ZHIPU_API_BASE:-https://openrouter.ai/api/v1}
+  ZHIPU_MODEL: ${ZHIPU_MODEL:-deepseek/deepseek-v4.1-flash}
+  LLM_TEMPERATURE: ${LLM_TEMPERATURE:-0.3}
+  DASHSCOPE_API_BASE: https://dashscope.aliyuncs.com/compatible-api/v1
+  DASHSCOPE_EMBEDDING_API_BASE: https://dashscope.aliyuncs.com/compatible-mode/v1
+  EMBEDDING_MODEL: text-embedding-v4
+  EMBEDDING_DIMENSIONS: 1024
+  RERANKER_MODEL: qwen3-rerank
+  MCP_URL: http://merchant-mcp:8010/mcp
+  TOOL_ROUTING_ENABLED: 'true'
+  CONTEXT_ENGINEERING_ENABLED: 'true'
+  SANDBOX_ENABLED: 'true'
+  UPLOAD_MAX_FILE_BYTES: 104857600
+  UPLOAD_MAX_REQUEST_BYTES: 104857600
+  OTEL_ENABLED: ${OTEL_ENABLED:-false}
+  OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-collector:4318
+  SESSION_SECURE: ${SESSION_SECURE:-false}
+  OIDC_ISSUER: ${OIDC_ISSUER:-}
+  OIDC_AUTHORIZATION_ENDPOINT: ${OIDC_AUTHORIZATION_ENDPOINT:-}
+  OIDC_TOKEN_ENDPOINT: ${OIDC_TOKEN_ENDPOINT:-}
+  OIDC_JWKS_URI: ${OIDC_JWKS_URI:-}
+  OIDC_CLIENT_ID: ${OIDC_CLIENT_ID:-}
+  OIDC_REDIRECT_URI: ${OIDC_REDIRECT_URI:-}
+  CORS_ORIGINS: ${CORS_ORIGINS:-["http://localhost:5173"]}
+
+x-app: &app
+  image: ${AGENT_BACKEND_IMAGE:-l4-agent-backend:stage10}
+  init: true
+  read_only: true
+  tmpfs: ['/tmp:size=128m,mode=1777']
+  cap_drop: [ALL]
+  security_opt: [no-new-privileges:true]
+  secrets: [postgres_password, zhipu_api_key, openrouter_api_key, dashscope_api_key, mcp_service_key]
+  restart: unless-stopped
+  stop_grace_period: 30s
+
+services:
+  postgres:
+    image: ${POSTGRES_IMAGE:?load infra/images.env}
+    environment:
+      POSTGRES_USER: agent
+      POSTGRES_DB: agent
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
+    secrets: [postgres_password]
+    ports: [127.0.0.1:5433:5432]
+    volumes: [postgres18_data:/var/lib/postgresql]
+    shm_size: 128mb
+    mem_limit: 768m
+    restart: unless-stopped
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U agent -d agent']
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  redis:
+    image: ${REDIS_IMAGE:?load infra/images.env}
+    ports: [127.0.0.1:6380:6379]
+    command: [redis-server, --appendonly, 'yes', --maxmemory, 128mb, --maxmemory-policy, noeviction]
+    volumes: [redis_data:/data]
+    mem_limit: 192m
+    restart: unless-stopped
+    healthcheck:
+      test: [CMD, redis-cli, ping]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  migrate:
+    <<: *app
+    command: [python, -m, app.init_schema]
+    environment: *app-env
+    secrets: [postgres_password, demo_alice_password, demo_bob_password, demo_supervisor_password, demo_support_password]
+    restart: 'no'
+    mem_limit: 512m
+    depends_on:
+      postgres: {condition: service_healthy}
+
+  api:
+    <<: *app
+    build:
+      context: ../backend
+      args:
+        PYTHON_IMAGE: ${PYTHON_IMAGE:?load infra/images.env}
+    environment:
+      <<: *app-env
+      OTEL_SERVICE_NAME: agent-api
+    ports: [127.0.0.1:8000:8000]
+    mem_limit: 768m
+    volumes: [sandbox_socket:/run/sandbox:ro]
+    depends_on:
+      sandbox: {condition: service_healthy}
+      migrate: {condition: service_completed_successfully}
+      redis: {condition: service_healthy}
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/v1/health/ready', timeout=5)"]
+      interval: 10s
+      timeout: 6s
+      start_period: 15s
+      retries: 20
+
+  worker:
+    <<: *app
+    command: [python, -m, app.worker]
+    environment:
+      <<: *app-env
+      OTEL_SERVICE_NAME: agent-worker
+    mem_limit: 512m
+    volumes: [sandbox_socket:/run/sandbox:ro]
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+      redis: {condition: service_healthy}
+      merchant-mcp: {condition: service_healthy}
+    healthcheck:
+      test: [CMD, python, -m, app.worker_health]
+      interval: 10s
+      timeout: 5s
+      start_period: 15s
+      retries: 10
+
+  sandbox:
+    image: l4-agent-sandbox:stage7
+    build:
+      context: ../sandbox
+      args:
+        PYTHON_IMAGE: ${PYTHON_IMAGE:?load infra/images.env}
+    network_mode: none
+    read_only: true
+    user: '10001:10001'
+    volumes: [sandbox_socket:/run/sandbox]
+    tmpfs: ['/tmp:size=8m,mode=1777']
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    cpus: 0.5
+    mem_limit: 128m
+    pids_limit: 32
+    restart: unless-stopped
+    healthcheck:
+      test: [CMD, python, -I, /sandbox/health.py]
+      interval: 10s
+      timeout: 4s
+      retries: 10
+  merchant-mcp:
+    <<: *app
+    command: [uvicorn, app.business.mcp_server:app, --host, '0.0.0.0', --port, '8010', --no-access-log]
+    environment:
+      <<: *app-env
+      SANDBOX_ENABLED: 'false'
+      CONTEXT_ENGINEERING_ENABLED: 'false'
+      ELASTICSEARCH_ENABLED: 'false'
+      APP_SECRETS_DIR: /run/secrets
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: agent
+      POSTGRES_DB: agent
+      REDIS_URL: redis://redis:6379/0
+      OTEL_ENABLED: ${OTEL_ENABLED:-false}
+      OTEL_SERVICE_NAME: merchant-mcp
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-collector:4318
+    secrets: [postgres_password, mcp_service_key]
+    mem_limit: 384m
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://localhost:8010/healthz', timeout=3)"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  web:
+    image: ${AGENT_WEB_IMAGE:-l4-agent-web:stage10}
+    build:
+      context: ../frontend
+      args:
+        NODE_IMAGE: ${NODE_IMAGE:?load infra/images.env}
+        NGINX_IMAGE: ${NGINX_IMAGE:?load infra/images.env}
+    ports: [127.0.0.1:8080:8080]
+    read_only: true
+    tmpfs: ['/tmp:size=32m,uid=101,gid=101,mode=1777']
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 128m
+    restart: unless-stopped
+    depends_on:
+      api: {condition: service_healthy}
+    healthcheck:
+      test: [CMD, wget, -q, --spider, 'http://127.0.0.1:8080/healthz']
+      interval: 10s
+      timeout: 3s
+      retries: 10
+
+  elasticsearch:
+    profiles: [search]
+    image: ${ELASTICSEARCH_IMAGE:?load infra/images.env}
+    environment:
+      discovery.type: single-node
+      xpack.security.enabled: 'false'
+      xpack.ml.enabled: 'false'
+      ES_JAVA_OPTS: -Xms512m -Xmx512m
+    volumes: [elasticsearch9_data:/usr/share/elasticsearch/data]
+    mem_limit: 2g
+    restart: unless-stopped
+    healthcheck:
+      test: [CMD-SHELL, 'curl -fs http://localhost:9200/_cluster/health || exit 1']
+      interval: 10s
+      timeout: 5s
+      start_period: 60s
+      retries: 30
+
+  jaeger:
+    profiles: [observability]
+    image: ${JAEGER_IMAGE:?load infra/images.env}
+    ports: [127.0.0.1:16686:16686]
+    mem_limit: 256m
+    restart: unless-stopped
+
+  otel-collector:
+    profiles: [observability]
+    image: ${OTEL_IMAGE:?load infra/images.env}
+    command: [--config=/etc/otelcol-contrib/config.yaml]
+    volumes: [./otel/otel-collector-config.yaml:/etc/otelcol-contrib/config.yaml:ro]
+    mem_limit: 192m
+    restart: unless-stopped
+    depends_on: [jaeger]
+
+  prometheus:
+    profiles: [observability]
+    image: ${PROMETHEUS_IMAGE:?load infra/images.env}
+    command: [--config.file=/etc/prometheus/prometheus.yml, --storage.tsdb.retention.time=7d, --storage.tsdb.retention.size=512MB]
+    ports: [127.0.0.1:9090:9090]
+    volumes:
+      - ./prometheus:/etc/prometheus:ro
+      - prometheus_data:/prometheus
+    mem_limit: 256m
+    restart: unless-stopped
+
+  grafana:
+    profiles: [observability]
+    image: ${GRAFANA_IMAGE:?load infra/images.env}
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD__FILE: /run/secrets/grafana_admin_password
+      GF_USERS_ALLOW_SIGN_UP: 'false'
+      GF_ANALYTICS_REPORTING_ENABLED: 'false'
+      GF_ANALYTICS_CHECK_FOR_UPDATES: 'false'
+    secrets: [grafana_admin_password]
+    ports: [127.0.0.1:3001:3000]
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./grafana/dashboards:/var/lib/grafana/dashboards:ro
+    mem_limit: 384m
+    restart: unless-stopped
+    depends_on: [prometheus]
+
+secrets:
+  demo_support_password:
+    file: ../.secrets/demo_support_password
+  demo_supervisor_password:
+    file: ../.secrets/demo_supervisor_password
+  mcp_service_key:
+    file: ../.secrets/mcp_service_key
+  demo_alice_password: {file: ../.secrets/demo_alice_password}
+  demo_bob_password: {file: ../.secrets/demo_bob_password}
+  postgres_password: {file: ../.secrets/postgres_password}
+  zhipu_api_key: {file: ../.secrets/zhipu_api_key}
+  openrouter_api_key: {file: ../.secrets/openrouter_api_key}
+  dashscope_api_key: {file: ../.secrets/dashscope_api_key}
+  grafana_admin_password: {file: ../.secrets/grafana_admin_password}
+
+volumes:
+  postgres18_data:
+  redis_data:
+  elasticsearch9_data:
+  prometheus_data:
+  grafana_data:
+  sandbox_socket:
