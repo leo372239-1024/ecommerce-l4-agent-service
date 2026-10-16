@@ -1,7 +1,7 @@
 # 电商 L4 级智能客服 Agent 系统
 
 > **许可：PolyForm Noncommercial License 1.0.0 —— 源码公开，禁止商业使用。**
-> 允许个人学习、研究、实验与教学；禁止商业优势、金钱补偿、企业内部商业运营及付费/托管 SaaS。商业授权需另行取得著作权人书面许可。详见 [LICENSE](LICENSE) 与 [NOTICE](NOTICE.md)。本项目**不是** OSI 认可的开源软件。
+> 允许个人学习、研究、实验与教学；禁止商业优势、金钱补偿、企业内部商业运营及付费/托管 SaaS。商业授权需另行取得著作权人书面许可，见 [COMMERCIAL.md](COMMERCIAL.md)。详见 [LICENSE](LICENSE) 与 [NOTICE](NOTICE.md)。本项目**不是** OSI 认可的开源软件。
 
 中文、单Agent的全栈MVP：React/Ant Design工作台，FastAPI服务，LangGraph持久执行，40个商家MCP工具。模型、Embedding与Reranker使用真实API，订单/仓库/财务为可审计的商家模拟系统。覆盖查询→计划→当前事实核验→提案→客户确认/主管审批→事务执行→回执→人工工单闭环。
 
@@ -72,4 +72,4 @@ uv run --project backend --frozen python scripts/stack.py down --profile search 
 
 保留数据库卷；不执行down -v或全局prune。故障演练在任务/评测空闲时串行执行。Jaeger本地Trace重启丢失，PostgreSQL业务事件持久保留。
 
-项目原创代码采用 **PolyForm Noncommercial License 1.0.0**（非商业性使用，非 OSI 开源许可）；著作权人王庆福（GitHub: [leo372239-1024](https://github.com/leo372239-1024)），Copyright (C) 2026。商业用途需另行取得书面许可。来源及许可边界见[NOTICE](NOTICE.md)。依赖/基础镜像遵循各自许可，Elasticsearch含Elastic License，不宣称全部均为OSI开源许可。
+项目原创代码采用 **PolyForm Noncommercial License 1.0.0**（非商业性使用，非 OSI 开源许可）；著作权人王庆福（GitHub: [leo372239-1024](https://github.com/leo372239-1024)），Copyright (C) 2026。商业用途需另行取得书面许可，申请方式见[商业授权说明](COMMERCIAL.md)。来源及许可边界见[NOTICE](NOTICE.md)。依赖/基础镜像遵循各自许可，Elasticsearch含Elastic License，不宣称全部均为OSI开源许可。

@@ -8,7 +8,9 @@
 - 禁止：以商业优势或金钱补偿为主要目的的使用；企业内部商业运营中的使用；作为付费或托管服务、托管 API、商业 SaaS 对外提供。上述用途需另行取得著作权人的书面商业许可。
 - 该许可**不是** OSI 认可的开源许可，本项目**不是**开源软件，而是「源码公开、仅供非商业用途」。
 
-著作权人：王庆福 / Wang Qingfu（GitHub: [leo372239-1024](https://github.com/leo372239-1024)），Copyright (C) 2026。
+著作权人：王庆福 / Wang Qingfu（GitHub: [leo372239-1024](https://github.com/leo372239-1024)），Copyright (C) 2026。商业授权的申请方式与允许/禁止用途清单见[商业授权说明](COMMERCIAL.md)。
+
+注：PolyForm 系列许可未被 GitHub 的自动许可识别体系收录，仓库页面的 License 标签会显示为 "Other"，这不影响 [LICENSE](LICENSE) 的法律效力，请以仓库根目录的 LICENSE 正文为准。
 
 ## 第三方来源与许可边界
 
